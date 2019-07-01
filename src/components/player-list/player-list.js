@@ -10,6 +10,12 @@ import TableCell from '@material-ui/core/TableCell';
 
 class PlayerList extends Component {
 
+    state = {
+        start: 0,
+        end: 9,
+        target: '',
+    }
+
     componentDidMount() {
         this.fetchPlayerList();
     }
@@ -20,25 +26,43 @@ class PlayerList extends Component {
 
     handleClick = (e) => {
         e.preventDefault();
-        this.props.dispatch(
-            { type: 'UPDATE_PLAYERLIST_DATA', payload: e.target.name }
-        );
+        this.setState({
+            start: 0,
+            end: 9,
+            target: e.target.name,
+        }, () => {
+            this.props.dispatch(
+                { type: 'UPDATE_PLAYERLIST_DATA', payload: this.state.target }
+        )});
     }
 
     handlePrevious = (e) => {
         e.preventDefault();
-        console.log('testback');
+        let startCount = this.state.start;
+        let endCount = this.state.end;
+        this.setState({
+            start: startCount - 9,
+            end: endCount - 9,
+        });
     }
 
     handleNext = (e) => {
         e.preventDefault();
-        console.log('testforward');
+        let startCount = this.state.start;
+        let endCount = this.state.end;
+        this.setState({
+            start: startCount + 9,
+            end: endCount + 9,
+        });
     }
 
     render() {
         let playerList = this.props.reduxState.playerList;
         return (
             <>
+            <pre>
+                {JSON.stringify(this.state, null, 2)}
+            </pre>
 
                 <div style={{ textAlign: 'center' }}>
                     <button onClick={this.handleClick} name="QB">QB</button>
@@ -61,7 +85,7 @@ class PlayerList extends Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {playerList.length > 1 ? playerList.map((player, i) => (<TableRow key={i}>
+                        {playerList.length > 1 ? playerList.slice(this.state.start, this.state.end).map((player, i) => (<TableRow key={i}>
                             <TableCell>{player.position}</TableCell>
                             <TableCell>{player.first_name} {player.last_name}</TableCell>
                             <TableCell>{player.name}</TableCell>
