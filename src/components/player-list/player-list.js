@@ -33,7 +33,8 @@ class PlayerList extends Component {
         }, () => {
             this.props.dispatch(
                 { type: 'UPDATE_PLAYERLIST_DATA', payload: this.state.target }
-        )});
+            )
+        });
     }
 
     handlePrevious = (e) => {
@@ -60,9 +61,9 @@ class PlayerList extends Component {
         let playerList = this.props.reduxState.playerList;
         return (
             <>
-            <pre>
-                {JSON.stringify(this.state, null, 2)}
-            </pre>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
 
                 <div style={{ textAlign: 'center' }}>
                     <button onClick={this.handleClick} name="QB">QB</button>
@@ -85,11 +86,11 @@ class PlayerList extends Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {playerList.length > 1 ? playerList.slice(this.state.start, this.state.end).map((player, i) => (<TableRow key={i}>
+                        {playerList.slice(this.state.start, this.state.end).map((player, i) => (<TableRow key={i}>
                             <TableCell>{player.position}</TableCell>
                             <TableCell>{player.first_name} {player.last_name}</TableCell>
                             <TableCell>{player.name}</TableCell>
-                        </TableRow>)) : <></>}
+                        </TableRow>))}
                     </TableBody>
                 </Table>
 
