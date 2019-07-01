@@ -7,9 +7,9 @@ import {
 } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import Nav from '../Nav/Nav';
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-import UserPage from '../UserPage/UserPage';
+import Nav from '../Prime/Nav/Nav';
+import ProtectedRoute from '../Prime/ProtectedRoute/ProtectedRoute'
+import UserPage from '../Prime/UserPage/UserPage';
 import PlayerList from '../player-list/player-list';
 
 class App extends Component {
