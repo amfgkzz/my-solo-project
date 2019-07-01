@@ -80,14 +80,20 @@ class PlayerList extends Component {
                 </pre>
 
                 <div style={{ textAlign: 'center' }}>
+
                     <button onClick={this.handleClick} name="QB">QB</button>
                     <button onClick={this.handleClick} name="RB">RB</button>
                     <button onClick={this.handleClick} name="WR">WR</button>
                     <button onClick={this.handleClick} name="TE">TE</button>
                     <button onClick={this.handleClick} name="K">K</button>
+
                     <br />
-                    <button onClick={this.handlePrevious}>&#8249;</button>
-                    <button onClick={this.handleNext}>&#8250;</button>
+
+                    <div className="pagination">
+                        <button onClick={this.handlePrevious}>&laquo;Previous</button>
+                        <button onClick={this.handleNext}>Next&raquo;</button>
+                    </div>
+
                 </div>
 
                 {/* Make table nicer <-- stretch */}
