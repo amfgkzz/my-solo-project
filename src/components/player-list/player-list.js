@@ -41,20 +41,34 @@ class PlayerList extends Component {
         e.preventDefault();
         let startCount = this.state.start;
         let endCount = this.state.end;
-        this.setState({
-            start: startCount - 9,
-            end: endCount - 9,
-        });
+        if (startCount === 0) {
+            this.setState({
+                start: 36,
+                end: 45,
+            });
+        } else {
+            this.setState({
+                start: startCount - 9,
+                end: endCount - 9,
+            });
+        }
     }
 
     handleNext = (e) => {
         e.preventDefault();
         let startCount = this.state.start;
         let endCount = this.state.end;
-        this.setState({
-            start: startCount + 9,
-            end: endCount + 9,
-        });
+        if (endCount > this.props.reduxState.playerList.length) {
+            this.setState({
+                start: 0,
+                end: 9,
+            });
+        } else {
+            this.setState({
+                start: startCount + 9,
+                end: endCount + 9,
+            });
+        }
     }
 
     render() {
