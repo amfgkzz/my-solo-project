@@ -37,6 +37,12 @@ class PlayerList extends Component {
         });
     }
 
+    // FIX: come back and add this feature
+    handleClickAdd = (e) => {
+        e.preventDefault();
+        console.log(e.target.value);
+    }
+
     handlePrevious = (e) => {
         e.preventDefault();
         let startCount = this.state.start;
@@ -103,6 +109,7 @@ class PlayerList extends Component {
                             <TableCell>Position</TableCell>
                             <TableCell>Player</TableCell>
                             <TableCell>Team</TableCell>
+                            <TableCell></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -110,13 +117,11 @@ class PlayerList extends Component {
                             <TableCell>{player.position}</TableCell>
                             <TableCell>{player.first_name} {player.last_name}</TableCell>
                             <TableCell>{player.name}</TableCell>
+                            <TableCell><button value={player.id} onClick={this.handleClickAdd}>Add</button></TableCell>
                         </TableRow>))}
                     </TableBody>
                 </Table>
 
-                <pre>
-                    {JSON.stringify(this.props, null, 2)}
-                </pre>
             </>
         )
     }
