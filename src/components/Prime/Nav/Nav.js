@@ -25,6 +25,9 @@ const Nav = (props) => (
           <Link className="nav-link" to="/CreateLeague">
             Create a League
           </Link>
+          <Link className="nav-link" to="/CreateTeam">
+            Create a Team
+          </Link>
           <LogOutButton className="nav-link"/>
         </>
       )}
