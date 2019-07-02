@@ -1,6 +1,6 @@
 const createdLeague = (state = [], action) => {
     switch (action.type) {
-        case 'SET_PLAYER_LIST':
+        case 'SET_LEAGUES':
             return action.payload;
         default:
             return state;

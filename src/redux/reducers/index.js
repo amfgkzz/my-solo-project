@@ -2,7 +2,10 @@ import { combineReducers } from 'redux';
 import errors from '../reducers/Prime/errorsReducer';
 import loginMode from '../reducers/Prime/loginModeReducer';
 import user from '../reducers/Prime/userReducer';
+
+// Koua's reducers
 import playerList from './player-list';
+import createdLeague from './created-leagues';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +18,7 @@ const rootReducer = combineReducers({
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
   user, // will have an id and username if someone is logged in
   playerList,
+  createdLeague,
 });
 
 export default rootReducer;

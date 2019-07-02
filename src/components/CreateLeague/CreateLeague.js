@@ -10,8 +10,6 @@ class CreateLeague extends Component {
         leagueType: 'Standard',
     }
 
-
-
     handleChangeLeagueName = (e) => {
         this.setState({
             leagueName: e.target.value,
@@ -32,7 +30,12 @@ class CreateLeague extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.dispatch({ type: 'CREATE_LEAGUE', payload: this.state });
+        if (this.state.leagueName === '') {
+            // FIX: change this to something less annoying
+            alert('Please fill in all the blanks!');
+        } else {
+            this.props.dispatch({ type: 'CREATE_LEAGUE', payload: this.state });
+        }
     }
 
     render() {
