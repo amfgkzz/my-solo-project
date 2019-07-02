@@ -2,7 +2,10 @@ import { all } from 'redux-saga/effects';
 import loginSaga from '../sagas/Prime/loginSaga';
 import registrationSaga from '../sagas/Prime/registrationSaga';
 import userSaga from '../sagas/Prime/userSaga';
+
+// Koua's Sagas
 import playerListSaga from './player-list';
+import createLeague from './create-league';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -17,5 +20,6 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     playerListSaga(),
+    createLeague(),
   ]);
 }

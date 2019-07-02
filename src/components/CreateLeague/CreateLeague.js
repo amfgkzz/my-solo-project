@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './CreateLeague.css'
 
 class CreateLeague extends Component {
 
     state = {
         leagueName: '',
-        defaultValue: '8',
+        leagueNumber: '8',
         leagueType: 'Standard',
     }
 
-    
+
 
     handleChangeLeagueName = (e) => {
         this.setState({
@@ -19,7 +20,7 @@ class CreateLeague extends Component {
 
     handleChangeTeamNumber = (e) => {
         this.setState({
-            defaultValue: e.target.value,
+            leagueNumber: e.target.value,
         });
     }
 
@@ -31,7 +32,7 @@ class CreateLeague extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target)
+        this.props.dispatch({ type: 'CREATE_LEAGUE', payload: this.state });
     }
 
     render() {
@@ -47,31 +48,32 @@ class CreateLeague extends Component {
 
                 <form onSubmit={this.handleSubmit}>
 
-                <label>League Name</label>
-                <input re="true" placeholder="League Name" onChange={this.handleChangeLeagueName}/>
+                    <label>League Name</label>
+                    <input re="true" placeholder="League Name" onChange={this.handleChangeLeagueName} />
 
-                <br />
+                    <br />
 
-                <label>Number of Teams</label>
-                <select onChange={this.handleChangeTeamNumber} defaultValue="8">
-                    <option value="4">4</option>
-                    <option value="6">6</option>
-                    <option value="8">8</option>
-                    <option value="10">10</option>
-                    <option value="12">12</option>
-                </select>
+                    <label>Number of Teams</label>
+                    <select onChange={this.handleChangeTeamNumber} defaultValue="8">
+                        <option value="4">4</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                    </select>
 
-                <br />
+                    <br />
 
-                <label>Scoring Type</label>
-                <select onChange={this.handleChangeType} defaultValue="Standard">
-                    <option>Standard</option>
-                    <option>PPR</option>
-                </select>
+                    {/* FIX: explain the scoring type to user */}
+                    <label>Scoring Type</label>
+                    <select onChange={this.handleChangeType} defaultValue="Standard">
+                        <option>Standard</option>
+                        <option>PPR</option>
+                    </select>
 
-                <br/>
+                    <br />
 
-                <button>Create</button>
+                    <button>Create</button>
                 </form>
 
             </>
@@ -79,4 +81,4 @@ class CreateLeague extends Component {
     }
 }
 
-export default CreateLeague;
+export default connect()(CreateLeague);
