@@ -7,10 +7,15 @@ import {
 } from 'react-router-dom';
 
 import { connect } from 'react-redux';
+
+// Prime Components
 import Nav from '../Prime/Nav/Nav';
 import ProtectedRoute from '../Prime/ProtectedRoute/ProtectedRoute'
 import UserPage from '../Prime/UserPage/UserPage';
+
+// Koua's Components
 import PlayerList from '../player-list/player-list';
+import CreateLeague from '../CreateLeague/CreateLeague';
 
 class App extends Component {
   componentDidMount() {
@@ -41,6 +46,11 @@ class App extends Component {
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/CreateLeague"
+              component={CreateLeague}
+            />
             <ProtectedRoute
               exact
               path="/Players"

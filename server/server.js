@@ -9,7 +9,10 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const dataRoutes = require('./routes/Data');
+
+// Koua's routes
+const playerDataRouter = require('./routes/player.data');
+const leagueDataRouter = require('./routes/league.data');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -24,7 +27,8 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/data', dataRoutes);
+app.use('/data', playerDataRouter);
+app.use('/league', leagueDataRouter);
 
 // Serve static files
 app.use(express.static('build'));

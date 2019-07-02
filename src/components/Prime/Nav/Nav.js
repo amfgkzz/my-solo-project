@@ -21,6 +21,10 @@ const Nav = (props) => (
           <Link className="nav-link" to="/Players">
             Players
           </Link>
+          {/* FIX: create a league is going to be a link from another page, ie not on nav bar */}
+          <Link className="nav-link" to="/CreateLeague">
+            Create a League
+          </Link>
           <LogOutButton className="nav-link"/>
         </>
       )}
