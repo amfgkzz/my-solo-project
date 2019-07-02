@@ -35,6 +35,7 @@ class CreateLeague extends Component {
             alert('Please fill in all the blanks!');
         } else {
             this.props.dispatch({ type: 'CREATE_LEAGUE', payload: this.state });
+            this.props.history.push('/CreateTeam');
         }
     }
 
@@ -43,7 +44,7 @@ class CreateLeague extends Component {
         return (
             <>
                 <pre>
-                    {JSON.stringify(this.state, null, 2)}
+                    {JSON.stringify(this.props, null, 2)}
                 </pre>
 
                 <h1>Create a League!</h1>

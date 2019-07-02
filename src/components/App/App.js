@@ -16,6 +16,7 @@ import UserPage from '../Prime/UserPage/UserPage';
 // Koua's Components
 import PlayerList from '../player-list/player-list';
 import CreateLeague from '../CreateLeague/CreateLeague';
+import CreateTeam from '../CreateTeam/CreateTeam';
 
 class App extends Component {
   componentDidMount() {
@@ -50,6 +51,11 @@ class App extends Component {
               exact
               path="/CreateLeague"
               component={CreateLeague}
+            />
+            <ProtectedRoute
+              exact
+              path="/CreateTeam"
+              component={CreateTeam}
             />
             <ProtectedRoute
               exact
