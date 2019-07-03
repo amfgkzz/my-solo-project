@@ -17,6 +17,7 @@ import UserPage from '../UserPage/UserPage';
 import PlayerList from '../player-list/player-list';
 import CreateLeague from '../CreateLeague/CreateLeague';
 import CreateTeam from '../CreateTeam/CreateTeam';
+import Settings from '../Settings/Settings';
 
 class App extends Component {
   componentDidMount() {
@@ -54,6 +55,11 @@ class App extends Component {
               exact
               path="/Players"
               component={PlayerList}
+            />
+            <ProtectedRoute
+              exact
+              path="/Settings"
+              component={Settings}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
