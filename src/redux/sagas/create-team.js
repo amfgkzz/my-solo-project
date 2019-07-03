@@ -5,6 +5,8 @@ function* createTeamSaga(action) {
     try {
         yield axios.post('/team/new', action.payload);
         yield dispatch({ type: 'GET_USER_TEAM' });
+        // have to fetch user, in order to update user league and team id with new info
+        yield dispatch({type: 'FETCH_USER'});
     } catch (error) {
         console.log(`Error with create team saga ${error}`);
     }

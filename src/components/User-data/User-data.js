@@ -18,13 +18,40 @@ class UserData extends Component {
         if (state.user.league_id === null) {
             return (
                 <>
-                    <h3>Nothing</h3>
+                    <h3>No data</h3>
                     <pre>
                         {JSON.stringify(this.props, null, 2)}
                     </pre>
                 </>
             )
-        } else {
+        } else if (state.user.team_id === null) {
+            return (
+                <>
+                    <pre>
+                        {JSON.stringify(this.props, null, 2)}
+                    </pre>
+                    <h3>User Data (league only)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>League Name</th>
+                                <th>League Numbers</th>
+                                <th>League Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {state.createdLeague.map((league, i) => (
+                                <tr key={i}>
+                                    <td>{league.league_name}</td>
+                                    <td>{league.league_numbers}</td>
+                                    <td>{league.league_type}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </>
+            )
+        } else if (state.user.league_id && state.user.team_id) {
             return (
                 <>
                     <pre>
