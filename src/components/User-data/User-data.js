@@ -14,8 +14,8 @@ class UserData extends Component {
     }
 
     render() {
-        let state = this.props.reduxState;
-        if (state.user.league_id === null) {
+        let reduxState = this.props.reduxState;
+        if (reduxState.user.league_id === null) {
             return (
                 <>
                     <h3>No data</h3>
@@ -24,7 +24,7 @@ class UserData extends Component {
                     </pre>
                 </>
             )
-        } else if (state.user.team_id === null) {
+        } else if (reduxState.user.team_id === null) {
             return (
                 <>
                     <pre>
@@ -40,7 +40,7 @@ class UserData extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {state.createdLeague.map((league, i) => (
+                            {reduxState.createdLeague.map((league, i) => (
                                 <tr key={i}>
                                     <td>{league.league_name}</td>
                                     <td>{league.league_numbers}</td>
@@ -51,7 +51,7 @@ class UserData extends Component {
                     </table>
                 </>
             )
-        } else if (state.user.league_id && state.user.team_id) {
+        } else if (reduxState.user.league_id && reduxState.user.team_id) {
             return (
                 <>
                     <pre>
@@ -67,7 +67,7 @@ class UserData extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {state.createdLeague.map((league, i) => (
+                            {reduxState.createdLeague.map((league, i) => (
                                 <tr key={i}>
                                     <td>{league.league_name}</td>
                                     <td>{league.league_numbers}</td>
@@ -84,7 +84,7 @@ class UserData extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {state.createdTeam.map((team, i) => (
+                            {reduxState.createdTeam.map((team, i) => (
                                 <tr key={i}>
                                     <td>{team.team_name}</td>
                                 </tr>
