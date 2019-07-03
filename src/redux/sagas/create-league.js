@@ -4,7 +4,7 @@ import axios from 'axios';
 function* createLeagueSaga(action) {
     try {
         yield axios.post('/league/new', action.payload);
-        yield dispatch({ type: 'USER_LEAGUE_CREATED' });
+        yield dispatch({ type: 'GET_USER_LEAGUE' });
     } catch (error) {
         console.log(`Error with create league saga ${error}`);
     }
@@ -20,7 +20,7 @@ function* getUserLeagues() {
 }
 
 function* createLeague() {
-    yield takeLatest('USER_LEAGUE_CREATED', getUserLeagues);
+    yield takeLatest('GET_USER_LEAGUE', getUserLeagues);
     yield takeLatest('CREATE_LEAGUE', createLeagueSaga);
 }
 

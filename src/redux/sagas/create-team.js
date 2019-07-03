@@ -4,7 +4,7 @@ import axios from 'axios';
 function* createTeamSaga(action) {
     try {
         yield axios.post('/team/new', action.payload);
-        yield dispatch({ type: 'GET_USER_TEAMS' });
+        yield dispatch({ type: 'GET_USER_TEAM' });
     } catch (error) {
         console.log(`Error with create team saga ${error}`);
     }
@@ -21,7 +21,7 @@ function* updateUserTeam(action) {
 
 function* createTeam() {
     yield takeLatest('CREATE_TEAM', createTeamSaga);
-    yield takeLatest('GET_USER_TEAMS', updateUserTeam);
+    yield takeLatest('GET_USER_TEAM', updateUserTeam);
 }
 
 export default createTeam;
