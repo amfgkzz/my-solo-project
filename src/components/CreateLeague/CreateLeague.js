@@ -5,6 +5,7 @@ import './CreateLeague.css'
 class CreateLeague extends Component {
 
     state = {
+        userID: '',
         leagueName: '',
         leagueNumber: '8',
         leagueType: 'Standard',
@@ -34,8 +35,12 @@ class CreateLeague extends Component {
             // FIX: change this to something less annoying
             alert('Please fill in all the blanks!');
         } else {
-            this.props.dispatch({ type: 'CREATE_LEAGUE', payload: this.state });
-            this.props.history.push('/CreateTeam');
+            this.setState({
+                userID: this.props.user.id,
+            }, () => {
+                this.props.dispatch({ type: 'CREATE_LEAGUE', payload: this.state });
+                this.props.history.push('/CreateTeam');
+            });
         }
     }
 
@@ -85,4 +90,8 @@ class CreateLeague extends Component {
     }
 }
 
-export default connect()(CreateLeague);
+const mapStateToProps = reduxState => ({
+    user: reduxState.user,
+});
+
+export default connect(mapStateToProps)(CreateLeague);

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 class CreateTeam extends Component {
 
     state = {
+        userID: '',
         teamName: '',
     }
 
@@ -13,7 +14,11 @@ class CreateTeam extends Component {
             // FIX: change this alert to something less annoying
             alert('Please put in a team name!');
         } else {
-            this.props.dispatch({ type: 'CREATE_TEAM', payload: this.state });
+            this.setState({
+                userID: this.props.user.id,
+            }, () => {
+                this.props.dispatch({ type: 'CREATE_TEAM', payload: this.state });
+            });
         }
     }
 
@@ -41,10 +46,14 @@ class CreateTeam extends Component {
                     <button>Create</button>
 
                 </form>
-                
+
             </>
         )
     }
 }
 
-export default connect()(CreateTeam);
+const mapStateToProps = reduxState => ({
+    user: reduxState.user,
+});
+
+export default connect(mapStateToProps)(CreateTeam);
