@@ -18,6 +18,7 @@ class CreateTeam extends Component {
                 userID: this.props.user.id,
             }, () => {
                 this.props.dispatch({ type: 'CREATE_TEAM', payload: this.state });
+                this.props.history.push('/home');
             });
         }
     }

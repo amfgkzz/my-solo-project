@@ -3,10 +3,12 @@ const pool = require('../modules/pool');
 
 // Route hit when getting data for user team
 router.get('/user-team', async (req, res) => {
-    const queryCall = `SELECT * FROM "user_team"`;
+    // FIX: grabbing ALL leagues, want to 
+    // make it so i grab only user leagues
     try {
-        const queryData = await pool.query(queryCall);
-        await res.send(queryData.rows);
+        const querySelect = `SELECT * FROM "user_team"`;
+        const queryResult = await pool.query(querySelect);
+        res.send(queryResult.rows);
     } catch (error) {
         console.log(`Error with team get route ${error}`);
         res.sendStatus(500);
