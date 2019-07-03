@@ -11,21 +11,9 @@ class CreateLeague extends Component {
         leagueType: 'Standard',
     }
 
-    handleChangeLeagueName = (e) => {
+    handleChange = (propertyName) => (e) => {
         this.setState({
-            leagueName: e.target.value,
-        });
-    }
-
-    handleChangeTeamNumber = (e) => {
-        this.setState({
-            leagueNumber: e.target.value,
-        });
-    }
-
-    handleChangeType = (e) => {
-        this.setState({
-            leagueType: e.target.value,
+            [propertyName]: e.target.value,
         });
     }
 
@@ -49,7 +37,7 @@ class CreateLeague extends Component {
         return (
             <>
                 <pre>
-                    {JSON.stringify(this.props, null, 2)}
+                    {JSON.stringify(this.state, null, 2)}
                 </pre>
 
                 <h1>Create a League!</h1>
@@ -58,12 +46,12 @@ class CreateLeague extends Component {
                 <form onSubmit={this.handleSubmit}>
 
                     <label>League Name</label>
-                    <input re="true" placeholder="League Name" onChange={this.handleChangeLeagueName} />
+                    <input re="true" placeholder="League Name" onChange={this.handleChange('leagueName')} />
 
                     <br />
 
                     <label>Number of Teams</label>
-                    <select onChange={this.handleChangeTeamNumber} defaultValue="8">
+                    <select onChange={this.handleChange('leagueNumber')} defaultValue="8">
                         <option value="4">4</option>
                         <option value="6">6</option>
                         <option value="8">8</option>
@@ -75,7 +63,7 @@ class CreateLeague extends Component {
 
                     {/* FIX: explain the scoring type to user */}
                     <label>Scoring Type</label>
-                    <select onChange={this.handleChangeType} defaultValue="Standard">
+                    <select onChange={this.handleChange('leagueType')} defaultValue="Standard">
                         <option>Standard</option>
                         <option>PPR</option>
                     </select>

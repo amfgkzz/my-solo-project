@@ -6,8 +6,8 @@ class Settings extends Component {
     state = {
         inEditMode: false,
         leagueName: '',
-        leagueNumbers: '',
-        leagueType: '',
+        leagueNumbers: '8',
+        leagueType: 'Standard',
         teamName: '',
     }
 
@@ -26,6 +26,12 @@ class Settings extends Component {
         console.log('working!');
     }
 
+    handleChange = (propertyName) => (e) => {
+        this.setState({
+            [propertyName]: e.target.value,
+        });
+    }
+
     render() {
         let reduxState = this.props.reduxState;
         if (this.state.inEditMode) {
@@ -33,30 +39,48 @@ class Settings extends Component {
                 <>
                     <h2>Settings</h2>
 
-                    {reduxState.createdLeague.map((league, i) => (
-                        <form key={i} onSubmit={this.handleSubmit} onReset={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>
-                            <button type="reset">Cancel</button>
-                            <button type="submit">Save</button>
-                            <br/>
-                            <label>League Name</label>
-                            <input placeholder={league.league_name} />
-                            <br />
-                            <label>League Numbers</label>
-                            <input placeholder={league.league_numbers} />
-                            <br />
-                            <label>League Type</label>
-                            <input placeholder={league.league_type} />
-                        </form>
-                    ))}
+                    <pre>
+                        {JSON.stringify(this.state, null, 2)}
+                    </pre>
+
+                    <form onSubmit={this.handleSubmit} onReset={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>
+
+                        <button type="reset">Cancel</button>
+                        <button type="submit">Save</button>
+
+                        <br />
+
+                        <label>League Name</label>
+                        <input onChange={this.handleChange('leagueName')} placeholder={reduxState.createdLeague[0].league_name} />
+
+                        <br />
+
+                        <label>Leageu Numbers</label>
+                        <select onChange={this.handleChange('leagueNumbers')} defaultValue="8">
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                            <option value="10">10</option>
+                            <option value="12">12</option>
+                        </select>
+
+                        <br />
+
+                        <label>League Type</label>
+                        <select onChange={this.handleChange('leagueType')} defaultValue="Standard">
+                            <option>Standard</option>
+                            <option>PPR</option>
+                        </select>
+
+                    </form>
+
 
                     <br />
 
-                    {reduxState.createdTeam.map((team, i) => (
-                        <form key={i}>
-                            <label>Team Name</label>
-                            <input placeholder={team.team_name} />
-                        </form>
-                    ))}
+                    <form >
+                        <label>Team Name</label>
+                        <input placeholder={reduxState.createdTeam[0].team_name} />
+                    </form>
 
                     <pre>
                         {JSON.stringify(this.props, null, 2)}
