@@ -5,9 +5,9 @@ const pool = require('../modules/pool');
 router.get('/user', async (req, res) => {
     // FIX: grabbing ALL leagues, want to 
     // make it so i grab only user leagues
-    const queryCall = `SELECT * FROM "league";`
+    const querySelect = `SELECT * FROM "league"`;
     try {
-        const queryResponse = await pool.query(queryCall);
+        const queryResponse = await pool.query(querySelect);
         await res.send(queryResponse.rows);
     } catch (error) {
         console.log(`Error with league get route ${error}`);
@@ -20,15 +20,16 @@ router.post('/new', async (req, res) => {
 
     try {
         await client.query('BEGIN');
-        const queryCall = `INSERT INTO "league" ("league_name", "league_numbers", "league_type") 
-        VALUES ($1, $2, $3) RETURNING "league"."id";`;
-        const queryData = [req.body.leagueName, req.body.leagueNumber, req.body.leagueType];
 
-        const queryResponse = await client.query(queryCall, queryData);
-        const queryUpdate = `UPDATE "user" SET "league_id"=$1 WHERE "user"."id"=$2;`;
-        const queryDataTwo = [queryResponse.rows[0].id, req.body.userID];
+        const queryInsert = `INSERT INTO "league" ("league_name", "league_numbers", "league_type") 
+        VALUES ($1, $2, $3) RETURNING "league"."id"`;
+        const queryBody = [req.body.leagueName, req.body.leagueNumber, req.body.leagueType];
+        const queryResult = await client.query(queryInsert, queryBody);
 
-        await client.query(queryUpdate, queryDataTwo);
+        const queryUpdate = `UPDATE "user" SET "league_id"=$1 WHERE "user"."id"=$2`;
+        const queryBodyTwo = [queryResult.rows[0].id, req.body.userID];
+        await client.query(queryUpdate, queryBodyTwo);
+
         await client.query('COMMIT');
         res.sendStatus(201);
     } catch (error) {
