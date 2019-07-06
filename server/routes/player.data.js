@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
         const queryCall = `SELECT "player"."id","position", "first_name", "last_name", "name" FROM ffdb.player
         JOIN ffdb.player_team_map ON ffdb.player.id=ffdb.player_team_map.player_id
         JOIN ffdb.team ON ffdb.team.id=ffdb.player_team_map.team_id
-        WHERE "position"='QB' LIMIT 40;`
+        WHERE "position"='QB' AND "status"='ACT' LIMIT 40;`
         const queryResponse = await pool.query(queryCall);
         res.send(queryResponse.rows);
     } catch (error) {
@@ -22,7 +22,7 @@ router.put('/player-position', async (req, res) => {
         const queryCall = `SELECT "player"."id","position", "first_name", "last_name", "name" FROM ffdb.player
         JOIN ffdb.player_team_map ON ffdb.player.id=ffdb.player_team_map.player_id
         JOIN ffdb.team ON ffdb.team.id=ffdb.player_team_map.team_id
-        WHERE "position"=$1 LIMIT 40;`
+        WHERE "position"=$1 AND "status"='ACT' LIMIT 40;`
         const queryData = [req.body.payload];
         const queryResponse = await pool.query(queryCall, queryData);
         res.send(queryResponse.rows);

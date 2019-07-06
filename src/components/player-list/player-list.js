@@ -17,11 +17,12 @@ class PlayerList extends Component {
     }
 
     componentDidMount() {
-        this.fetchPlayerList();
+        this.fetchUserData();
     }
 
-    fetchPlayerList = () => {
+    fetchUserData = () => {
         this.props.dispatch({ type: 'FETCH_PLAYERLIST_DATA' });
+        this.props.dispatch({ type: 'GET_USER_TEAM' });
     }
 
     handleClick = (e) => {
@@ -39,7 +40,12 @@ class PlayerList extends Component {
 
     handleClickAdd = (e) => {
         e.preventDefault();
-        this.props.dispatch({ type: 'ADD_PLAYER', payload: e.target.value });
+        this.props.dispatch(
+            {
+                type: 'ADD_PLAYER',
+                payload: { player_id: e.target.value, team_id: this.props.reduxState.createdTeam[0].id }
+            }
+        );
     }
 
     handlePrevious = (e) => {
@@ -80,9 +86,6 @@ class PlayerList extends Component {
         let playerList = this.props.reduxState.playerList;
         return (
             <>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
 
                 <div style={{ textAlign: 'center' }}>
 
