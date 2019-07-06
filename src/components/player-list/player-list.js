@@ -33,14 +33,13 @@ class PlayerList extends Component {
         }, () => {
             this.props.dispatch(
                 { type: 'UPDATE_PLAYERLIST_DATA', payload: this.state.target }
-            )
+            );
         });
     }
 
-    // FIX: come back and add this feature
     handleClickAdd = (e) => {
         e.preventDefault();
-        console.log(e.target.value);
+        this.props.dispatch({ type: 'ADD_PLAYER', payload: { player_id: e.target.value } });
     }
 
     handlePrevious = (e) => {

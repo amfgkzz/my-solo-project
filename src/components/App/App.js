@@ -17,6 +17,7 @@ import UserPage from '../UserPage/UserPage';
 import PlayerList from '../player-list/player-list';
 import CreateLeague from '../CreateLeague/CreateLeague';
 import CreateTeam from '../CreateTeam/CreateTeam';
+import TeamPage from '../TeamPage/TeamPage';
 import Settings from '../Settings/Settings';
 
 class App extends Component {
@@ -50,6 +51,11 @@ class App extends Component {
               exact
               path="/CreateTeam"
               component={CreateTeam}
+            />
+            <ProtectedRoute
+              exact
+              path="/UserTeamPage"
+              component={TeamPage}
             />
             <ProtectedRoute
               exact
