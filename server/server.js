@@ -14,6 +14,7 @@ const userRouter = require('./routes/user.router');
 const playerDataRouter = require('./routes/player.data');
 const leagueDataRouter = require('./routes/league.data');
 const teamDataRouter = require('./routes/team.data');
+const updateUserDataRouter =  require('./routes/update.data.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -31,6 +32,7 @@ app.use('/api/user', userRouter);
 app.use('/data', playerDataRouter);
 app.use('/league', leagueDataRouter);
 app.use('/team', teamDataRouter);
+app.use('/update', updateUserDataRouter);
 
 // Serve static files
 app.use(express.static('build'));

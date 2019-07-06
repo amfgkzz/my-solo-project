@@ -5,10 +5,12 @@ class Settings extends Component {
 
     state = {
         inEditMode: false,
-        leagueName: '',
-        leagueNumbers: '8',
-        leagueType: 'Standard',
-        teamName: '',
+        editObject: {
+            leagueName: '',
+            leagueNumbers: '8',
+            leagueType: 'Standard',
+            teamName: '',
+        }
     }
 
     componentDidMount() {
@@ -23,12 +25,66 @@ class Settings extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log('working!');
+        const league = this.props.reduxState.createdLeague[0];
+        const team = this.props.reduxState.createdTeam[0];
+        if (this.state.editObject.leagueName === '' && this.state.editObject.teamName === '') {
+            this.setState({
+                inEditMode: !this.state.inEditMode,
+                editObject: {
+                    ...this.state.editObject,
+                    leagueName: league.league_name,
+                    teamName: team.team_name,
+                }
+            }, () => {
+                this.props.dispatch({
+                    type: 'UPDATE_LEAGUE_AND_TEAM',
+                    payload: { ...this.state.editObject, league_id: league.id, team_id: team.id }
+                });
+            });
+        } else if (this.state.editObject.teamName === '') {
+            this.setState({
+                inEditMode: !this.state.inEditMode,
+                editObject: {
+                    ...this.state.editObject,
+                    teamName: team.team_name,
+                }
+            }, () => {
+                this.props.dispatch({
+                    type: 'UPDATE_LEAGUE_AND_TEAM',
+                    payload: { ...this.state.editObject, league_id: league.id, team_id: team.id }
+                });
+            });
+        } else if (this.state.editObject.leagueName === '') {
+            this.setState({
+                inEditMode: !this.state.inEditMode,
+                editObject: {
+                    ...this.state.editObject,
+                    leagueName: league.league_name,
+                }
+            }, () => {
+                this.props.dispatch({
+                    type: 'UPDATE_LEAGUE_AND_TEAM',
+                    payload: { ...this.state.editObject, league_id: league.id, team_id: team.id }
+                });
+            });
+        } else {
+            this.setState({
+                inEditMode: !this.state.inEditMode,
+            }, () => {
+                this.props.dispatch({
+                    type: 'UPDATE_LEAGUE_AND_TEAM',
+                    payload: { ...this.state.editObject, league_id: league.id, team_id: team.id }
+                });
+            });
+        }
     }
 
     handleChange = (propertyName) => (e) => {
         this.setState({
-            [propertyName]: e.target.value,
+            editObject: {
+                ...this.state.editObject,
+                [propertyName]: e.target.value,
+            }
         });
     }
 
@@ -38,10 +94,6 @@ class Settings extends Component {
             return (
                 <>
                     <h2>Settings</h2>
-
-                    <pre>
-                        {JSON.stringify(this.state, null, 2)}
-                    </pre>
 
                     <form onSubmit={this.handleSubmit} onReset={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>
 
@@ -55,7 +107,7 @@ class Settings extends Component {
 
                         <br />
 
-                        <label>Leageu Numbers</label>
+                        <label>League Numbers</label>
                         <select onChange={this.handleChange('leagueNumbers')} defaultValue="8">
                             <option value="4">4</option>
                             <option value="6">6</option>
@@ -72,19 +124,13 @@ class Settings extends Component {
                             <option>PPR</option>
                         </select>
 
-                    </form>
+                        <br />
+                        <br />
 
-
-                    <br />
-
-                    <form >
                         <label>Team Name</label>
-                        <input placeholder={reduxState.createdTeam[0].team_name} />
-                    </form>
+                        <input onChange={this.handleChange('teamName')} placeholder={reduxState.createdTeam[0].team_name} />
 
-                    <pre>
-                        {JSON.stringify(this.props, null, 2)}
-                    </pre>
+                    </form>
                 </>
             )
         } else {
@@ -115,10 +161,6 @@ class Settings extends Component {
                             <input value={team.team_name} readOnly />
                         </form>
                     ))}
-
-                    <pre>
-                        {JSON.stringify(this.props, null, 2)}
-                    </pre>
                 </>
             )
         }
