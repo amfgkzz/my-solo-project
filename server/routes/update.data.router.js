@@ -1,11 +1,8 @@
 const router = require('express').Router();
 const pool = require('../modules/pool');
   
-router.put('/', async(req, res)=>{
-    const client = await pool.connect();
+router.put('/', (req, res)=>{
     try {
-        client.query('BEGIN');
-
         const {
             leagueName,
             leagueNumbers,
@@ -20,17 +17,13 @@ router.put('/', async(req, res)=>{
 
         const updateQueryTwo = `UPDATE "user_team" SET "team_name"=$1 WHERE "id"=$2`;
 
-        client.query(updateQuery, [leagueName, leagueNumbers, leagueType, league_id]);
-        client.query(updateQueryTwo, [teamName, team_id]);
+        pool.query(updateQuery, [leagueName, leagueNumbers, leagueType, league_id]);
+        pool.query(updateQueryTwo, [teamName, team_id]);
 
-        client.query('COMMIT');
         res.sendStatus(201);
     } catch (error) {
-        client.query('ROLLBACK');
         console.log(`Error with server put route: ${error}`);
         res.sendStatus(500);
-    } finally {
-        client.release();
     }
 });
 

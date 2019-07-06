@@ -17,7 +17,6 @@ router.get('/user', async (req, res) => {
 // Route is hit whenever use creates a new league
 router.post('/new', async (req, res) => {
     const client = await pool.connect();
-
     try {
         await client.query('BEGIN');
 

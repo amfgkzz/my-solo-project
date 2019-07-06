@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 
 router.post('/', (req, res)=>{
     try {
-        console.log('hit!');
+        console.log(req.query);
         res.sendStatus(200);
     } catch (error) {
         console.log(`Error with add player post route: ${error}`);

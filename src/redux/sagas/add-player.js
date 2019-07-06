@@ -3,8 +3,7 @@ import axios from 'axios';
 
 function* addPlayerToUserTeam(action) {
     try {
-        console.log(action.payload);
-        yield axios.post('/add-player');
+        yield axios.post(`/add-player?player_id=${action.payload}`);
     } catch (error) {
         console.log(`Error with add player saga ${error}`);
     }

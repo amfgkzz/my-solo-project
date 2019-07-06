@@ -39,7 +39,7 @@ class PlayerList extends Component {
 
     handleClickAdd = (e) => {
         e.preventDefault();
-        this.props.dispatch({ type: 'ADD_PLAYER', payload: { player_id: e.target.value } });
+        this.props.dispatch({ type: 'ADD_PLAYER', payload: e.target.value });
     }
 
     handlePrevious = (e) => {
