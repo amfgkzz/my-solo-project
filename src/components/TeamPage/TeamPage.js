@@ -34,6 +34,7 @@ class TeamPage extends Component {
 
     render() {
         let benchTeam = this.props.reduxState.userTeamBench;
+        let startTeam = this.props.reduxState.userTeamStart;
         return (
             <>
                 <pre>
@@ -48,7 +49,7 @@ class TeamPage extends Component {
         "player_position": "QB"
       } */}
                 {
-                    benchTeam.length >= 1
+                    benchTeam.length && startTeam.length >= 1
                         ?
                         <>
                             <h3>{this.props.reduxState.createdTeam.length >= 1 ? this.props.reduxState.createdTeam[0].team_name : "Team"}</h3>
@@ -62,18 +63,12 @@ class TeamPage extends Component {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {/* <TableRow>
-                                        <TableCell>{team[0].player_position}</TableCell>
-                                        <TableCell>{team[0].player_first_name} {team[0].player_last_name}</TableCell>
+                                    <TableRow>
+                                        <TableCell>{startTeam[0].player_position}</TableCell>
+                                        <TableCell>{startTeam[0].player_first_name} {startTeam[0].player_last_name}</TableCell>
                                         <TableCell><button onClick={this.handleClickBench}>Bench</button></TableCell>
                                         <TableCell><button onClick={this.handleClickRelease}>Release</button></TableCell>
                                     </TableRow>
-                                    <TableRow>
-                                        <TableCell>{team[1].player_position}</TableCell>
-                                        <TableCell>{team[1].player_first_name} {team[0].player_last_name}</TableCell>
-                                        <TableCell><button onClick={this.handleClickBench}>Bench</button></TableCell>
-                                        <TableCell><button onClick={this.handleClickRelease}>Release</button></TableCell>
-                                    </TableRow> */}
                                 </TableBody>
                             </Table>
 
@@ -88,14 +83,12 @@ class TeamPage extends Component {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {/* {this.props.reduxState.userTeam.map((player, i) =>
-                                        (<TableRow key={i}>
-                                            <TableCell>{player.player_position}</TableCell>
-                                            <TableCell>{player.player_first_name} {player.player_last_name}</TableCell>
-                                            <TableCell><button onClick={this.handleClickStart} value={player.player_id}>Start</button></TableCell>
-                                            <TableCell><button onClick={this.handleClickRelease}>Release</button></TableCell>
-                                        </TableRow>)
-                                    )} */}
+                                    <TableRow>
+                                        <TableCell>{benchTeam[0].player_position}</TableCell>
+                                        <TableCell>{benchTeam[0].player_first_name} {benchTeam[0].player_last_name}</TableCell>
+                                        <TableCell><button onClick={this.handleClickStart} value={benchTeam[0].player_id}>Start</button></TableCell>
+                                        <TableCell><button onClick={this.handleClickRelease}>Release</button></TableCell>
+                                    </TableRow>
                                 </TableBody>
                             </Table>
                         </>
