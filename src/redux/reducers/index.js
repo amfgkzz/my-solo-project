@@ -7,6 +7,7 @@ import user from '../reducers/Prime/userReducer';
 import playerList from './player-list';
 import createdLeague from './created-leagues';
 import createdTeam from './created-team';
+import userTeam from './user-team';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   playerList,
   createdLeague,
   createdTeam,
+  userTeam,
 });
 
 export default rootReducer;

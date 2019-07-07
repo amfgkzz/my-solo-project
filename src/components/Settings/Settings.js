@@ -92,9 +92,10 @@ class Settings extends Component {
         this.props.dispatch({ type: 'DELETE_USER_TEAM', payload: this.props.reduxState.user });
     }
 
-    handleDeleteLeague = (e) => {
-        this.props.dispatch({ type: 'DELETE_USER_LEAGUE', payload: this.props.reduxState.user });
-    }
+    // FIX: Add ability to delete league
+    // handleDeleteLeague = (e) => {
+    //     this.props.dispatch({ type: 'DELETE_USER_LEAGUE', payload: this.props.reduxState.user });
+    // }
 
     render() {
         let reduxState = this.props.reduxState;
@@ -114,7 +115,7 @@ class Settings extends Component {
                                     <br />
 
                                     <label>League Name</label>
-                                    
+
                                     <input onChange={this.handleChange('leagueName')} placeholder={reduxState.createdLeague[0].league_name} />
 
                                     <br />
@@ -138,7 +139,8 @@ class Settings extends Component {
                                         <option>PPR</option>
                                     </select>
 
-                                    <button onClick={this.handleDeleteLeague}>Delete League</button>
+                                    {/* FIX: add ability to delete league
+                                    <button onClick={this.handleDeleteLeague}>Delete League</button> */}
                                 </>
                                 :
                                 <></>

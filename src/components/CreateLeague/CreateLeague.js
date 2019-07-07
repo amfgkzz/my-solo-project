@@ -22,13 +22,15 @@ class CreateLeague extends Component {
         if (this.state.leagueName === '') {
             // FIX: change this to something less annoying
             alert('Please fill in all the blanks!');
-        } else {
+        } else if (this.props.user.league_id === null) {
             this.setState({
                 userID: this.props.user.id,
             }, () => {
                 this.props.dispatch({ type: 'CREATE_LEAGUE', payload: this.state });
                 this.props.history.push('/CreateTeam');
             });
+        } else {
+            alert('You already have a league!');
         }
     }
 
@@ -36,9 +38,9 @@ class CreateLeague extends Component {
 
         return (
             <>
-                <pre>
+                {/* <pre>
                     {JSON.stringify(this.state, null, 2)}
-                </pre>
+                </pre> */}
 
                 <h1>Create a League!</h1>
                 <h2>Please follow the instructions below to get started.</h2>

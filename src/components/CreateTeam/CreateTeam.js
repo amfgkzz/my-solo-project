@@ -13,13 +13,15 @@ class CreateTeam extends Component {
         if (this.state.teamName === '') {
             // FIX: change this alert to something less annoying
             alert('Please put in a team name!');
-        } else {
+        } else if (this.props.user.team_id === null) {
             this.setState({
                 userID: this.props.user.id,
             }, () => {
                 this.props.dispatch({ type: 'CREATE_TEAM', payload: this.state });
                 this.props.history.push('/home');
             });
+        } else {
+            alert('You already have a team!');
         }
     }
 
@@ -33,9 +35,9 @@ class CreateTeam extends Component {
         return (
             <>
 
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
+                {/* <pre>
+                    {JSON.stringify(this.props, null, 2)}
+                </pre> */}
 
                 <form onSubmit={this.handleClick}>
 

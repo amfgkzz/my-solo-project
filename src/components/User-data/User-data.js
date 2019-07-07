@@ -19,17 +19,17 @@ class UserData extends Component {
             return (
                 <>
                     <h3>No data</h3>
-                    <pre>
+                    {/* <pre>
                         {JSON.stringify(this.props, null, 2)}
-                    </pre>
+                    </pre> */}
                 </>
             )
         } else if (reduxState.user.team_id === null) {
             return (
                 <>
-                    <pre>
+                    {/* <pre>
                         {JSON.stringify(this.props, null, 2)}
-                    </pre>
+                    </pre> */}
                     <h3>User Data (league only)</h3>
                     <table>
                         <thead>

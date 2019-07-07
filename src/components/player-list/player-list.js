@@ -40,12 +40,16 @@ class PlayerList extends Component {
 
     handleClickAdd = (e) => {
         e.preventDefault();
-        this.props.dispatch(
-            {
-                type: 'ADD_PLAYER',
-                payload: { player_id: e.target.value, team_id: this.props.reduxState.createdTeam[0].id }
-            }
-        );
+        if (this.props.reduxState.user.team_id === null) {
+            alert('You must create a team first!');
+        } else {
+            this.props.dispatch(
+                {
+                    type: 'ADD_PLAYER',
+                    payload: { player_id: e.target.value, team_id: this.props.reduxState.user.team_id }
+                }
+            );
+        }
     }
 
     handlePrevious = (e) => {
@@ -86,6 +90,9 @@ class PlayerList extends Component {
         let playerList = this.props.reduxState.playerList;
         return (
             <>
+                {/* <pre>
+                    {JSON.stringify(this.props, null, 2)}
+                </pre> */}
 
                 <div style={{ textAlign: 'center' }}>
 
