@@ -11,6 +11,7 @@ import updateUserDataSaga from './update-leagueOrteam';
 import addPlayerSaga from './add-player';
 import deleteUserDataSaga from './delete-user-data';
 import fetchUserPlayersSaga from './user-team';
+import startPlayerSaga from './start-player';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -31,5 +32,6 @@ export default function* rootSaga() {
     addPlayerSaga(),
     deleteUserDataSaga(),
     fetchUserPlayersSaga(),
+    startPlayerSaga(),
   ]);
 }

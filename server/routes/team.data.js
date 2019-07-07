@@ -18,7 +18,7 @@ router.get('/user-team', async (req, res) => {
 router.get('/user-team/players', async(req, res)=>{
     try {
         const querySelect = `SELECT "user_team"."id", "user_team"."team_name", "player_id", 
-        "player_first_name", "player_last_name", "player_position" FROM "user_players" 
+        "player_first_name", "player_last_name", "player_position", "player_start" FROM "user_players" 
         JOIN "user_team" ON "user_team"."id"="user_players"."user_team"
         ORDER BY "user_players"."id";`;
         const queryResult = await pool.query(querySelect);
