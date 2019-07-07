@@ -16,11 +16,12 @@ class TeamPage extends Component {
 
     fetchUserTeam = () => {
         this.props.dispatch({ type: 'GET_USER_TEAM' });
-        this.props.dispatch({ type: 'GET_USER_PLAYERS' });
+        this.props.dispatch({ type: 'GET_USER_PLAYERS_BENCH' });
+        this.props.dispatch({ type: 'GET_USER_PLAYERS_START' });
     }
 
     handleClickStart = (e) => {
-        this.props.dispatch({type: 'START_PLAYER', payload: e.target.value});
+        this.props.dispatch({ type: 'START_PLAYER', payload: e.target.value });
     }
 
     handleClickBench = (e) => {
@@ -32,7 +33,7 @@ class TeamPage extends Component {
     }
 
     render() {
-        let team = this.props.reduxState.userTeam;
+        let benchTeam = this.props.reduxState.userTeamBench;
         return (
             <>
                 <pre>
@@ -47,7 +48,7 @@ class TeamPage extends Component {
         "player_position": "QB"
       } */}
                 {
-                    team.length >= 1
+                    benchTeam.length >= 1
                         ?
                         <>
                             <h3>{this.props.reduxState.createdTeam.length >= 1 ? this.props.reduxState.createdTeam[0].team_name : "Team"}</h3>
@@ -61,14 +62,18 @@ class TeamPage extends Component {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {this.props.reduxState.userTeam.map((player, i) =>
-                                        (<TableRow key={i}>
-                                            <TableCell>{player.player_position}</TableCell>
-                                            <TableCell>{player.player_first_name} {player.player_last_name}</TableCell>
-                                            <TableCell><button onClick={this.handleClickBench}>Bench</button></TableCell>
-                                            <TableCell><button onClick={this.handleClickRelease}>Release</button></TableCell>
-                                        </TableRow>)
-                                    )}
+                                    {/* <TableRow>
+                                        <TableCell>{team[0].player_position}</TableCell>
+                                        <TableCell>{team[0].player_first_name} {team[0].player_last_name}</TableCell>
+                                        <TableCell><button onClick={this.handleClickBench}>Bench</button></TableCell>
+                                        <TableCell><button onClick={this.handleClickRelease}>Release</button></TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell>{team[1].player_position}</TableCell>
+                                        <TableCell>{team[1].player_first_name} {team[0].player_last_name}</TableCell>
+                                        <TableCell><button onClick={this.handleClickBench}>Bench</button></TableCell>
+                                        <TableCell><button onClick={this.handleClickRelease}>Release</button></TableCell>
+                                    </TableRow> */}
                                 </TableBody>
                             </Table>
 
@@ -83,14 +88,14 @@ class TeamPage extends Component {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {this.props.reduxState.userTeam.map((player, i) =>
+                                    {/* {this.props.reduxState.userTeam.map((player, i) =>
                                         (<TableRow key={i}>
                                             <TableCell>{player.player_position}</TableCell>
                                             <TableCell>{player.player_first_name} {player.player_last_name}</TableCell>
                                             <TableCell><button onClick={this.handleClickStart} value={player.player_id}>Start</button></TableCell>
                                             <TableCell><button onClick={this.handleClickRelease}>Release</button></TableCell>
                                         </TableRow>)
-                                    )}
+                                    )} */}
                                 </TableBody>
                             </Table>
                         </>

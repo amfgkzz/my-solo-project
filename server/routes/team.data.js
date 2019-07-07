@@ -15,12 +15,28 @@ router.get('/user-team', async (req, res) => {
     }
 });
 
-router.get('/user-team/players', async(req, res)=>{
+router.get('/user-team/bench-players', async(req, res)=>{
     try {
         const querySelect = `SELECT "user_team"."id", "user_team"."team_name", "player_id", 
         "player_first_name", "player_last_name", "player_position", "player_start" FROM "user_players" 
         JOIN "user_team" ON "user_team"."id"="user_players"."user_team"
-        ORDER BY "user_players"."id";`;
+        WHERE "user_players"."player_start"=FALSE
+        ORDER BY "user_players"."id"`;
+        const queryResult = await pool.query(querySelect);
+        res.send(queryResult.rows);
+    } catch (error) {
+        console.log(`Error with user players get route ${error}`);
+        res.sendStatus(500);
+    }
+});
+
+router.get('/user-team/start-players', async(req, res)=>{
+    try {
+        const querySelect = `SELECT "user_team"."id", "user_team"."team_name", "player_id", 
+        "player_first_name", "player_last_name", "player_position", "player_start" FROM "user_players" 
+        JOIN "user_team" ON "user_team"."id"="user_players"."user_team"
+        WHERE "user_players"."player_start"=TRUE
+        ORDER BY "user_players"."id"`;
         const queryResult = await pool.query(querySelect);
         res.send(queryResult.rows);
     } catch (error) {
