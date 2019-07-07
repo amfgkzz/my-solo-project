@@ -88,6 +88,14 @@ class Settings extends Component {
         });
     }
 
+    handleDeleteTeam = (e) => {
+        this.props.dispatch({ type: 'DELETE_USER_TEAM', payload: this.props.reduxState.user });
+    }
+
+    handleDeleteLeague = (e) => {
+        this.props.dispatch({ type: 'DELETE_USER_LEAGUE', payload: this.props.reduxState.user });
+    }
+
     render() {
         let reduxState = this.props.reduxState;
         if (this.state.inEditMode) {
@@ -95,42 +103,63 @@ class Settings extends Component {
                 <>
                     <h2>Settings</h2>
 
-                    <form onSubmit={this.handleSubmit} onReset={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>
-
+                    <form onSubmit={ reduxState.createdLeague.length >= 1 || reduxState.createdTeam.length >= 1 ? this.handleSubmit : () => { this.setState({ inEditMode: !this.state.inEditMode }) }} 
+                    onReset={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>
                         <button type="reset">Cancel</button>
                         <button type="submit">Save</button>
+                        {
+                            reduxState.createdLeague.length >= 1
+                                ?
+                                <>
+                                    <br />
+
+                                    <label>League Name</label>
+                                    
+                                    <input onChange={this.handleChange('leagueName')} placeholder={reduxState.createdLeague[0].league_name} />
+
+                                    <br />
+
+                                    <label>League Numbers</label>
+
+                                    <select onChange={this.handleChange('leagueNumbers')} defaultValue="8">
+                                        <option value="4">4</option>
+                                        <option value="6">6</option>
+                                        <option value="8">8</option>
+                                        <option value="10">10</option>
+                                        <option value="12">12</option>
+                                    </select>
+
+                                    <br />
+
+                                    <label>League Type</label>
+
+                                    <select onChange={this.handleChange('leagueType')} defaultValue="Standard">
+                                        <option>Standard</option>
+                                        <option>PPR</option>
+                                    </select>
+
+                                    <button onClick={this.handleDeleteLeague}>Delete League</button>
+                                </>
+                                :
+                                <></>
+                        }
 
                         <br />
-
-                        <label>League Name</label>
-                        <input onChange={this.handleChange('leagueName')} placeholder={reduxState.createdLeague[0].league_name} />
-
                         <br />
 
-                        <label>League Numbers</label>
-                        <select onChange={this.handleChange('leagueNumbers')} defaultValue="8">
-                            <option value="4">4</option>
-                            <option value="6">6</option>
-                            <option value="8">8</option>
-                            <option value="10">10</option>
-                            <option value="12">12</option>
-                        </select>
-
-                        <br />
-
-                        <label>League Type</label>
-                        <select onChange={this.handleChange('leagueType')} defaultValue="Standard">
-                            <option>Standard</option>
-                            <option>PPR</option>
-                        </select>
-
-                        <br />
-                        <br />
-
-                        <label>Team Name</label>
-                        <input onChange={this.handleChange('teamName')} placeholder={reduxState.createdTeam[0].team_name} />
-
+                        {
+                            reduxState.createdTeam.length >= 1
+                                ?
+                                <>
+                                    <label>Team Name</label>
+                                    <input onChange={this.handleChange('teamName')} placeholder={reduxState.createdTeam[0].team_name} />
+                                    <button onClick={this.handleDeleteTeam}>Delete Team</button>
+                                </>
+                                :
+                                <></>
+                        }
                     </form>
+
                 </>
             )
         } else {
@@ -155,12 +184,17 @@ class Settings extends Component {
 
                     <br />
 
-                    {reduxState.createdTeam.map((team, i) => (
-                        <form key={i}>
-                            <label>Team Name</label>
-                            <input value={team.team_name} readOnly />
-                        </form>
-                    ))}
+                    <>
+                        {reduxState.createdTeam.length >= 1
+                            ?
+                            <>
+                                <label>Team Name</label>
+                                <input value={reduxState.createdTeam[0].team_name} readOnly />
+                            </>
+                            :
+                            <></>}
+                    </>
+
                 </>
             )
         }

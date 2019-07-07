@@ -25,15 +25,6 @@ class TeamPage extends Component {
                     {JSON.stringify(this.props, null, 2)}
                 </pre>
 
-                {/* {
-        "id": 33,
-        "team_name": "123",
-        "player_id": "bb44c92c-8cf5-4f7a-8ade-b8c14588ef9b",
-        "player_first_name": "Garrett",
-        "player_last_name": "Gilbert",
-        "player_position": "QB"
-      }, */}
-
                 <Table>
                     <TableHead>
                         <TableRow>
