@@ -12,6 +12,7 @@ import addPlayerSaga from './add-player';
 import deleteUserDataSaga from './delete-user-data';
 import fetchUserPlayersSaga from './user-team';
 import startPlayerSaga from './start-player';
+import benchPlayerSaga from './bench-player';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -33,5 +34,6 @@ export default function* rootSaga() {
     deleteUserDataSaga(),
     fetchUserPlayersSaga(),
     startPlayerSaga(),
+    benchPlayerSaga(),
   ]);
 }

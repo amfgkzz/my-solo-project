@@ -41,4 +41,18 @@ router.put('/start-player', (req, res)=>{
     }
 });
 
+router.put('/bench-player', (req, res)=>{
+    try {
+        const updateQuery = `UPDATE "user_players" SET "player_start"=FALSE 
+        WHERE "user_players"."player_id"=$1`;
+
+        pool.query(updateQuery, [req.query.player_id]);
+
+        res.sendStatus(200);
+    } catch (error) {
+        console.log('Error with server put route:', error);
+        res.sendStatus(500);
+    }
+});
+
 module.exports = router;
