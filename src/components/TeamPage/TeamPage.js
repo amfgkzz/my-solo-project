@@ -10,6 +10,9 @@ import TableCell from '@material-ui/core/TableCell';
 
 class TeamPage extends Component {
 
+    state = {
+    }
+
     componentDidMount() {
         this.fetchUserTeam();
     }
@@ -21,7 +24,6 @@ class TeamPage extends Component {
     }
 
     handleClickStart = (e) => {
-        console.log(e.target.name);
         this.props.dispatch({ type: 'START_PLAYER', payload: e.target.value });
     }
 
@@ -34,18 +36,26 @@ class TeamPage extends Component {
     }
 
     render() {
-        let benchTeam = this.props.reduxState.userTeamBench;
         let startTeam = this.props.reduxState.userTeamStart;
-        let testArray = [{ pos: 'QB' }, { pos: 'RB' }, { pos: 'RB' }, { pos: 'WR' }, { pos: 'WR' }, { pos: 'TE' }, { pos: 'FLEX' }, { pos: 'K' }]
+        let benchTeam = this.props.reduxState.userTeamBench;
+        let testArray = [
+            { pos: 'QB' }, { pos: 'RB' },
+            { pos: 'RB' }, { pos: 'WR' },
+            { pos: 'WR' }, { pos: 'TE' },
+            { pos: 'K' }
+        ]
 
         return (
             <>
-                {/* <pre>
-                    {JSON.stringify(this.props, null, 2)}
-                </pre> */}
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
+                <pre>
+                    {JSON.stringify(this.props.reduxState.userTeamStart, null, 2)}
+                </pre>
 
                 {
-                    startTeam[0]
+                    startTeam
                         ?
                         <>
                             <h3>{this.props.reduxState.createdTeam.length >= 1 ? this.props.reduxState.createdTeam[0].team_name : "Team"}</h3>
@@ -59,17 +69,48 @@ class TeamPage extends Component {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {
-                                        testArray.map((player, i) => (
-                                            <TableRow key={i}>
-                                                <TableCell>{startTeam[i] ? startTeam[i].player_position : <div style={{ opacity: '0.5' }}>{player.pos}</div>}</TableCell>
-                                                <TableCell>{startTeam[i] ? startTeam[i].player_first_name : <></>} {startTeam[i] ? startTeam[i].player_last_name : <></>}</TableCell>
-                                                <TableCell>{startTeam[i] ? <button onClick={this.handleClickBench} value={startTeam[i].player_id}>Bench</button> : <></>}</TableCell>
-                                                <TableCell>{startTeam[i] ? <button onClick={this.handleClickRelease} value={startTeam[i].player_id}>Release</button> : <></>}</TableCell>
+                                            <TableRow>
+                                                <TableCell>{startTeam.QB.player_id ? startTeam.QB.player_position : <div style={{ opacity: '0.5' }}>QB</div>}</TableCell>
+                                                <TableCell>{startTeam.QB.player_id ? startTeam.QB.player_first_name : <></>} {startTeam.QB.player_id ? startTeam.QB.player_last_name : <></>}</TableCell>
+                                                <TableCell>{startTeam.QB.player_id ? <button onClick={this.handleClickBench} value={startTeam.QB.player_id}>Bench</button> : <></>}</TableCell>
+                                                <TableCell>{startTeam.QB.player_id ? <button onClick={this.handleClickRelease} value={startTeam.QB.player_id}>Release</button> : <></>}</TableCell>
                                             </TableRow>
-                                        ))
-
-                                    }
+                                            <TableRow>
+                                                <TableCell>{startTeam.RB.player_id ? startTeam.RB.player_position : <div style={{ opacity: '0.5' }}>RB ONE</div>}</TableCell>
+                                                <TableCell>{startTeam.RB.player_id ? startTeam.RB.player_first_name : <></>} {startTeam.RB.player_id ? startTeam.RB.player_last_name : <></>}</TableCell>
+                                                <TableCell>{startTeam.RB.player_id ? <button onClick={this.handleClickBench} value={startTeam.RB.player_id}>Bench</button> : <></>}</TableCell>
+                                                <TableCell>{startTeam.RB.player_id ? <button onClick={this.handleClickRelease} value={startTeam.RB.player_id}>Release</button> : <></>}</TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell>{startTeam.RB.player_id ? startTeam.RB.player_position : <div style={{ opacity: '0.5' }}>RB TWO</div>}</TableCell>
+                                                <TableCell>{startTeam.RB.player_id ? startTeam.RB.player_first_name : <></>} {startTeam.RB.player_id ? startTeam.RB.player_last_name : <></>}</TableCell>
+                                                <TableCell>{startTeam.RB.player_id ? <button onClick={this.handleClickBench} value={startTeam.RB.player_id}>Bench</button> : <></>}</TableCell>
+                                                <TableCell>{startTeam.RB.player_id ? <button onClick={this.handleClickRelease} value={startTeam.RB.player_id}>Release</button> : <></>}</TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell>{startTeam.WR.player_id ? startTeam.WR.player_position : <div style={{ opacity: '0.5' }}>WR ONE</div>}</TableCell>
+                                                <TableCell>{startTeam.WR.player_id ? startTeam.WR.player_first_name : <></>} {startTeam.WR.player_id ? startTeam.WR.player_last_name : <></>}</TableCell>
+                                                <TableCell>{startTeam.WR.player_id ? <button onClick={this.handleClickBench} value={startTeam.WR.player_id}>Bench</button> : <></>}</TableCell>
+                                                <TableCell>{startTeam.WR.player_id ? <button onClick={this.handleClickRelease} value={startTeam.WR.player_id}>Release</button> : <></>}</TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell>{startTeam.WR.player_id ? startTeam.WR.player_position : <div style={{ opacity: '0.5' }}>WR TWO</div>}</TableCell>
+                                                <TableCell>{startTeam.WR.player_id ? startTeam.WR.player_first_name : <></>} {startTeam.WR.player_id ? startTeam.WR.player_last_name : <></>}</TableCell>
+                                                <TableCell>{startTeam.WR.player_id ? <button onClick={this.handleClickBench} value={startTeam.WR.player_id}>Bench</button> : <></>}</TableCell>
+                                                <TableCell>{startTeam.WR.player_id ? <button onClick={this.handleClickRelease} value={startTeam.WR.player_id}>Release</button> : <></>}</TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell>{startTeam.TE.player_id ? startTeam.TE.player_position : <div style={{ opacity: '0.5' }}>TE</div>}</TableCell>
+                                                <TableCell>{startTeam.TE.player_id ? startTeam.TE.player_first_name : <></>} {startTeam.TE.player_id ? startTeam.TE.player_last_name : <></>}</TableCell>
+                                                <TableCell>{startTeam.TE.player_id ? <button onClick={this.handleClickBench} value={startTeam.TE.player_id}>Bench</button> : <></>}</TableCell>
+                                                <TableCell>{startTeam.TE.player_id ? <button onClick={this.handleClickRelease} value={startTeam.TE.player_id}>Release</button> : <></>}</TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell>{startTeam.K.player_id ? startTeam.K.player_position : <div style={{ opacity: '0.5' }}>K</div>}</TableCell>
+                                                <TableCell>{startTeam.K.player_id ? startTeam.K.player_first_name : <></>} {startTeam.K.player_id ? startTeam.K.player_last_name : <></>}</TableCell>
+                                                <TableCell>{startTeam.K.player_id ? <button onClick={this.handleClickBench} value={startTeam.K.player_id}>Bench</button> : <></>}</TableCell>
+                                                <TableCell>{startTeam.K.player_id ? <button onClick={this.handleClickRelease} value={startTeam.K.player_id}>Release</button> : <></>}</TableCell>
+                                            </TableRow>
                                 </TableBody>
                             </Table>
                         </>
@@ -109,6 +150,7 @@ class TeamPage extends Component {
                         ?
                         <>
                             <h3>Bench</h3>
+
                             <Table>
                                 <TableHead>
                                     <TableRow>
