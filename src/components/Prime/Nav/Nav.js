@@ -5,36 +5,40 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 
 const Nav = (props) => (
   <div className="nav">
-    <Link to="/home">
-      <h2 className="nav-title">Prime Solo Project</h2>
-    </Link>
     <div className="nav-right">
-      <Link className="nav-link" to="/home">
-        {/* Show this link if they are logged in or not,
+      {/* <Link className="nav-link" to="/home">
+        Show this link if they are logged in or not,
         but call this link 'Home' if they are logged in,
-        and call this link 'Login / Register' if they are not */}
+        and call this link 'Login / Register' if they are not
         {props.user.id ? 'Home' : 'Login / Register'}
-      </Link>
+      </Link> */}
       {/* Show the link to the info page and the logout button if the user is logged in */}
       {props.user.id && (
         <>
+          <Link className="nav-link" to="/home">
+            Home
+          </Link>
+          <br/>
           <Link className="nav-link" to="/Players">
             Players
           </Link>
+          <br />
           <Link className="nav-link" to="/UserTeamPage">
             Team
           </Link>
+          <br />
           {/* FIX: create a league is going to be a link from another page, ie not on nav bar */}
           <Link className="nav-link" to="/CreateLeague">
             Create a League
           </Link>
+          <br />
           <Link className="nav-link" to="/CreateTeam">
             Create a Team
           </Link>
+          <br />
           <Link className="nav-link" to="/Settings">
             Settings
           </Link>
-          <LogOutButton className="nav-link" />
         </>
       )}
     </div>

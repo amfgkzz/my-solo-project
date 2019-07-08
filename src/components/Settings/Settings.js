@@ -104,8 +104,8 @@ class Settings extends Component {
                 <>
                     <h2>Settings</h2>
 
-                    <form onSubmit={ reduxState.createdLeague.length >= 1 || reduxState.createdTeam.length >= 1 ? this.handleSubmit : () => { this.setState({ inEditMode: !this.state.inEditMode }) }} 
-                    onReset={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>
+                    <form onSubmit={reduxState.createdTeam.length >= 1 ? this.handleSubmit : () => { this.setState({ inEditMode: !this.state.inEditMode }) }}
+                        onReset={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>
                         <button type="reset">Cancel</button>
                         <button type="submit">Save</button>
                         {
