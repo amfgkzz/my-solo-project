@@ -10,6 +10,16 @@ function* deleteUserTeam(action) {
     }
 }
 
+function* releasePlayer(action) {
+    try {
+        yield axios.delete(`/delete/release-player?player_id=${action.payload}`);
+        yield dispatch({type: 'GET_USER_PLAYERS_BENCH'});
+        yield dispatch({type: 'GET_USER_PLAYERS_START'});
+    } catch (error) {
+        console.log(`Error with start player saga: ${error}`);
+    }
+}
+
 // FIX: Add ability to delete leagues
 // function* deleteUserLeague(action) {
 //     try {
@@ -21,6 +31,7 @@ function* deleteUserTeam(action) {
 
 function* deleteUserDataSaga() {
     yield takeEvery('DELETE_USER_TEAM', deleteUserTeam);
+    yield takeEvery('RELEASE_PLAYER', releasePlayer);
     // FIX: Add ability to delete leagues
     // yield takeEvery('DELETE_USER_LEAGUE', deleteUserLeague);
 }

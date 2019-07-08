@@ -37,17 +37,10 @@ class TeamPage extends Component {
         let startTeam = this.props.reduxState.userTeamStart;
         return (
             <>
-                <pre>
+                {/* <pre>
                     {JSON.stringify(this.props, null, 2)}
-                </pre>
-                {/* {
-        "id": 54,
-        "team_name": "2",
-        "player_id": "879c1c06-3c62-40f3-8bf0-5dbd476f90d3",
-        "player_first_name": "Brian",
-        "player_last_name": "Hoyer",
-        "player_position": "QB"
-      } */}
+                </pre> */}
+
                 {
                     startTeam.length >= 0
                         ?

@@ -8,12 +8,20 @@ class CreateTeam extends Component {
         teamName: '',
     }
 
+    componentDidMount() {
+        this.fetchUserTeam();
+    }
+
+    fetchUserTeam = () => {
+        this.props.dispatch({ type: 'FETCH_USER' });
+    }
+
     handleClick = (e) => {
         e.preventDefault();
         if (this.state.teamName === '') {
             // FIX: change this alert to something less annoying
             alert('Please put in a team name!');
-        } else if (this.props.user.team_id === null) {
+        } else if (this.props.user.team_id == null) {
             this.setState({
                 userID: this.props.user.id,
             }, () => {
@@ -34,8 +42,11 @@ class CreateTeam extends Component {
     render() {
         return (
             <>
+                            {/* <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
 
-                {/* <pre>
+                <pre>
                     {JSON.stringify(this.props, null, 2)}
                 </pre> */}
 

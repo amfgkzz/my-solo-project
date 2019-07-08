@@ -24,6 +24,19 @@ router.delete('/team', async(req, res)=>{
     }
 });
 
+router.delete('/release-player', (req, res)=>{
+    try {
+        const deleteQuery = `DELETE FROM "user_players"
+        WHERE "user_players"."player_id"=$1`;
+
+        pool.query(deleteQuery, [req.query.player_id]);
+
+        res.sendStatus(200);
+    } catch (error) {
+        throw error;
+    }
+});
+
 // FIX: Add ability to Delete leagues
 // router.delete('/league', async(req, res)=>{
 //     const client = await pool.connect();

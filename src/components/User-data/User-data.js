@@ -14,8 +14,7 @@ class UserData extends Component {
     }
 
     render() {
-        let reduxState = this.props.reduxState;
-        if (reduxState.user.league_id === null) {
+        if (this.props.reduxState.user.league_id === null) {
             return (
                 <>
                     <h3>Create a League and Start Playing Today!</h3>
@@ -24,13 +23,13 @@ class UserData extends Component {
                     </pre> */}
                 </>
             )
-        } else if (reduxState.user.team_id === null) {
+        } else if (this.props.reduxState.user.team_id === null) {
             return (
                 <>
-                    <pre>
+                    {/* <pre>
                         {JSON.stringify(this.props, null, 2)}
-                    </pre>
-                    <h3>{ reduxState.createdLeague ? reduxState.createdLeague[0].league_name : "No League"}</h3>
+                    </pre> */}
+                    <h3>{ this.props.reduxState.createdLeague.length >= 1 ? this.props.reduxState.createdLeague[0].league_name : "No League"}</h3>
                     <table>
                         <thead>
                             <tr>
@@ -40,7 +39,7 @@ class UserData extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {reduxState.createdLeague.map((league, i) => (
+                            {this.props.reduxState.createdLeague.map((league, i) => (
                                 <tr key={i}>
                                     <td>{league.league_name}</td>
                                     <td>{league.league_numbers}</td>
@@ -51,18 +50,18 @@ class UserData extends Component {
                     </table>
                 </>
             )
-        } else if (reduxState.user.league_id && reduxState.user.team_id) {
+        } else if (this.props.reduxState.user.league_id && this.props.reduxState.user.team_id) {
             return (
                 <>
                     {/* <pre>
                         {JSON.stringify(this.props, null, 2)}
                     </pre> */}
 
-                    <h3>{ reduxState.createdLeague.length >= 1 ? reduxState.createdLeague[0].league_name : "No League"}</h3>
+                    <h3>{ this.props.reduxState.createdLeague.length >= 1 ? this.props.reduxState.createdLeague[0].league_name : "No League"}</h3>
 
                     <br />
 
-                    <h3>{ reduxState.createdTeam.length >= 1 ? reduxState.createdTeam[0].team_name : "No Team"}</h3>
+                    <h3>{ this.props.reduxState.createdTeam.length >= 1 ? this.props.reduxState.createdTeam[0].team_name : "No Team"}</h3>
 
                 </>
             )
