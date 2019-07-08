@@ -7,9 +7,11 @@ router.delete('/team', async(req, res)=>{
         await client.query('BEGIN');
         // Must update the user.team_id first before deleting team
         const updateQuery = `UPDATE "user" SET "team_id"=NULL WHERE "user"."id"=$1`;
+        const deleteTeamPlayers = `DELETE FROM "user_players" WHERE "user_players"."user_team"=$1`;
         const deleteQuery = `DELETE FROM "user_team" WHERE "user_team"."id"=$1`;
 
         await client.query(updateQuery, [req.query.user_id]);
+        await client.query(deleteTeamPlayers, [req.query.team_id]);
         await client.query(deleteQuery, [req.query.team_id]);
 
         await client.query('COMMIT');
