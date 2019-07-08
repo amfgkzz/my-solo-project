@@ -10,16 +10,16 @@ router.post('/', async (req, res) => {
         RETURNING id, first_name, last_name, position;`
         const insertQuery = `INSERT INTO "user_players" 
         (player_id, player_first_name, player_last_name, player_position, user_team) 
-        VALUES ($1, $2, $3, $4, $5);`
+        VALUES ($1, $2, $3, $4, $5) RETURNING player_position;`
 
         const queryResult = await client.query(updateQuery, [req.query.player_id]);
         const resultRows = queryResult.rows[0];
 
-        await client.query(insertQuery, [resultRows.id, resultRows.first_name,
+        const queryResultTwo = await client.query(insertQuery, [resultRows.id, resultRows.first_name,
             resultRows.last_name, resultRows.position, req.query.team_id]);
 
         await client.query('COMMIT');
-        res.sendStatus(200);
+        res.send(queryResultTwo.rows[0]);
     } catch (error) {
         await client.query('ROLLBACK');
         throw error;

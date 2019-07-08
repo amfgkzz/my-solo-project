@@ -7,8 +7,8 @@ router.get('/', async (req, res) => {
         const queryCall = `SELECT "player"."id","position", "first_name", "last_name", "name" FROM ffdb.player
         JOIN ffdb.player_team_map ON ffdb.player.id=ffdb.player_team_map.player_id
         JOIN ffdb.team ON ffdb.team.id=ffdb.player_team_map.team_id
-        WHERE "position"='QB' AND "status"='ACT' LIMIT 40;`
-        const queryResponse = await pool.query(queryCall);
+        WHERE "position"=$1 AND "status"='ACT' LIMIT 40;`
+        const queryResponse = await pool.query(queryCall, [req.query.player_position]);
         res.send(queryResponse.rows);
     } catch (error) {
         console.log(`Error with data query call ${error}`);

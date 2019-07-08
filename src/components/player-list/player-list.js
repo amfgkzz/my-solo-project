@@ -13,15 +13,15 @@ class PlayerList extends Component {
     state = {
         start: 0,
         end: 9,
-        target: '',
+        target: 'QB',
     }
 
     componentDidMount() {
         this.fetchUserData();
     }
 
-    fetchUserData = () => {
-        this.props.dispatch({ type: 'FETCH_PLAYERLIST_DATA' });
+    fetchUserData () {
+        this.props.dispatch({ type: 'FETCH_PLAYERLIST_DATA', payload: this.state.target });
         this.props.dispatch({ type: 'GET_USER_TEAM' });
     }
 
@@ -91,7 +91,7 @@ class PlayerList extends Component {
         return (
             <>
                 {/* <pre>
-                    {JSON.stringify(this.props, null, 2)}
+                    {JSON.stringify(this.state, null, 2)}
                 </pre> */}
 
                 <div style={{ textAlign: 'center' }}>

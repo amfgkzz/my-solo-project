@@ -4,6 +4,7 @@ import axios from 'axios';
 function* fetchPlayersBench(action) {
     try {
         const axiosResponse = yield axios.get('/team/user-team/bench-players');
+        console.log(axiosResponse.data);
         yield dispatch({ type: 'SET_USER_PLAYERS_BENCH', payload: axiosResponse.data });
     } catch (error) {
         console.log(`Error with get player saga: ${error}`);

@@ -49,7 +49,7 @@ class TeamPage extends Component {
         "player_position": "QB"
       } */}
                 {
-                    benchTeam.length && startTeam.length >= 1
+                    startTeam.length >= 1
                         ?
                         <>
                             <h3>{this.props.reduxState.createdTeam.length >= 1 ? this.props.reduxState.createdTeam[0].team_name : "Team"}</h3>
@@ -71,7 +71,15 @@ class TeamPage extends Component {
                                     </TableRow>
                                 </TableBody>
                             </Table>
+                        </>
+                        :
+                        <></>
+                }
 
+                {
+                    benchTeam.length >= 1
+                        ?
+                        <>
                             <h3>Bench</h3>
                             <Table>
                                 <TableHead>
@@ -84,10 +92,10 @@ class TeamPage extends Component {
                                 </TableHead>
                                 <TableBody>
                                     <TableRow>
-                                        <TableCell>{benchTeam[0].player_position}</TableCell>
-                                        <TableCell>{benchTeam[0].player_first_name} {benchTeam[0].player_last_name}</TableCell>
-                                        <TableCell><button onClick={this.handleClickStart} value={benchTeam[0].player_id}>Start</button></TableCell>
-                                        <TableCell><button onClick={this.handleClickRelease}>Release</button></TableCell>
+                                        <TableCell>{benchTeam[0] ? benchTeam[0].player_position : "Bench"}</TableCell>
+                                        <TableCell>{benchTeam[0] ? benchTeam[0].player_first_name : "First Name"} {benchTeam[0] ? benchTeam[0].player_last_name : "Last Name"}</TableCell>
+                                        <TableCell>{benchTeam[0] ? <button onClick={this.handleClickStart} value={benchTeam[0].player_id}>Start</button> : <></>}</TableCell>
+                                        <TableCell>{benchTeam[0] ? <button onClick={this.handleClickRelease}>Release</button> : <></>}</TableCell>
                                     </TableRow>
                                 </TableBody>
                             </Table>
@@ -95,7 +103,6 @@ class TeamPage extends Component {
                         :
                         <></>
                 }
-
 
             </>
         )

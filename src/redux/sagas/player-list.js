@@ -3,8 +3,8 @@ import axios from 'axios';
 
 function* fetchData(action) {
     try {
-        const axiosCall = yield axios.get('/data');
-        yield dispatch({ type: 'SET_PLAYER_LIST', payload: axiosCall.data });
+        const axiosResponse = yield axios.get(`/data?player_position=${action.payload}`);
+        yield dispatch({ type: 'SET_PLAYER_LIST', payload: axiosResponse.data });
     } catch (error) {
         console.log(`Error with axios call ${error}`);
     }
@@ -12,8 +12,8 @@ function* fetchData(action) {
 
 function* updateData(action) {
     try {
-        const axiosCall = yield axios.put('/data/player-position', action);
-        yield dispatch({ type: 'SET_PLAYER_LIST', payload: axiosCall.data });
+        const axiosResponse = yield axios.put('/data/player-position', action);
+        yield dispatch({ type: 'SET_PLAYER_LIST', payload: axiosResponse.data });
     } catch (error) {
         console.log(`Error with axios call ${error}`);
     }
