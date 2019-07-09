@@ -1,4 +1,4 @@
-import Background from '../../../images/fantasy_football_example.png';
+import Background from '../../../images/fantasy_football_example.jpg';
 
 let styles = {
     bmBurgerBars: {
@@ -15,7 +15,7 @@ let styles = {
         backgroundImage: `url(${Background})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center left',
+        backgroundPosition: 'right',
         opacity: '0.6',
         filter: 'contrast(200%) grayscale(20%) drop-shadow(1px 1px 1px black)',
     },
