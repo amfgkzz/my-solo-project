@@ -10,9 +10,6 @@ import TableCell from '@material-ui/core/TableCell';
 
 class TeamPage extends Component {
 
-    state = {
-    }
-
     componentDidMount() {
         this.fetchUserTeam();
     }

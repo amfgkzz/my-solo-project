@@ -13,6 +13,8 @@ const RB = (state = {}, action) => {
     switch (action.type) {
         case 'SET_USER_START_RB':
             return action.payload;
+        case 'SET_USER_TEAM_START':
+            return action.payload;
         default:
             return state;
     }
