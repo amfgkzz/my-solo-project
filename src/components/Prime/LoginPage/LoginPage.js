@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// Material UI
+import { Button, Input, FormLabel } from '@material-ui/core';
+
 class LoginPage extends Component {
   state = {
     username: '',
@@ -31,7 +34,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
+      <center>
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
@@ -43,46 +46,50 @@ class LoginPage extends Component {
         <form onSubmit={this.login}>
           <h1>Login</h1>
           <div>
-            <label htmlFor="username">
+            <FormLabel htmlFor="username">
               Username:
-              <input
+              <Input
                 type="text"
                 name="username"
                 value={this.state.username}
                 onChange={this.handleInputChangeFor('username')}
               />
-            </label>
+            </FormLabel>
           </div>
           <div>
-            <label htmlFor="password">
+            <FormLabel htmlFor="password">
               Password:
-              <input
+              <Input
                 type="password"
                 name="password"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
               />
-            </label>
+            </FormLabel>
           </div>
           <div>
-            <input
+            <Button
+              variant="outlined"
               className="log-in"
               type="submit"
               name="submit"
               value="Log In"
-            />
+            >
+              Login
+            </Button>
           </div>
         </form>
         <center>
-          <button
+          <Button
+            variant="outlined"
             type="button"
             className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
+            onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
           >
             Register
-          </button>
+          </Button>
         </center>
-      </div>
+      </center>
     );
   }
 }

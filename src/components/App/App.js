@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
   HashRouter as Router,
-  Route,
   Redirect,
   Switch,
 } from 'react-router-dom';
@@ -38,7 +37,7 @@ class App extends Component {
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
             Even though it seems like they are different pages, the user is always on localhost:3000/home */}
-            <main id="page-wrap" className="views">
+            
             <ProtectedRoute
               exact
               path="/home"
@@ -69,7 +68,7 @@ class App extends Component {
               path="/Settings"
               component={Settings}
             />
-            </main>
+            
           </Switch>
         </div>
       </Router>

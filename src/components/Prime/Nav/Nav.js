@@ -1,37 +1,41 @@
 import React from 'react';
 import { Link as Active } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './Nav.css';
+
+// Sidebar and css
 import { slide as Menu } from 'react-burger-menu';
 import styles from './styles';
-import './Nav.css';
+
+// Material ui
 import Link from '@material-ui/core/Link';
 
 const Nav = (props) => (
 
   <Menu className="menu" width={200} disableAutoFocus styles={styles} noOverlay disableCloseOnEsc isOpen customCrossIcon={false} customBurgerIcon={false} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
 
-      <Link component={Active} to="/home">Home</Link>
+      <Link className="active-link" component={Active} to="/home">Home</Link>
 
       <br/>
 
-      <Link component={Active} to="/Players">Players</Link>
+      <Link className="active-link" component={Active} to="/Players">Players</Link>
 
       <br/>
 
-      <Link component={Active} to="/UserTeamPage">Team</Link>
+      <Link className="active-link" component={Active} to="/UserTeamPage">Team</Link>
 
       <br/>
 
       {/* FIX: create a league is going to be a Link from another page, ie not on nav bar */}
-      <Link component={Active} to="/CreateLeague">Create a League</Link>
+      <Link className="active-link" component={Active} to="/CreateLeague">Create a League</Link>
 
       <br/>
 
-      <Link component={Active} to="/CreateTeam">Create a Team</Link>
+      <Link className="active-link" component={Active} to="/CreateTeam">Create a Team</Link>
 
       <br/>
 
-      <Link component={Active} to="/Settings">Settings</Link>
+      <Link className="active-link" component={Active} to="/Settings">Settings</Link>
 
   </Menu>
 
