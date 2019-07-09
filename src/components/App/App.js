@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import { connect } from 'react-redux';
+import './App.css';
 
 // Prime Components
 import Nav from '../Prime/Nav/Nav';
@@ -28,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div id="outer-container">
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -37,6 +38,7 @@ class App extends Component {
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
             Even though it seems like they are different pages, the user is always on localhost:3000/home */}
+            <main id="page-wrap" className="views">
             <ProtectedRoute
               exact
               path="/home"
@@ -67,8 +69,7 @@ class App extends Component {
               path="/Settings"
               component={Settings}
             />
-            {/* If none of the other routes matched, we will show a 404. */}
-            <Route render={() => <h1>404</h1>} />
+            </main>
           </Switch>
         </div>
       </Router>
