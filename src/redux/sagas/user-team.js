@@ -21,6 +21,8 @@ function* fetchPlayersStart(action) {
     }
 }
 
+// FIX: fix to to update reducer, so page changes automatically
+// and fix to add two RB's and two WR's
 const sort = function* (array) {
     for (let i = 0; i < array.length; i++) {
         const player = array[i];
