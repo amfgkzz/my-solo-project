@@ -1,4 +1,4 @@
-import { textAlign } from "@material-ui/system";
+import Background from '../../../images/fantasy_football_example.png';
 
 let styles = {
     bmBurgerBars: {
@@ -10,13 +10,14 @@ let styles = {
     },
     bmMenuWrap: {
         position: 'fixed',
-        height: '100%',
         top: '0',
         left: '0',
-        backgroundImage: "url(" + "https://images.unsplash.com/photo-1545080423-4295a9c1e625?ixlib=rb-1.2.1&auto=format&fit=crop&w=2800&q=80" + ")",
-        backgroundSize: ' contain, cover',
+        backgroundImage: `url(${Background})`,
+        backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        // backgroundPosition: 'center',
+        backgroundPosition: 'center left',
+        opacity: '0.6',
+        filter: 'contrast(200%) grayscale(20%) drop-shadow(1px 1px 1px black)',
     },
     /* General sidebar styles */
     bmMenu: {
