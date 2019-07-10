@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
 import './user-data.css';
 
 // Material UI
 import { Paper, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+
+const styles = withStyles(theme => ({
+    root: {
+        width: '100%',
+        marginTop: theme.spacing(3),
+        overflowX: 'auto',
+    },
+    table: {
+        minWidth: 700,
+    },
+}));
 
 class UserData extends Component {
 
@@ -18,6 +30,7 @@ class UserData extends Component {
     }
 
     render() {
+        const {classes} = this.props
         if (this.props.reduxState.user.league_id === null) {
             return (
                 <>
@@ -33,7 +46,7 @@ class UserData extends Component {
                     {/* <pre>
                         {JSON.stringify(this.props, null, 2)}
                     </pre> */}
-                
+
                     <Paper>
                         <Table>
                             <TableHead>
