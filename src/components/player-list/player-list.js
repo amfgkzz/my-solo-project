@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // material ui
-import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
-import TableBody from '@material-ui/core/TableBody';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
+import { Button, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
 
 class PlayerList extends Component {
 
@@ -46,7 +42,7 @@ class PlayerList extends Component {
             this.props.dispatch(
                 {
                     type: 'ADD_PLAYER',
-                    payload: { player_id: e.target.value, team_id: this.props.reduxState.user.team_id }
+                    payload: { player_id: e.currentTarget.value, team_id: this.props.reduxState.user.team_id }
                 }
             );
         }
@@ -126,7 +122,7 @@ class PlayerList extends Component {
                             <TableCell>{player.position}</TableCell>
                             <TableCell>{player.first_name} {player.last_name}</TableCell>
                             <TableCell>{player.name}</TableCell>
-                            <TableCell><button value={player.id} onClick={this.handleClickAdd}>Add</button></TableCell>
+                            <TableCell><Button variant="outlined" value={player.id} onClick={this.handleClickAdd}>Add</Button></TableCell>
                         </TableRow>))}
                     </TableBody>
                 </Table>

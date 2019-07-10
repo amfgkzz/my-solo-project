@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// Material UI
+import { Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+
 class UserData extends Component {
 
     componentDidMount() {
@@ -29,25 +32,25 @@ class UserData extends Component {
                     {/* <pre>
                         {JSON.stringify(this.props, null, 2)}
                     </pre> */}
-                    <h3>{ this.props.reduxState.createdLeague.length >= 1 ? this.props.reduxState.createdLeague[0].league_name : "No League"}</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>League Name</th>
-                                <th>League Numbers</th>
-                                <th>League Type</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <h3>{this.props.reduxState.createdLeague.length >= 1 ? this.props.reduxState.createdLeague[0].league_name : "No League"}</h3>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>League Name</TableCell>
+                                <TableCell>League Numbers</TableCell>
+                                <TableCell>League Type</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
                             {this.props.reduxState.createdLeague.map((league, i) => (
-                                <tr key={i}>
-                                    <td>{league.league_name}</td>
-                                    <td>{league.league_numbers}</td>
-                                    <td>{league.league_type}</td>
-                                </tr>
+                                <TableRow key={i}>
+                                    <TableCell>{league.league_name}</TableCell>
+                                    <TableCell>{league.league_numbers}</TableCell>
+                                    <TableCell>{league.league_type}</TableCell>
+                                </TableRow>
                             ))}
-                        </tbody>
-                    </table>
+                        </TableBody>
+                    </Table>
                 </>
             )
         } else if (this.props.reduxState.user.league_id && this.props.reduxState.user.team_id) {
@@ -57,11 +60,28 @@ class UserData extends Component {
                         {JSON.stringify(this.props, null, 2)}
                     </pre> */}
 
-                    <h3>{ this.props.reduxState.createdLeague.length >= 1 ? this.props.reduxState.createdLeague[0].league_name : "No League"}</h3>
-
+                    <h3>{this.props.reduxState.createdLeague.length >= 1 ? this.props.reduxState.createdLeague[0].league_name : "No League"}</h3>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>League Name</TableCell>
+                                <TableCell>League Numbers</TableCell>
+                                <TableCell>League Type</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {this.props.reduxState.createdLeague.map((league, i) => (
+                                <TableRow key={i}>
+                                    <TableCell>{league.league_name}</TableCell>
+                                    <TableCell>{league.league_numbers}</TableCell>
+                                    <TableCell>{league.league_type}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
                     <br />
 
-                    <h3>{ this.props.reduxState.createdTeam.length >= 1 ? this.props.reduxState.createdTeam[0].team_name : "No Team"}</h3>
+                    <h3>{this.props.reduxState.createdTeam.length >= 1 ? this.props.reduxState.createdTeam[0].team_name : "No Team"}</h3>
 
                 </>
             )
