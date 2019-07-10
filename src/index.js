@@ -17,7 +17,7 @@ import { deepPurple, green, yellow, blueGrey, blue } from '@material-ui/core/col
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#757ce8',
+      main: '#ffffff',
     },
     secondary: green,
   }

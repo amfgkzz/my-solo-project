@@ -12,16 +12,14 @@ let styles = {
         position: 'fixed',
         top: '0',
         left: '0',
-        backgroundImage: `url(${Background})`,
+        backgroundImage: `linear-gradient(to top, rgba(245, 246, 252, 0.20), rgba(82, 12, 64, 0.4)), url(${Background})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'right',
-        opacity: '0.6',
-        filter: 'contrast(200%) grayscale(20%) drop-shadow(1px 1px 1px black)',
+        filter: 'drop-shadow(1px 1px 1px black)',
     },
     /* General sidebar styles */
     bmMenu: {
-        // background: '#373a47',
         padding: '2.5em 1.5em 0',
         fontSize: '1.15em',
     },

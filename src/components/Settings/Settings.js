@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Material UI
-import { Button, FormControl, FormLabel, Input, Select, MenuItem } from '@material-ui/core';
+import { Button, FormLabel, Input, Select, MenuItem } from '@material-ui/core';
 
 class Settings extends Component {
 
@@ -92,7 +92,11 @@ class Settings extends Component {
     }
 
     handleDeleteTeam = (e) => {
-        this.props.dispatch({ type: 'DELETE_USER_TEAM', payload: this.props.reduxState.user });
+        this.setState({
+            inEditMode: !this.state.inEditMode,
+        },()=>{
+            this.props.dispatch({ type: 'DELETE_USER_TEAM', payload: this.props.reduxState.user });
+        });
     }
 
     // FIX: Add ability to delete league
@@ -106,9 +110,9 @@ class Settings extends Component {
             return (
                 <>
                     <h2>Settings</h2>
-                    <pre>
+                    {/* <pre>
                         {JSON.stringify(this.state, null, 2)}
-                    </pre>
+                    </pre> */}
 
                     <form onSubmit={reduxState.createdTeam.length >= 1 ? this.handleSubmit : () => { this.setState({ inEditMode: !this.state.inEditMode }) }}
                         onReset={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>
@@ -128,7 +132,7 @@ class Settings extends Component {
 
                                     <FormLabel>League Numbers</FormLabel>
 
-                                    <Select value={this.state.editObject.leagueNumbers} onChange={this.handleChange('leagueNumbers')} defaultValue="8">
+                                    <Select value={this.state.editObject.leagueNumbers} onChange={this.handleChange('leagueNumbers')}>
                                         <MenuItem value="4">4</MenuItem>
                                         <MenuItem value="6">6</MenuItem>
                                         <MenuItem value="8">8</MenuItem>
@@ -140,7 +144,7 @@ class Settings extends Component {
 
                                     <FormLabel>League Type</FormLabel>
 
-                                    <Select value={this.state.editObject.leagueType} onChange={this.handleChange('leagueType')} defaultValue="Standard">
+                                    <Select value={this.state.editObject.leagueType} onChange={this.handleChange('leagueType')}>
                                         <MenuItem value="Standard">Standard</MenuItem>
                                         <MenuItem value="PPR">PPR</MenuItem>
                                     </Select>

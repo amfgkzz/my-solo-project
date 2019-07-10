@@ -1,7 +1,16 @@
 import React from 'react';
-import { Link as Active } from 'react-router-dom';
+import { Link as Active, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
+
+// Koua's Components
+import PlayerList from '../../player-list/player-list';
+import CreateLeague from '../../CreateLeague/CreateLeague';
+import CreateTeam from '../../CreateTeam/CreateTeam';
+import TeamPage from '../../TeamPage/TeamPage';
+import Settings from '../../Settings/Settings';
+import UserPage from '../../UserPage/UserPage';
 
 // Sidebar and css
 import { slide as Menu } from 'react-burger-menu';
@@ -11,34 +20,77 @@ import styles from './styles';
 import Link from '@material-ui/core/Link';
 
 const Nav = (props) => (
+  <>
 
-  <Menu className="menu" width={200} disableAutoFocus styles={styles} noOverlay disableCloseOnEsc isOpen customCrossIcon={false} customBurgerIcon={false} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
+    <Menu className="menu" width={200} disableAutoFocus styles={styles} noOverlay disableCloseOnEsc isOpen customCrossIcon={false} customBurgerIcon={false} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
 
       <Link className="active-link" component={Active} to="/home">Home</Link>
 
-      <br/>
+      <br />
 
       <Link className="active-link" component={Active} to="/Players">Players</Link>
 
-      <br/>
+      <br />
 
       <Link className="active-link" component={Active} to="/UserTeamPage">Team</Link>
 
-      <br/>
+      <br />
 
       {/* FIX: create a league is going to be a Link from another page, ie not on nav bar */}
       <Link className="active-link" component={Active} to="/CreateLeague">Create a League</Link>
 
-      <br/>
+      <br />
 
       <Link className="active-link" component={Active} to="/CreateTeam">Create a Team</Link>
 
-      <br/>
+      <br />
 
       <Link className="active-link" component={Active} to="/Settings">Settings</Link>
 
-  </Menu>
+      <br />
 
+      <LogOutButton />
+
+    </Menu>
+
+    <div className="views">
+      <Switch>
+
+        <Route
+          exact
+          path="/home"
+          component={UserPage}
+        />
+        <Route
+          exact
+          path="/CreateLeague"
+          component={CreateLeague}
+        />
+        <Route
+          exact
+          path="/CreateTeam"
+          component={CreateTeam}
+        />
+        <Route
+          exact
+          path="/UserTeamPage"
+          component={TeamPage}
+        />
+        <Route
+          exact
+          path="/Players"
+          component={PlayerList}
+        />
+        <Route
+          exact
+          path="/Settings"
+          component={Settings}
+        />
+
+      </Switch>
+    </div>
+
+  </>
 );
 
 // Instead of taking everything from state, we just want the user

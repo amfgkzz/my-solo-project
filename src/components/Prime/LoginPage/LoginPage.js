@@ -50,7 +50,7 @@ class LoginPage extends Component {
           <Typography variant="h3">
             Login
           </Typography>
-            <FormLabel htmlFor="username">
+            <FormLabel htmlFor="username" styles={{color: '#ffffff'}}>
               Username:
               <Input
                 type="text"
@@ -70,7 +70,7 @@ class LoginPage extends Component {
             </FormLabel>
             <br />
             <Button
-              variant="outlined"
+              variant="contained"
               className="log-in"
               type="submit"
               name="submit"
@@ -81,7 +81,7 @@ class LoginPage extends Component {
         </form>
         <div>
           <Button
-            variant="outlined"
+            variant="contained"
             type="button"
             className="link-button"
             onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}

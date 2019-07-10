@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './CreateLeague.css'
 
+// Material UI
+import { Button, FormLabel, Input, Select, MenuItem } from '@material-ui/core';
+
 class CreateLeague extends Component {
 
     state = {
@@ -47,32 +50,32 @@ class CreateLeague extends Component {
 
                 <form onSubmit={this.handleSubmit}>
 
-                    <label>League Name</label>
-                    <input re="true" placeholder="League Name" onChange={this.handleChange('leagueName')} />
+                    <FormLabel>League Name</FormLabel>
+                    <Input re="true" placeholder="League Name" onChange={this.handleChange('leagueName')} />
 
                     <br />
 
-                    <label>Number of Teams</label>
-                    <select onChange={this.handleChange('leagueNumber')} defaultValue="8">
-                        <option value="4">4</option>
-                        <option value="6">6</option>
-                        <option value="8">8</option>
-                        <option value="10">10</option>
-                        <option value="12">12</option>
-                    </select>
+                    <FormLabel>Number of Teams</FormLabel>
+                    <Select onChange={this.handleChange('leagueNumber')} value={this.state.leagueNumber}>
+                        <MenuItem value="4">4</MenuItem>
+                        <MenuItem value="6">6</MenuItem>
+                        <MenuItem value="8">8</MenuItem>
+                        <MenuItem value="10">10</MenuItem>
+                        <MenuItem value="12">12</MenuItem>
+                    </Select>
 
                     <br />
 
                     {/* FIX: explain the scoring type to user */}
-                    <label>Scoring Type</label>
-                    <select onChange={this.handleChange('leagueType')} defaultValue="Standard">
-                        <option>Standard</option>
-                        <option>PPR</option>
-                    </select>
+                    <FormLabel>Scoring Type</FormLabel>
+                    <Select onChange={this.handleChange('leagueType')} value={this.state.leagueType}>
+                        <MenuItem value="Standard">Standard</MenuItem>
+                        <MenuItem value="PPR">PPR</MenuItem>
+                    </Select>
 
                     <br />
 
-                    <button>Create</button>
+                    <Button type="submit" variant="outlined">Create</Button>
                 </form>
 
             </>

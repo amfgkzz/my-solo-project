@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import LogOutButton from '../Prime/LogOutButton/LogOutButton';
 import UserData from '../User-data/User-data';
 
 // this could also be written with destructuring parameters as:
@@ -13,7 +12,6 @@ const UserPage = (props) => (
     </h1>
     <UserData />
     <br />
-    <LogOutButton className="log-in" />
   </div>
 );
 

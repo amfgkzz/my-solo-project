@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// Material UI
+import { Button, FormLabel, Input } from '@material-ui/core';
+
 class CreateTeam extends Component {
 
     state = {
@@ -42,7 +45,7 @@ class CreateTeam extends Component {
     render() {
         return (
             <>
-                            {/* <pre>
+                {/* <pre>
                     {JSON.stringify(this.state, null, 2)}
                 </pre>
 
@@ -52,12 +55,12 @@ class CreateTeam extends Component {
 
                 <form onSubmit={this.handleClick}>
 
-                    <label>Team Name</label>
-                    <input onChange={this.handleChange} placeholder="Team Name" />
+                    <FormLabel>Team Name</FormLabel>
+                    <Input onChange={this.handleChange} placeholder="Team Name" />
 
                     <br />
 
-                    <button>Create</button>
+                    <Button type="submit" variant="outlined">Create</Button>
 
                 </form>
 
