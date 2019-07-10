@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// Material UI
+import { Button, FormControl, FormLabel, Input, Select, MenuItem } from '@material-ui/core';
+
 class Settings extends Component {
 
     state = {
@@ -103,41 +106,44 @@ class Settings extends Component {
             return (
                 <>
                     <h2>Settings</h2>
+                    <pre>
+                        {JSON.stringify(this.state, null, 2)}
+                    </pre>
 
                     <form onSubmit={reduxState.createdTeam.length >= 1 ? this.handleSubmit : () => { this.setState({ inEditMode: !this.state.inEditMode }) }}
                         onReset={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>
-                        <button type="reset">Cancel</button>
-                        <button type="submit">Save</button>
+                        <Button variant="outlined" type="reset">Cancel</Button>
+                        <Button variant="outlined" type="submit">Save</Button>
                         {
                             reduxState.createdLeague.length >= 1
                                 ?
                                 <>
                                     <br />
 
-                                    <label>League Name</label>
+                                    <FormLabel>League Name</FormLabel>
 
-                                    <input onChange={this.handleChange('leagueName')} placeholder={reduxState.createdLeague[0].league_name} />
-
-                                    <br />
-
-                                    <label>League Numbers</label>
-
-                                    <select onChange={this.handleChange('leagueNumbers')} defaultValue="8">
-                                        <option value="4">4</option>
-                                        <option value="6">6</option>
-                                        <option value="8">8</option>
-                                        <option value="10">10</option>
-                                        <option value="12">12</option>
-                                    </select>
+                                    <Input onChange={this.handleChange('leagueName')} placeholder={reduxState.createdLeague[0].league_name} />
 
                                     <br />
 
-                                    <label>League Type</label>
+                                    <FormLabel>League Numbers</FormLabel>
 
-                                    <select onChange={this.handleChange('leagueType')} defaultValue="Standard">
-                                        <option>Standard</option>
-                                        <option>PPR</option>
-                                    </select>
+                                    <Select value={this.state.editObject.leagueNumbers} onChange={this.handleChange('leagueNumbers')} defaultValue="8">
+                                        <MenuItem value="4">4</MenuItem>
+                                        <MenuItem value="6">6</MenuItem>
+                                        <MenuItem value="8">8</MenuItem>
+                                        <MenuItem value="10">10</MenuItem>
+                                        <MenuItem value="12">12</MenuItem>
+                                    </Select>
+
+                                    <br />
+
+                                    <FormLabel>League Type</FormLabel>
+
+                                    <Select value={this.state.editObject.leagueType} onChange={this.handleChange('leagueType')} defaultValue="Standard">
+                                        <MenuItem value="Standard">Standard</MenuItem>
+                                        <MenuItem value="PPR">PPR</MenuItem>
+                                    </Select>
 
                                     {/* FIX: add ability to delete league
                                     <button onClick={this.handleDeleteLeague}>Delete League</button> */}
@@ -153,9 +159,9 @@ class Settings extends Component {
                             reduxState.createdTeam.length >= 1
                                 ?
                                 <>
-                                    <label>Team Name</label>
-                                    <input onChange={this.handleChange('teamName')} placeholder={reduxState.createdTeam[0].team_name} />
-                                    <button onClick={this.handleDeleteTeam}>Delete Team</button>
+                                    <FormLabel>Team Name</FormLabel>
+                                    <Input onChange={this.handleChange('teamName')} placeholder={reduxState.createdTeam[0].team_name} />
+                                    <Button variant="outlined" onClick={this.handleDeleteTeam}>Delete Team</Button>
                                 </>
                                 :
                                 <></>
@@ -169,18 +175,18 @@ class Settings extends Component {
                 <>
                     <h2>Settings</h2>
 
-                    <button onClick={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>Edit</button>
+                    <Button variant="outlined" onClick={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>Edit</Button>
 
                     {reduxState.createdLeague.map((league, i) => (
                         <form key={i}>
-                            <label>League Name</label>
-                            <input value={league.league_name} readOnly />
+                            <FormLabel>League Name</FormLabel>
+                            <Input value={league.league_name} readOnly />
                             <br />
-                            <label>League Numbers</label>
-                            <input value={league.league_numbers} readOnly />
+                            <FormLabel>League Numbers</FormLabel>
+                            <Input value={league.league_numbers} readOnly />
                             <br />
-                            <label>League Type</label>
-                            <input value={league.league_type} readOnly />
+                            <FormLabel>League Type</FormLabel>
+                            <Input value={league.league_type} readOnly />
                         </form>
                     ))}
 
@@ -190,8 +196,8 @@ class Settings extends Component {
                         {reduxState.createdTeam.length >= 1
                             ?
                             <>
-                                <label>Team Name</label>
-                                <input value={reduxState.createdTeam[0].team_name} readOnly />
+                                <FormLabel>Team Name</FormLabel>
+                                <Input value={reduxState.createdTeam[0].team_name} readOnly />
                             </>
                             :
                             <></>}
