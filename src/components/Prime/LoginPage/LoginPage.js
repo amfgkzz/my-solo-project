@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// Styling
+import './login.css';
+
 // Material UI
-import { Button, Input, FormLabel } from '@material-ui/core';
+import { Button, Input, FormLabel, Typography } from '@material-ui/core';
 
 class LoginPage extends Component {
   state = {
@@ -34,7 +37,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <center>
+      <div className="login-container">
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
@@ -43,9 +46,10 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <form onSubmit={this.login}>
-          <h1>Login</h1>
-          <div>
+        <form onSubmit={this.login} className="form-container">
+          <Typography variant="h3">
+            Login
+          </Typography>
             <FormLabel htmlFor="username">
               Username:
               <Input
@@ -55,9 +59,7 @@ class LoginPage extends Component {
                 onChange={this.handleInputChangeFor('username')}
               />
             </FormLabel>
-          </div>
-          <div>
-            <FormLabel htmlFor="password">
+            <br /><FormLabel htmlFor="password">
               Password:
               <Input
                 type="password"
@@ -66,8 +68,7 @@ class LoginPage extends Component {
                 onChange={this.handleInputChangeFor('password')}
               />
             </FormLabel>
-          </div>
-          <div>
+            <br />
             <Button
               variant="outlined"
               className="log-in"
@@ -77,9 +78,8 @@ class LoginPage extends Component {
             >
               Login
             </Button>
-          </div>
         </form>
-        <center>
+        <div>
           <Button
             variant="outlined"
             type="button"
@@ -88,8 +88,8 @@ class LoginPage extends Component {
           >
             Register
           </Button>
-        </center>
-      </center>
+        </div>
+      </div>
     );
   }
 }

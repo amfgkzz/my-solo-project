@@ -1,4 +1,4 @@
-import Background from '../../../images/fantasy_football_example.jpg';
+import Background from '../../../images/bg.jpg';
 
 let styles = {
     bmBurgerBars: {

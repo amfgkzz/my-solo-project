@@ -12,11 +12,13 @@ import App from './components/App/App';
 
 // Material UI
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { purple, green } from '@material-ui/core/colors'
+import { deepPurple, green, yellow, blueGrey, blue } from '@material-ui/core/colors/'
 
 const theme = createMuiTheme({
   palette: {
-    primary: purple,
+    primary: {
+      main: '#757ce8',
+    },
     secondary: green,
   }
 });
