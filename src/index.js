@@ -12,14 +12,15 @@ import App from './components/App/App';
 
 // Material UI
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { deepPurple, green, yellow, blueGrey, blue } from '@material-ui/core/colors/'
 
 const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#ffffff',
     },
-    secondary: green,
+    secondary: {
+      main: '#4c2d92',
+    },
   }
 });
 

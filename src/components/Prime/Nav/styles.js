@@ -29,6 +29,7 @@ let styles = {
     },
     /* Wrapper for item list */
     bmItemList: {
+        position: 'fixed',
         color: '#b8b7ad',
         padding: '0.8em',
     },
