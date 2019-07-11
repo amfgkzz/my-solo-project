@@ -32,14 +32,14 @@ const Nav = (props) => (
       <br />
 
       <Link className="active-link" component={Active} to="/UserTeamPage">
-      <i className="material-icons">group</i>
+      <span className="mdi mdi-football"></span>
       Team
       </Link>
 
       <br />
 
       <Link className="active-link" component={Active} to="/Players">
-      <i className="material-icons">person</i>
+      <i className="material-icons">group</i>
       Free Agency
       </Link>
 
