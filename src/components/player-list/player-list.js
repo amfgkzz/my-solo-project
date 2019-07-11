@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // material ui
-import { Button, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+import { AppBar, Button, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
 
 class PlayerList extends Component {
 
@@ -16,7 +16,7 @@ class PlayerList extends Component {
         this.fetchUserData();
     }
 
-    fetchUserData () {
+    fetchUserData() {
         this.props.dispatch({ type: 'FETCH_PLAYERLIST_DATA', payload: this.state.target });
         this.props.dispatch({ type: 'GET_USER_TEAM' });
     }
@@ -86,6 +86,7 @@ class PlayerList extends Component {
         let playerList = this.props.reduxState.playerList;
         return (
             <>
+                <AppBar position="relative" color="secondary">Free Agency</AppBar>
                 {/* <pre>
                     {JSON.stringify(this.state, null, 2)}
                 </pre> */}

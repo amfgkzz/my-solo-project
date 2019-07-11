@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './CreateLeague.css'
 
 // Material UI
-import { Button, FormLabel, Input, Select, MenuItem } from '@material-ui/core';
+import { AppBar, Button, FormLabel, Input, Select, MenuItem } from '@material-ui/core';
 
 class CreateLeague extends Component {
 
@@ -41,6 +41,7 @@ class CreateLeague extends Component {
 
         return (
             <>
+                                <AppBar position="relative" color="secondary">Create a League</AppBar>
                 {/* <pre>
                     {JSON.stringify(this.state, null, 2)}
                 </pre> */}

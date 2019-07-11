@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import './user-data.css';
 
 // Material UI
-import { Paper, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+import { Card, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
 
 const styles = withStyles(theme => ({
     root: {
@@ -47,7 +47,7 @@ class UserData extends Component {
                         {JSON.stringify(this.props, null, 2)}
                     </pre> */}
 
-                    <Paper>
+                    <Card>
                         <Table>
                             <TableHead>
                                 <TableRow>
@@ -66,7 +66,7 @@ class UserData extends Component {
                                 ))}
                             </TableBody>
                         </Table>
-                    </Paper>
+                    </Card>
                 </div>
             )
         } else if (this.props.reduxState.user.league_id && this.props.reduxState.user.team_id) {
@@ -75,7 +75,7 @@ class UserData extends Component {
                     {/* <pre>
                         {JSON.stringify(this.props, null, 2)}
                     </pre> */}
-                    <Paper>
+                    <Card>
                         <Table>
                             <TableHead>
                                 <TableRow>
@@ -94,7 +94,7 @@ class UserData extends Component {
                                 ))}
                             </TableBody>
                         </Table>
-                    </Paper>
+                    </Card>
                     <br />
 
                     <h3>{this.props.reduxState.createdTeam.length >= 1 ? this.props.reduxState.createdTeam[0].team_name : "No Team"}</h3>

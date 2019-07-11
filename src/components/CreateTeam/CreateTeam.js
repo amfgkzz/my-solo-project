@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Material UI
-import { Button, FormLabel, Input } from '@material-ui/core';
+import { AppBar, Button, FormLabel, Input } from '@material-ui/core';
 
 class CreateTeam extends Component {
 
@@ -45,6 +45,7 @@ class CreateTeam extends Component {
     render() {
         return (
             <>
+                                <AppBar position="relative" color="secondary">Create a Team</AppBar>
                 {/* <pre>
                     {JSON.stringify(this.state, null, 2)}
                 </pre>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // material ui
-import { Button, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+import { AppBar, Button, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
 
 class TeamPage extends Component {
 
@@ -43,7 +43,8 @@ class TeamPage extends Component {
 
         return (
             <>
-
+                <AppBar position="relative" color="secondary">Team</AppBar>
+                    
                 {
                     startTeam
                         ?
@@ -181,7 +182,7 @@ class TeamPage extends Component {
                                             < TableRow key={i}>
                                                 <TableCell>{benchTeam[i] ? benchTeam[i].player_position : <div style={{ opacity: '0.5' }}>Bench</div>}</TableCell>
                                                 <TableCell>{benchTeam[i] ? benchTeam[i].player_first_name : <></>} {benchTeam[i] ? benchTeam[i].player_last_name : <></>}</TableCell>
-                                                <TableCell>{benchTeam[i] ? <Button variant="outlined" onClick={this.handleClickStart} name={benchTeam[i].player_position} value={benchTeam[i].player_id} name={benchTeam[i].player_position}>Start</Button> : <></>}</TableCell>
+                                                <TableCell>{benchTeam[i] ? <Button variant="outlined" onClick={this.handleClickStart} name={benchTeam[i].player_position} value={benchTeam[i].player_id}>Start</Button> : <></>}</TableCell>
                                                 <TableCell>{benchTeam[i] ? <Button variant="outlined" onClick={this.handleClickRelease} value={benchTeam[i].player_id}>Release</Button> : <></>}</TableCell>
                                             </TableRow>
                                         ))

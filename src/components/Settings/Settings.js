@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Material UI
-import { Button, FormLabel, Input, Select, MenuItem } from '@material-ui/core';
+import { AppBar, Button, FormLabel, Input, Select, MenuItem } from '@material-ui/core';
 
 class Settings extends Component {
 
@@ -109,7 +109,7 @@ class Settings extends Component {
         if (this.state.inEditMode) {
             return (
                 <>
-                    <h2>Settings</h2>
+                    <AppBar position="relative" color="secondary">Settings</AppBar>
                     {/* <pre>
                         {JSON.stringify(this.state, null, 2)}
                     </pre> */}
@@ -177,7 +177,7 @@ class Settings extends Component {
         } else {
             return (
                 <>
-                    <h2>Settings</h2>
+                    <AppBar position="relative" color="secondary">Settings</AppBar>
 
                     <Button variant="outlined" onClick={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>Edit</Button>
 
