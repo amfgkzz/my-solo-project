@@ -43,7 +43,7 @@ class UserData extends Component {
 
                     <Card>
                         <Table>
-                            <TableHead style={{backgroundColor: '#4c2d92'}}>
+                            <TableHead style={{backgroundColor: '#60528F'}}>
                                 <TableRow>
                                     <TableCell style={{color: 'white'}}>League Name</TableCell>
                                     <TableCell style={{color: 'white'}}>League Numbers</TableCell>
@@ -66,10 +66,10 @@ class UserData extends Component {
         } else if (this.props.reduxState.user.league_id && this.props.reduxState.user.team_id) {
             return (
                 <div className="paper-table">
-g
+
                     <Card>
                         <Table>
-                            <TableHead style={{backgroundColor: '#4c2d92'}}>
+                            <TableHead style={{backgroundColor: '#60528F'}}>
                                 <TableRow>
                                     <TableCell style={{color: 'white'}}>League Name</TableCell>
                                     <TableCell style={{color: 'white'}}>League Numbers</TableCell>

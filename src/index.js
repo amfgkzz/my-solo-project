@@ -16,12 +16,13 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#ffffff',
+      main: '#C7B147',
     },
     secondary: {
-      main: '#4c2d92',
+      main: '#CCCCCD',
     },
-  }
+  },
+  shadows: ["none"],
 });
 
 const sagaMiddleware = createSagaMiddleware();

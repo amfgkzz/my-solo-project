@@ -12,11 +12,10 @@ let styles = {
         position: 'fixed',
         top: '0',
         left: '0',
-        backgroundImage: `linear-gradient(to top, rgba(118, 76, 214, 0.18), rgba(86, 69, 128, 0.92)), url(${Background})`,
+        backgroundImage: `linear-gradient(to top, rgba(118, 76, 214, 0.18), #3F3468), url(${Background})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'right',
-        filter: 'drop-shadow(1px 1px 1px black)',
     },
     /* General sidebar styles */
     bmMenu: {
