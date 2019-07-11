@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './TeamPage.css';
 
 // material ui
-import { AppBar, Button, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+import { AppBar, Button, Card, Grid, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
 
 class TeamPage extends Component {
 
@@ -43,13 +44,14 @@ class TeamPage extends Component {
 
         return (
             <>
+            
                 <AppBar position="relative" color="secondary">Team</AppBar>
-                    
-                {
-                    startTeam
-                        ?
-                        <>
-                            <h3>Start</h3>
+
+                <br/>
+
+                <div className="container-one">
+
+                            <Card>
 
                             <Table>
                                 <TableHead>
@@ -68,8 +70,8 @@ class TeamPage extends Component {
                                             <TableRow>
                                                 <TableCell>{startTeam.QB.player_position}</TableCell>
                                                 <TableCell>{startTeam.QB.player_first_name} {startTeam.QB.player_last_name}</TableCell>
-                                                <TableCell> <Button variant="outlined" onClick={this.handleClickBench} value={startTeam.QB.player_id}>Bench</Button> </TableCell>
-                                                <TableCell> <Button variant="outlined" onClick={this.handleClickRelease} value={startTeam.QB.player_id} >Release</Button> </TableCell>
+                                                <TableCell> <Button size="small" size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.QB.player_id}>Bench</Button> </TableCell>
+                                                <TableCell> <Button size="small" size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.QB.player_id} >Release</Button> </TableCell>
                                             </TableRow>
                                             :
                                             <TableRow>
@@ -86,8 +88,8 @@ class TeamPage extends Component {
                                             <TableRow>
                                                 <TableCell>{startTeam.RB.player_position}</TableCell>
                                                 <TableCell>{startTeam.RB.player_first_name} {startTeam.RB.player_last_name}</TableCell>
-                                                <TableCell> <Button variant="outlined" onClick={this.handleClickBench} value={startTeam.RB.player_id}>Bench</Button> </TableCell>
-                                                <TableCell> <Button variant="outlined" onClick={this.handleClickRelease} value={startTeam.RB.player_id} >Release</Button> </TableCell>
+                                                <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.RB.player_id}>Bench</Button> </TableCell>
+                                                <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.RB.player_id} >Release</Button> </TableCell>
                                             </TableRow>
                                             :
                                             <TableRow>
@@ -104,8 +106,8 @@ class TeamPage extends Component {
                                             <TableRow>
                                                 <TableCell>{startTeam.WR.player_position}</TableCell>
                                                 <TableCell>{startTeam.WR.player_first_name} {startTeam.WR.player_last_name}</TableCell>
-                                                <TableCell> <Button variant="outlined" onClick={this.handleClickBench} value={startTeam.WR.player_id}>Bench</Button> </TableCell>
-                                                <TableCell> <Button variant="outlined" onClick={this.handleClickRelease} value={startTeam.WR.player_id} >Release</Button> </TableCell>
+                                                <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.WR.player_id}>Bench</Button> </TableCell>
+                                                <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.WR.player_id} >Release</Button> </TableCell>
                                             </TableRow>
                                             :
                                             <TableRow>
@@ -122,8 +124,8 @@ class TeamPage extends Component {
                                             <TableRow>
                                                 <TableCell>{startTeam.TE.player_position}</TableCell>
                                                 <TableCell>{startTeam.TE.player_first_name} {startTeam.TE.player_last_name}</TableCell>
-                                                <TableCell> <Button variant="outlined" onClick={this.handleClickBench} value={startTeam.TE.player_id}>Bench</Button> </TableCell>
-                                                <TableCell> <Button variant="outlined" onClick={this.handleClickRelease} value={startTeam.TE.player_id} >Release</Button> </TableCell>
+                                                <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.TE.player_id}>Bench</Button> </TableCell>
+                                                <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.TE.player_id} >Release</Button> </TableCell>
                                             </TableRow>
                                             :
                                             <TableRow>
@@ -140,8 +142,8 @@ class TeamPage extends Component {
                                             <TableRow>
                                                 <TableCell>{startTeam.K.player_position}</TableCell>
                                                 <TableCell>{startTeam.K.player_first_name} {startTeam.K.player_last_name}</TableCell>
-                                                <TableCell> <Button variant="outlined" onClick={this.handleClickBench} value={startTeam.K.player_id}>Bench</Button> </TableCell>
-                                                <TableCell> <Button variant="outlined" onClick={this.handleClickRelease} value={startTeam.K.player_id} >Release</Button> </TableCell>
+                                                <TableCell> <Button variant='contained' color="secondary" size="small" onClick={this.handleClickBench} value={startTeam.K.player_id}>Bench</Button> </TableCell>
+                                                <TableCell> <Button variant='contained' color="secondary" size="small" onClick={this.handleClickRelease} value={startTeam.K.player_id} >Release</Button> </TableCell>
                                             </TableRow>
                                             :
                                             <TableRow>
@@ -154,18 +156,16 @@ class TeamPage extends Component {
 
                                 </TableBody>
                             </Table>
-                        </>
-                        :
-                        <></>
-                }
 
+                            </Card>
 
+                </div>
 
-                {
-                    benchTeam
-                        ?
-                        <>
-                            <h3>Bench</h3>
+                <br/>
+
+                <div className="container-two">
+
+                            <Card>
 
                             <Table>
                                 <TableHead>
@@ -182,19 +182,21 @@ class TeamPage extends Component {
                                             < TableRow key={i}>
                                                 <TableCell>{benchTeam[i] ? benchTeam[i].player_position : <div style={{ opacity: '0.5' }}>Bench</div>}</TableCell>
                                                 <TableCell>{benchTeam[i] ? benchTeam[i].player_first_name : <></>} {benchTeam[i] ? benchTeam[i].player_last_name : <></>}</TableCell>
-                                                <TableCell>{benchTeam[i] ? <Button variant="outlined" onClick={this.handleClickStart} name={benchTeam[i].player_position} value={benchTeam[i].player_id}>Start</Button> : <></>}</TableCell>
-                                                <TableCell>{benchTeam[i] ? <Button variant="outlined" onClick={this.handleClickRelease} value={benchTeam[i].player_id}>Release</Button> : <></>}</TableCell>
+                                                <TableCell>{benchTeam[i] ? <Button size="small" color="secondary" variant='contained' onClick={this.handleClickStart} name={benchTeam[i].player_position} value={benchTeam[i].player_id}>Start</Button> : <></>}</TableCell>
+                                                <TableCell>{benchTeam[i] ? <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={benchTeam[i].player_id}>Release</Button> : <></>}</TableCell>
                                             </TableRow>
                                         ))
                                     }
                                 </TableBody>
                             </Table>
-                        </>
-                        :
-                        <></>
-                }
 
+                            </Card>
+
+                </div>
+
+                <br/>
             </>
+
         )
     }
 }

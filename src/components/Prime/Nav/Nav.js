@@ -32,7 +32,7 @@ const Nav = (props) => (
       <br />
 
       <Link className="active-link" component={Active} to="/UserTeamPage">
-      <span className="mdi mdi-football"></span>
+      <i className="fas fa-football-ball"></i>
       Team
       </Link>
 
