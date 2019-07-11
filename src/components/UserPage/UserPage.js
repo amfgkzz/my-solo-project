@@ -8,7 +8,7 @@ import { AppBar } from '@material-ui/core';
 // and then instead of `props.user.username` you could use `user.username`
 const UserPage = (props) => (
   <>
-    <AppBar position="relative" color="secondary" style={{boxShadow: 'none'}}>
+    <AppBar position="relative" color="primary" style={{boxShadow: 'none'}}>
       Home
     </AppBar>
     <UserData />

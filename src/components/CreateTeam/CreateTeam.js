@@ -45,7 +45,7 @@ class CreateTeam extends Component {
     render() {
         return (
             <>
-                <AppBar position="relative" color="secondary" style={{ boxShadow: 'none' }}>Create a Team</AppBar>
+                <AppBar position="relative" color="primary" style={{ boxShadow: 'none' }}>Create a Team</AppBar>
 
                 <form onSubmit={this.handleClick}>
 

@@ -41,7 +41,7 @@ class CreateLeague extends Component {
 
         return (
             <>
-                <AppBar position="relative" color="secondary" style={{boxShadow: 'none'}}>Create a League</AppBar>
+                <AppBar position="relative" color="primary" style={{boxShadow: 'none'}}>Create a League</AppBar>
 
                 <h1>Create a League!</h1>
                 <h2>Please follow the instructions below to get started.</h2>

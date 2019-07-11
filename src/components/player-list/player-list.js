@@ -86,7 +86,7 @@ class PlayerList extends Component {
         let playerList = this.props.reduxState.playerList;
         return (
             <>
-                <AppBar position="relative" color="secondary" style={{boxShadow: 'none'}}>Free Agency</AppBar>
+                <AppBar position="relative" color="primary" style={{boxShadow: 'none'}}>Free Agency</AppBar>
                 {/* <pre>
                     {JSON.stringify(this.state, null, 2)}
                 </pre> */}

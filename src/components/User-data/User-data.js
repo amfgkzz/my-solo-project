@@ -43,7 +43,7 @@ class UserData extends Component {
 
                     <Card>
                         <Table>
-                            <TableHead style={{backgroundColor: '#60528F'}}>
+                            <TableHead style={{backgroundColor: '#4c2d92'}}>
                                 <TableRow>
                                     <TableCell style={{color: 'white'}}>League Name</TableCell>
                                     <TableCell style={{color: 'white'}}>League Numbers</TableCell>
@@ -69,7 +69,7 @@ class UserData extends Component {
 
                     <Card>
                         <Table>
-                            <TableHead style={{backgroundColor: '#60528F'}}>
+                            <TableHead style={{backgroundColor: '#4c2d92'}}>
                                 <TableRow>
                                     <TableCell style={{color: 'white'}}>League Name</TableCell>
                                     <TableCell style={{color: 'white'}}>League Numbers</TableCell>
