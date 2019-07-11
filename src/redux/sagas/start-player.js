@@ -4,8 +4,7 @@ import axios from 'axios';
 function* startPlayer(action) {
     try {
         yield axios.put(`/update/start-player?player_id=${action.payload}`);
-        yield dispatch({type: 'GET_USER_PLAYERS_BENCH'});
-        yield dispatch({type: 'GET_USER_PLAYERS_START'});
+        yield dispatch({type: 'GET_USER_PLAYERS'});
     } catch (error) {
         console.log(`Error with start player saga: ${error}`);
     }

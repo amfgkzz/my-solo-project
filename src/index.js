@@ -24,8 +24,6 @@ const theme = createMuiTheme({
   }
 });
 
-console.log(theme);
-
 const sagaMiddleware = createSagaMiddleware();
 
 // this line creates an array of all of redux middleware you want to use

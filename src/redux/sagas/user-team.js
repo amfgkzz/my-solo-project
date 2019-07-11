@@ -1,48 +1,49 @@
 import { takeEvery, put as dispatch } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* fetchPlayersBench(action) {
+function* fetchPlayers(action) {
     try {
-        const axiosResponse = yield axios.get('/team/user-team/bench-players');
-        yield dispatch({ type: 'SET_USER_PLAYERS_BENCH', payload: axiosResponse.data });
-    } catch (error) {
-        console.log(`Error with get player saga: ${error}`);
-    }
-}
-
-function* fetchPlayersStart(action) {
-    try {
-        const axiosResponse = yield axios.get('/team/user-team/start-players');
-        // yield dispatch({ type: 'SET_USER_START_QB', payload: axiosResponse.data });
-        // console.log('axios response', axiosResponse.data);
+        const axiosResponse = yield axios.get('/team/user-team/players');
         yield sort(axiosResponse.data);
     } catch (error) {
         console.log(`Error with get player saga: ${error}`);
     }
 }
 
-// FIX: fix to to update reducer, so page changes automatically
-// and fix to add two RB's and two WR's
 const sort = function* (array) {
+    let benchTeam = [];
+    let startTeam = {
+        QB: {},
+        RB: {},
+        WR: {},
+        TE: {},
+        K: {}
+    }
     for (let i = 0; i < array.length; i++) {
         const player = array[i];
-        if (player.player_position === 'QB') {
-            yield dispatch({ type: 'SET_USER_START_QB', payload: player });
-        } else if (player.player_position === 'RB') {
-            yield dispatch({ type: 'SET_USER_START_RB', payload: player });
-        } else if (player.player_position === 'WR') {
-            yield dispatch({ type: 'SET_USER_START_WR', payload: player });
-        } else if (player.player_position === 'TE') {
-            yield dispatch({ type: 'SET_USER_START_TE', payload: player });
-        } else if (player.player_position === 'K') {
-            yield dispatch({ type: 'SET_USER_START_K', payload: player });
+        if (player.player_start === false) {
+            benchTeam.push(player);
+        } else if (player.player_start === true) {
+            if (player.player_position === 'QB') {
+                startTeam.QB = player;
+            } else if (player.player_position === 'RB') {
+                startTeam.RB = player;
+            } else if (player.player_position === 'WR') {
+                startTeam.WR = player;
+            } else if (player.player_position === 'TE') {
+                startTeam.TE = player;
+            } else if (player.player_position === 'K') {
+                startTeam.K = player;
+            }
         }
     }
+    console.log(startTeam);
+    yield dispatch({ type: 'SET_USER_PLAYERS_BENCH', payload: benchTeam });
+    yield dispatch({ type: 'SET_USER_PLAYERS_START', payload: startTeam });
 }
 
 function* fetchUserPlayersSaga() {
-    yield takeEvery('GET_USER_PLAYERS_BENCH', fetchPlayersBench);
-    yield takeEvery('GET_USER_PLAYERS_START', fetchPlayersStart);
+    yield takeEvery('GET_USER_PLAYERS', fetchPlayers);
 }
 
 export default fetchUserPlayersSaga;
