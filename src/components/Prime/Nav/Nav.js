@@ -31,16 +31,16 @@ const Nav = (props) => (
 
       <br />
 
-      <Link className="active-link" component={Active} to="/Players">
-      <i className="material-icons">person</i>
-      Players
+      <Link className="active-link" component={Active} to="/UserTeamPage">
+      <i className="material-icons">group</i>
+      Team
       </Link>
 
       <br />
 
-      <Link className="active-link" component={Active} to="/UserTeamPage">
-      <i className="material-icons">group</i>
-      Team
+      <Link className="active-link" component={Active} to="/Players">
+      <i className="material-icons">person</i>
+      Free Agency
       </Link>
 
       <br />

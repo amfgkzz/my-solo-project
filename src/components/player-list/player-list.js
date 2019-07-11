@@ -123,7 +123,11 @@ class PlayerList extends Component {
                             <TableCell>{player.position}</TableCell>
                             <TableCell>{player.first_name} {player.last_name}</TableCell>
                             <TableCell>{player.name}</TableCell>
-                            <TableCell><Button variant="outlined" value={player.id} onClick={this.handleClickAdd}>Add</Button></TableCell>
+                            <TableCell>
+                                <Button variant="outlined" value={player.id} onClick={this.handleClickAdd}>
+                                <i className="material-icons">person_add</i>
+                                </Button>
+                                </TableCell>
                         </TableRow>))}
                     </TableBody>
                 </Table>
