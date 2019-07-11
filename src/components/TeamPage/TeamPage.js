@@ -44,7 +44,7 @@ class TeamPage extends Component {
         return (
             <>
 
-                <AppBar position="relative" color="secondary">Team</AppBar>
+                <AppBar position="relative" color="secondary" style={{boxShadow: 'none'}}>Team</AppBar>
 
                 <br />
 

@@ -45,14 +45,7 @@ class CreateTeam extends Component {
     render() {
         return (
             <>
-                                <AppBar position="relative" color="secondary">Create a Team</AppBar>
-                {/* <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
-
-                <pre>
-                    {JSON.stringify(this.props, null, 2)}
-                </pre> */}
+                <AppBar position="relative" color="secondary" style={{ boxShadow: 'none' }}>Create a Team</AppBar>
 
                 <form onSubmit={this.handleClick}>
 

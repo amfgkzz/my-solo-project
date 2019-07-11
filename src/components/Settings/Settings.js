@@ -109,7 +109,7 @@ class Settings extends Component {
         if (this.state.inEditMode) {
             return (
                 <>
-                    <AppBar position="relative" color="secondary">Settings</AppBar>
+                    <AppBar position="relative" color="secondary" style={{boxShadow: 'none'}}>Settings</AppBar>
                     {/* <pre>
                         {JSON.stringify(this.state, null, 2)}
                     </pre> */}
@@ -177,7 +177,7 @@ class Settings extends Component {
         } else {
             return (
                 <>
-                    <AppBar position="relative" color="secondary">Settings</AppBar>
+                    <AppBar position="relative" color="secondary" style={{boxShadow: 'none'}}>Settings</AppBar>
 
                     <Button variant="outlined" onClick={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>Edit</Button>
 

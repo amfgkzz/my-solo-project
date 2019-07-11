@@ -22,7 +22,6 @@ const theme = createMuiTheme({
       main: '#CCCCCD',
     },
   },
-  shadows: ["none"],
 });
 
 const sagaMiddleware = createSagaMiddleware();

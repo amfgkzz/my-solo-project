@@ -41,10 +41,7 @@ class CreateLeague extends Component {
 
         return (
             <>
-                                <AppBar position="relative" color="secondary">Create a League</AppBar>
-                {/* <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre> */}
+                <AppBar position="relative" color="secondary" style={{boxShadow: 'none'}}>Create a League</AppBar>
 
                 <h1>Create a League!</h1>
                 <h2>Please follow the instructions below to get started.</h2>
