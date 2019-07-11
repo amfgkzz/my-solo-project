@@ -35,25 +35,19 @@ class UserData extends Component {
             return (
                 <>
                     <h3>Create a League and Start Playing Today!</h3>
-                    {/* <pre>
-                        {JSON.stringify(this.props, null, 2)}
-                    </pre> */}
                 </>
             )
         } else if (this.props.reduxState.user.team_id === null) {
             return (
                 <div className="paper-table">
-                    {/* <pre>
-                        {JSON.stringify(this.props, null, 2)}
-                    </pre> */}
 
                     <Card>
                         <Table>
-                            <TableHead>
+                            <TableHead style={{backgroundColor: '#4c2d92'}}>
                                 <TableRow>
-                                    <TableCell>League Name</TableCell>
-                                    <TableCell>League Numbers</TableCell>
-                                    <TableCell>League Type</TableCell>
+                                    <TableCell style={{color: 'white'}}>League Name</TableCell>
+                                    <TableCell style={{color: 'white'}}>League Numbers</TableCell>
+                                    <TableCell style={{color: 'white'}}>League Type</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -72,16 +66,14 @@ class UserData extends Component {
         } else if (this.props.reduxState.user.league_id && this.props.reduxState.user.team_id) {
             return (
                 <div className="paper-table">
-                    {/* <pre>
-                        {JSON.stringify(this.props, null, 2)}
-                    </pre> */}
+g
                     <Card>
                         <Table>
-                            <TableHead>
+                            <TableHead style={{backgroundColor: '#4c2d92'}}>
                                 <TableRow>
-                                    <TableCell>League Name</TableCell>
-                                    <TableCell>League Numbers</TableCell>
-                                    <TableCell>League Type</TableCell>
+                                    <TableCell style={{color: 'white'}}>League Name</TableCell>
+                                    <TableCell style={{color: 'white'}}>League Numbers</TableCell>
+                                    <TableCell style={{color: 'white'}}>League Type</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -96,8 +88,6 @@ class UserData extends Component {
                         </Table>
                     </Card>
                     <br />
-
-                    <h3>{this.props.reduxState.createdTeam.length >= 1 ? this.props.reduxState.createdTeam[0].team_name : "No Team"}</h3>
 
                 </div>
             )

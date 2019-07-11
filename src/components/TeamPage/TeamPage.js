@@ -53,10 +53,10 @@ class TeamPage extends Component {
                     <Card style={{ width: '600px' }}>
 
                         <Table>
-                            <TableHead>
+                            <TableHead style={{backgroundColor: '#4c2d92'}}>
                                 <TableRow>
-                                    <TableCell>Position</TableCell>
-                                    <TableCell>Player Name</TableCell>
+                                    <TableCell style={{color: 'white'}}>Position</TableCell>
+                                    <TableCell style={{color: 'white'}}>Player Name</TableCell>
                                     <TableCell></TableCell>
                                     <TableCell></TableCell>
                                 </TableRow>
@@ -167,10 +167,10 @@ class TeamPage extends Component {
                     <Card style={{ width: '600px' }}>
 
                         <Table>
-                            <TableHead>
+                            <TableHead style={{backgroundColor: '#4c2d92'}}>
                                 <TableRow>
-                                    <TableCell>Position</TableCell>
-                                    <TableCell>Player Name</TableCell>
+                                    <TableCell style={{color: 'white'}}>Position</TableCell>
+                                    <TableCell style={{color: 'white'}}>Player Name</TableCell>
                                     <TableCell></TableCell>
                                     <TableCell></TableCell>
                                 </TableRow>
