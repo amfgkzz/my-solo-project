@@ -24,15 +24,24 @@ const Nav = (props) => (
 
     <Menu className="menu" width={200} disableAutoFocus styles={styles} noOverlay disableCloseOnEsc isOpen customCrossIcon={false} customBurgerIcon={false} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
 
-      <Link className="active-link" component={Active} to="/home">Home</Link>
+      <Link className="active-link" component={Active} to="/home">
+      <i className="material-icons">home</i>
+        Home
+      </Link>
 
       <br />
 
-      <Link className="active-link" component={Active} to="/Players">Players</Link>
+      <Link className="active-link" component={Active} to="/Players">
+      <i className="material-icons">person</i>
+      Players
+      </Link>
 
       <br />
 
-      <Link className="active-link" component={Active} to="/UserTeamPage">Team</Link>
+      <Link className="active-link" component={Active} to="/UserTeamPage">
+      <i className="material-icons">group</i>
+      Team
+      </Link>
 
       <br />
 
@@ -45,7 +54,10 @@ const Nav = (props) => (
 
       <br />
 
-      <Link className="active-link" component={Active} to="/Settings">Settings</Link>
+      <Link className="active-link" component={Active} to="/Settings">
+      <i className="material-icons">settings</i>
+      Settings
+      </Link>
 
       <br />
 
