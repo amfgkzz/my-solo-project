@@ -16,7 +16,11 @@ class TeamPage extends Component {
     }
 
     handleClickStart = (e) => {
-        this.props.dispatch({ type: 'START_PLAYER', payload: e.currentTarget.value });
+        if (this.props.reduxState.userTeamStart[`${e.currentTarget.name}`].player_id) {
+            alert('There is already a player in that starting position!');
+        } else {
+            this.props.dispatch({ type: 'START_PLAYER', payload: e.currentTarget.value });
+        }
     }
 
     handleClickBench = (e) => {
@@ -39,9 +43,6 @@ class TeamPage extends Component {
 
         return (
             <>
-                <pre>
-                    {JSON.stringify(this.props.reduxState, null, 2)}
-                </pre>
 
                 {
                     startTeam
@@ -180,7 +181,7 @@ class TeamPage extends Component {
                                             < TableRow key={i}>
                                                 <TableCell>{benchTeam[i] ? benchTeam[i].player_position : <div style={{ opacity: '0.5' }}>Bench</div>}</TableCell>
                                                 <TableCell>{benchTeam[i] ? benchTeam[i].player_first_name : <></>} {benchTeam[i] ? benchTeam[i].player_last_name : <></>}</TableCell>
-                                                <TableCell>{benchTeam[i] ? <Button variant="outlined" onClick={this.handleClickStart} value={benchTeam[i].player_id} name={benchTeam[i].player_position}>Start</Button> : <></>}</TableCell>
+                                                <TableCell>{benchTeam[i] ? <Button variant="outlined" onClick={this.handleClickStart} name={benchTeam[i].player_position} value={benchTeam[i].player_id} name={benchTeam[i].player_position}>Start</Button> : <></>}</TableCell>
                                                 <TableCell>{benchTeam[i] ? <Button variant="outlined" onClick={this.handleClickRelease} value={benchTeam[i].player_id}>Release</Button> : <></>}</TableCell>
                                             </TableRow>
                                         ))

@@ -37,7 +37,6 @@ const sort = function* (array) {
             }
         }
     }
-    console.log(startTeam);
     yield dispatch({ type: 'SET_USER_PLAYERS_BENCH', payload: benchTeam });
     yield dispatch({ type: 'SET_USER_PLAYERS_START', payload: startTeam });
 }
