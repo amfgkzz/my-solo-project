@@ -119,7 +119,7 @@ class PlayerList extends Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {playerList.slice(this.state.start, this.state.end).map((player, i) => (<TableRow key={i}>
+                        {playerList.slice(this.state.start, this.state.end).map((player, i) => (<TableRow key={i} hover>
                             <TableCell>{player.position}</TableCell>
                             <TableCell>{player.first_name} {player.last_name}</TableCell>
                             <TableCell>{player.name}</TableCell>
