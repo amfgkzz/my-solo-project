@@ -53,7 +53,7 @@ class TeamPage extends Component {
                     <Card style={{ width: '600px' }}>
 
                         <Table>
-                            <TableHead style={{backgroundColor: '#4c2d92'}}>
+                            <TableHead style={{backgroundColor: '#6e2db5'}}>
                                 <TableRow>
                                     <TableCell style={{color: 'white'}}>Position</TableCell>
                                     <TableCell style={{color: 'white'}}>Player Name</TableCell>
@@ -69,8 +69,8 @@ class TeamPage extends Component {
                                         <TableRow>
                                             <TableCell>{startTeam.QB.player_position}</TableCell>
                                             <TableCell>{startTeam.QB.player_first_name} {startTeam.QB.player_last_name}</TableCell>
-                                            <TableCell> <Button size="small" size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.QB.player_id}>Bench</Button> </TableCell>
-                                            <TableCell> <Button size="small" size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.QB.player_id} >Release</Button> </TableCell>
+                                            <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.QB.player_id}>Bench</Button> </TableCell>
+                                            <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.QB.player_id} >Release</Button> </TableCell>
                                         </TableRow>
                                         :
                                         <TableRow>
@@ -167,7 +167,7 @@ class TeamPage extends Component {
                     <Card style={{ width: '600px' }}>
 
                         <Table>
-                            <TableHead style={{backgroundColor: '#4c2d92'}}>
+                            <TableHead style={{backgroundColor: '#6e2db5'}}>
                                 <TableRow>
                                     <TableCell style={{color: 'white'}}>Position</TableCell>
                                     <TableCell style={{color: 'white'}}>Player Name</TableCell>

@@ -93,6 +93,8 @@ class LoginPage extends Component {
 
             <Button
               variant="contained"
+              size="small" 
+              color="secondary"
               className="log-in"
               type="submit"
               name="submit"
@@ -107,6 +109,8 @@ class LoginPage extends Component {
 
           <Button
             variant="contained"
+            size="small" 
+            color="secondary"
             type="button"
             className="link-button"
             onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}

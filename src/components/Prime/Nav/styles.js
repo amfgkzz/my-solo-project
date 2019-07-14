@@ -12,7 +12,7 @@ let styles = {
         position: 'fixed',
         top: '0',
         left: '0',
-        backgroundImage: `linear-gradient(to top, rgba(118, 76, 214, 0.18), #3F3468), url(${Background})`,
+        backgroundImage: `linear-gradient(to top, rgba(118, 76, 214, 0.18), rgba(110, 45, 181, 0.77)), url(${Background})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'right',
