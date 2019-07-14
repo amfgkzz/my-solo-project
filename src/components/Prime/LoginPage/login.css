@@ -1,6 +1,6 @@
 .login-container {
-    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.20), rgba(82, 12, 64, 0.4)),
-    url('../../../images/bg2.jpg');
+    background-image: radial-gradient( rgba(106, 32, 152, 0.22) 62%, #563086a3 86%),
+    url(/static/media/bg2.4677bfa4.jpg);
     background-size: cover;
     height: 100%;
     width: 100%;

@@ -101,11 +101,9 @@ class LoginPage extends Component {
               Login
             </Button>
 
-          </Paper>
 
-        </form>
-
-        <div>
+          <br/>
+          <br/>
 
           <Button
             variant="contained"
@@ -116,7 +114,9 @@ class LoginPage extends Component {
             Register
           </Button>
 
-        </div>
+          </Paper>
+
+        </form>
 
       </div>
     );
