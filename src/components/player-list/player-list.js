@@ -125,7 +125,7 @@ class PlayerList extends Component {
                             <TableCell>{player.name}</TableCell>
                             <TableCell>
                                 <Button variant="outlined" value={player.id} onClick={this.handleClickAdd}>
-                                <i className="material-icons">person_add</i>
+                                Add
                                 </Button>
                                 </TableCell>
                         </TableRow>))}

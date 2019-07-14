@@ -32,25 +32,16 @@ const Nav = (props) => (
       <br />
 
       <Link className="active-link" component={Active} to="/UserTeamPage">
-        <i className="fas fa-football-ball"></i>
+        <i className="material-icons">group</i>
         Team
       </Link>
 
       <br />
 
       <Link className="active-link" component={Active} to="/Players">
-        <i className="material-icons">group</i>
+        <i className="material-icons">person_add</i>
         Free Agency
       </Link>
-
-      <br />
-
-      {/* FIX: create a league is going to be a Link from another page, ie not on nav bar */}
-      <Link className="active-link" component={Active} to="/CreateLeague">Create a League</Link>
-
-      <br />
-
-      <Link className="active-link" component={Active} to="/CreateTeam">Create a Team</Link>
 
       <br />
 

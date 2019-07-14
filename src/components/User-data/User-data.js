@@ -3,7 +3,13 @@ import { connect } from 'react-redux';
 import './user-data.css';
 
 // Material UI
-import { Button, Card, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+import {
+    Button, Card, ExpansionPanel, ExpansionPanelSummary,
+    ExpansionPanelDetails, ExpansionPanelActions, Grid,
+    Typography, Table, TableHead,
+    TableBody, TableRow, TableCell
+}
+    from '@material-ui/core';
 
 class UserData extends Component {
 
@@ -18,20 +24,103 @@ class UserData extends Component {
     }
 
     render() {
-        const { classes } = this.props
         if (this.props.reduxState.user.league_id === null) {
             return (
                 <>
                     <h3>Create a League and Start Playing Today!</h3>
 
-                    <Button
-                        size="small"
-                        color="secondary"
-                        variant="contained"
-                        onClick={()=>{this.props.history.push('/CreateLeague')}}
-                    >
-                        Create League
-                    </Button>
+                    <div></div>
+
+                    <Grid container spacing={3}>
+
+                        <Grid item xs={12}>
+
+                            <ExpansionPanel>
+                                <ExpansionPanelSummary
+                                    expandIcon={<i className="material-icons">keyboard_arrow_down</i>}
+                                >
+                                    <Typography>
+                                        1. What is Fantasy Football?
+                                    </Typography>
+
+                                </ExpansionPanelSummary>
+
+                                <ExpansionPanelDetails>
+
+                                    <Typography>
+                                        Test2
+                                    </Typography>
+
+                                </ExpansionPanelDetails>
+
+                            </ExpansionPanel>
+
+                        </Grid>
+
+                        <Grid item xs={12}>
+
+                            <ExpansionPanel>
+                                <ExpansionPanelSummary
+                                    expandIcon={<i className="material-icons">keyboard_arrow_down</i>}
+                                >
+                                    <Typography>
+                                        2. How does Fantasy Football work?
+                                    </Typography>
+
+                                </ExpansionPanelSummary>
+
+                                <ExpansionPanelDetails>
+
+                                    <Typography>
+                                        Test2
+                                    </Typography>
+
+                                </ExpansionPanelDetails>
+
+                            </ExpansionPanel>
+
+                        </Grid>
+
+                        <Grid item xs={12}>
+
+                            <ExpansionPanel>
+                                <ExpansionPanelSummary
+                                    expandIcon={<i className="material-icons">keyboard_arrow_down</i>}
+                                >
+                                    <Typography>
+                                        3. Where can I play?
+                                    </Typography>
+
+                                </ExpansionPanelSummary>
+
+                                <ExpansionPanelDetails>
+
+                                    <Typography>
+                                        Click the button to start playing!
+                                    </Typography>
+
+                                    <ExpansionPanelActions>
+
+                                        <Button
+                                            size="small"
+                                            color="secondary"
+                                            variant="contained"
+                                            onClick={() => { this.props.history.push('/CreateLeague') }}
+                                        >
+                                            Create League
+                                        </Button>
+                                        
+                                    </ExpansionPanelActions>
+
+                                </ExpansionPanelDetails>
+
+                            </ExpansionPanel>
+
+                        </Grid>
+
+                    </Grid>
+
+                    <br />
 
                 </>
             )
