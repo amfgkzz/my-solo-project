@@ -8,11 +8,25 @@
 }
 
 .form-container {
-    color: white;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    width: 50%;
+    width: 25%;
+    height: 25%;
+}
+
+.paper-background{
+    background-color: rgb(245, 246, 252)!important;
+}
+
+.login-label{
+    color: white!important;
+    background-color: #6e2db5!important;
+    border-radius: 2px 2px 0px 0px;
+}
+
+.username-label, .password-label{
+    color: black!important;
 }

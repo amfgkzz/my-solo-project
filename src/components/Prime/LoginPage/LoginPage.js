@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import './login.css';
 
 // Material UI
-import { Button, Input, FormLabel, Typography } from '@material-ui/core';
+import { Button, InputLabel, Paper, FilledInput, Typography } from '@material-ui/core';
 
 class LoginPage extends Component {
   state = {
@@ -46,29 +46,51 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
+
         <form onSubmit={this.login} className="form-container">
-          <Typography variant="h3">
-            Login
+
+          <Paper className="paper-background">
+
+            <Typography
+            className="login-label" 
+            variant="h4"
+            display="block">
+              Login
           </Typography>
-            <FormLabel htmlFor="username" styles={{color: '#ffffff'}}>
+
+          <br/>
+
+            <InputLabel
+            className="username-label" 
+            htmlFor="username">
               Username:
-              <Input
+              <FilledInput
                 type="text"
                 name="username"
                 value={this.state.username}
                 onChange={this.handleInputChangeFor('username')}
+                required
               />
-            </FormLabel>
-            <br /><FormLabel htmlFor="password">
+            </InputLabel>
+
+            <br />
+
+            <InputLabel 
+            className="password-label"
+            htmlFor="password">
               Password:
-              <Input
+              <FilledInput
+                
                 type="password"
                 name="password"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
+                required
               />
-            </FormLabel>
+            </InputLabel>
+
             <br />
+
             <Button
               variant="contained"
               className="log-in"
@@ -78,8 +100,13 @@ class LoginPage extends Component {
             >
               Login
             </Button>
+
+          </Paper>
+
         </form>
+
         <div>
+
           <Button
             variant="contained"
             type="button"
@@ -88,7 +115,9 @@ class LoginPage extends Component {
           >
             Register
           </Button>
+
         </div>
+
       </div>
     );
   }

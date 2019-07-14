@@ -1,21 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withStyles } from '@material-ui/core/styles';
 import './user-data.css';
 
 // Material UI
 import { Card, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
-
-const styles = withStyles(theme => ({
-    root: {
-        width: '100%',
-        marginTop: theme.spacing(3),
-        overflowX: 'auto',
-    },
-    table: {
-        minWidth: 700,
-    },
-}));
 
 class UserData extends Component {
 
