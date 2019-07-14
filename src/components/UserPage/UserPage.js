@@ -11,12 +11,9 @@ const UserPage = (props) => (
     <AppBar position="relative" color="primary" style={{boxShadow: 'none'}}>
       Home
     </AppBar>
-    <UserData />
+
+    <UserData history={props.history}/>
   </>
 );
 
-const mapStateToProps = state => ({
-  user: state.user,
-});
-
-export default connect(mapStateToProps)(UserPage);
+export default connect()(UserPage);

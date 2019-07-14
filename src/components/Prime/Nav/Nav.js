@@ -25,22 +25,22 @@ const Nav = (props) => (
     <Menu className="menu" width={200} disableAutoFocus styles={styles} noOverlay disableCloseOnEsc isOpen customCrossIcon={false} customBurgerIcon={false} pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
 
       <Link className="active-link" component={Active} to="/home">
-      <i className="material-icons">home</i>
+        <i className="material-icons">home</i>
         Home
       </Link>
 
       <br />
 
       <Link className="active-link" component={Active} to="/UserTeamPage">
-      <i className="fas fa-football-ball"></i>
-      Team
+        <i className="fas fa-football-ball"></i>
+        Team
       </Link>
 
       <br />
 
       <Link className="active-link" component={Active} to="/Players">
-      <i className="material-icons">group</i>
-      Free Agency
+        <i className="material-icons">group</i>
+        Free Agency
       </Link>
 
       <br />
@@ -55,8 +55,8 @@ const Nav = (props) => (
       <br />
 
       <Link className="active-link" component={Active} to="/Settings">
-      <i className="material-icons">settings</i>
-      Settings
+        <i className="material-icons">settings</i>
+        Settings
       </Link>
 
       <br />
@@ -71,7 +71,7 @@ const Nav = (props) => (
         <Route
           exact
           path="/home"
-          component={UserPage}
+          render={(props) => <UserPage {...props} />}
         />
         <Route
           exact

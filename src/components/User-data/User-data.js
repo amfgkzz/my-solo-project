@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './user-data.css';
 
 // Material UI
-import { Card, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+import { Button, Card, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
 
 class UserData extends Component {
 
@@ -18,11 +18,21 @@ class UserData extends Component {
     }
 
     render() {
-        const {classes} = this.props
+        const { classes } = this.props
         if (this.props.reduxState.user.league_id === null) {
             return (
                 <>
                     <h3>Create a League and Start Playing Today!</h3>
+
+                    <Button
+                        size="small"
+                        color="secondary"
+                        variant="contained"
+                        onClick={()=>{this.props.history.push('/CreateLeague')}}
+                    >
+                        Create League
+                    </Button>
+
                 </>
             )
         } else if (this.props.reduxState.user.team_id === null) {
@@ -31,11 +41,11 @@ class UserData extends Component {
 
                     <Card>
                         <Table>
-                            <TableHead style={{backgroundColor: '#6e2db5'}}>
+                            <TableHead style={{ backgroundColor: '#6e2db5' }}>
                                 <TableRow>
-                                    <TableCell style={{color: 'white'}}>League Name</TableCell>
-                                    <TableCell style={{color: 'white'}}>League Numbers</TableCell>
-                                    <TableCell style={{color: 'white'}}>League Type</TableCell>
+                                    <TableCell style={{ color: 'white' }}>League Name</TableCell>
+                                    <TableCell style={{ color: 'white' }}>League Numbers</TableCell>
+                                    <TableCell style={{ color: 'white' }}>League Type</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -57,11 +67,11 @@ class UserData extends Component {
 
                     <Card>
                         <Table>
-                            <TableHead style={{backgroundColor: '#6e2db5'}}>
+                            <TableHead style={{ backgroundColor: '#6e2db5' }}>
                                 <TableRow>
-                                    <TableCell style={{color: 'white'}}>League Name</TableCell>
-                                    <TableCell style={{color: 'white'}}>League Numbers</TableCell>
-                                    <TableCell style={{color: 'white'}}>League Type</TableCell>
+                                    <TableCell style={{ color: 'white' }}>League Name</TableCell>
+                                    <TableCell style={{ color: 'white' }}>League Numbers</TableCell>
+                                    <TableCell style={{ color: 'white' }}>League Type</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
