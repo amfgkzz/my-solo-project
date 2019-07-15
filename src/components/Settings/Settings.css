@@ -1,5 +1,12 @@
 .settings-form-container{
+    margin-top: 15%;
     display: flex;
     justify-content: center;
     flex-direction: row;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
 }

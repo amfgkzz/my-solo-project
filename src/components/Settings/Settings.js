@@ -170,7 +170,6 @@ class Settings extends Component {
                             }
 
                             <br />
-                            <br />
 
                             {
                                 reduxState.createdTeam.length >= 1
@@ -193,7 +192,8 @@ class Settings extends Component {
                                         <Input onChange={this.handleChange('teamName')} placeholder={reduxState.createdTeam[0].team_name} />
                                         <Button 
                                         size="small"
-                                        variant="outlined" 
+                                        color="secondary"
+                                        variant="contained" 
                                         onClick={this.handleDeleteTeam}>
                                         Delete Team
                                         </Button>
@@ -204,18 +204,23 @@ class Settings extends Component {
                             }
 
                             <br />
-                            <br />
 
                             <Button 
                             size="small"
-                            variant="outlined" 
+                            color="secondary"
+                            variant="contained" 
                             type="reset">
                             Cancel
                             </Button>
+                            
+                            <div className="divider" />
+
                             <Button 
-                            size="smallg"
-                            variant="outlined" 
-                            type="submit">
+                            size="small"
+                            color="secondary"
+                            variant="contained" 
+                            type="submit"
+                            >
                             Save
                             </Button>
 
@@ -263,7 +268,6 @@ class Settings extends Component {
                             ))}
 
                             <br />
-                            <br />
 
                             <>
                                 {
@@ -293,7 +297,6 @@ class Settings extends Component {
                             </>
 
                             <br />
-                            <br />
 
                         </form>
 
@@ -303,7 +306,8 @@ class Settings extends Component {
 
                         <Button
                             size="small"
-                            variant="outlined"
+                            color="secondary"
+                            variant="contained"
                             onClick={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}
                         >
                             Edit
