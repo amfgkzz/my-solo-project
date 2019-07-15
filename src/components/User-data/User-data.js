@@ -192,6 +192,8 @@ class UserData extends Component {
                     Click the button below to get started.
                 </Typography>
 
+                <br/>
+
                 <Button
                 color="secondary"
                 size="small"
@@ -349,10 +351,10 @@ class UserData extends Component {
                         <>
 
                         <Typography>
-                            You don't have anyone on your starting team!
-                        </Typography>
+                        You don't have anyone on your starting team!
 
-                        <Typography>
+                        <br/>
+
                         Click the button below to head to your team page.
                         </Typography>
 

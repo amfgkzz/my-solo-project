@@ -16,6 +16,7 @@ class TeamPage extends Component {
     }
 
     fetchUserTeam = () => {
+        this.props.dispatch({ type: 'FETCH_USER' });
         this.props.dispatch({ type: 'GET_USER_TEAM' });
         this.props.dispatch({ type: 'GET_USER_PLAYERS' });
     }
@@ -45,15 +46,40 @@ class TeamPage extends Component {
             { pos: 'TE' }, { pos: 'K' }
         ];
 
-        if (benchTeam.length === 0) {
+        if (this.props.reduxState.user.team_id === null) {
             return (
-                <> 
+                <div className="no-players">
+
+                <Typography>
+                    You don't have a team!
+                    <br/>
+                    In order to play you must create a team.
+                    <br/>
+                    Click the button below to get started.
+                </Typography>
+
+                <br/>
+
+                <Button
+                color="secondary"
+                size="small"
+                variant="contained"
+                onClick={()=>{this.props.history.push('/CreateTeam')}}
+                >
+                    Create Team
+                </Button>
+
+                </div>
+            )
+        }
+        else if (benchTeam.length === 0) {
+            return (
+                <div className="no-players">
 
                 <Typography>
                     You don't have any players!
                     <br/>
                     Click the button below to head over to Free Agency
-
                 </Typography>
 
                 <br/>
@@ -78,7 +104,7 @@ class TeamPage extends Component {
                     Free Agency
                 </Button>
 
-                </>
+                </div>
             )
         } else {
             return (
