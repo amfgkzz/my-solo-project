@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './CreateLeague.css'
 
 // Material UI
-import { AppBar, Button, FormLabel, Input, Select, MenuItem } from '@material-ui/core';
+import { Button, FormLabel, IconButton, Input, Paper, Select, MenuItem, Tooltip, Typography } from '@material-ui/core';
 
 class CreateLeague extends Component {
 
@@ -41,40 +41,91 @@ class CreateLeague extends Component {
 
         return (
             <>
-                <AppBar position="relative" color="primary" style={{boxShadow: 'none'}}>Create a League</AppBar>
 
-                <h1>Create a League!</h1>
-                <h2>Please follow the instructions below to get started.</h2>
+                <div className="league-form-container">
 
-                <form onSubmit={this.handleSubmit}>
+                    <Paper>
 
-                    <FormLabel>League Name</FormLabel>
-                    <Input re="true" placeholder="League Name" onChange={this.handleChange('leagueName')} />
+                        <Typography
+                            className="login-label"
+                        >
+                            Create a League
+                        </Typography>
 
-                    <br />
+                        <form onSubmit={this.handleSubmit}>
 
-                    <FormLabel>Number of Teams</FormLabel>
-                    <Select onChange={this.handleChange('leagueNumber')} value={this.state.leagueNumber}>
-                        <MenuItem value="4">4</MenuItem>
-                        <MenuItem value="6">6</MenuItem>
-                        <MenuItem value="8">8</MenuItem>
-                        <MenuItem value="10">10</MenuItem>
-                        <MenuItem value="12">12</MenuItem>
-                    </Select>
+                            <FormLabel>League Name</FormLabel>
+                            <Input re="true" placeholder="League Name" onChange={this.handleChange('leagueName')} />
 
-                    <br />
+                            <br />
 
-                    {/* FIX: explain the scoring type to user */}
-                    <FormLabel>Scoring Type</FormLabel>
-                    <Select onChange={this.handleChange('leagueType')} value={this.state.leagueType}>
-                        <MenuItem value="Standard">Standard</MenuItem>
-                        <MenuItem value="PPR">PPR</MenuItem>
-                    </Select>
+                            <Tooltip
+                            title="Number of users who can play in your league"
+                            placement="left-start"
+                            >
+                            <IconButton>
+                            <i className="material-icons">info</i>
+                            </IconButton>
+                            </Tooltip>
 
-                    <br />
+                            <FormLabel>Number of Teams</FormLabel>
+                            <Select onChange={this.handleChange('leagueNumber')} value={this.state.leagueNumber}>
+                                <MenuItem value="4">4</MenuItem>
+                                <MenuItem value="6">6</MenuItem>
+                                <MenuItem value="8">8</MenuItem>
+                                <MenuItem value="10">10</MenuItem>
+                                <MenuItem value="12">12</MenuItem>
+                            </Select>
 
-                    <Button type="submit" variant="outlined">Create</Button>
-                </form>
+                            <br />
+
+                            {
+                                this.state.leagueType == 'Standard'
+                                ?
+                                <Tooltip
+                                title="Your League will use the standard scoring rules"
+                                placement="left-start"
+                                >
+                                <IconButton>
+                                <i className="material-icons">info</i>
+                                </IconButton>
+                                </Tooltip>
+                                :
+                                <Tooltip
+                                title="Your league will use a PPR scoring 
+                                system, this means that
+                                fractional or full points are awarded 
+                                for every reception tallied by a player."
+                                placement="left-start"
+                                >
+                                <IconButton>
+                                <i className="material-icons">info</i>
+                                </IconButton>
+                                </Tooltip>
+
+                            }
+
+                            <FormLabel>Scoring Type</FormLabel>
+                            <Select onChange={this.handleChange('leagueType')} value={this.state.leagueType}>
+                                <MenuItem value="Standard">Standard</MenuItem>
+                                <MenuItem value="PPR">PPR</MenuItem>
+                            </Select>
+
+                            <br />
+                            <br/>
+
+                            <Button
+                                variant="contained"
+                                size="small"
+                                color="secondary"
+                            >Create
+                            </Button>
+
+                        </form>
+
+                    </Paper>
+
+                </div>
 
             </>
         )

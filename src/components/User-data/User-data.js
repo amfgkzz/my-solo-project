@@ -27,13 +27,6 @@ class UserData extends Component {
         if (this.props.reduxState.user.league_id === null) {
             return (
                 <>
-                    <Typography
-
-                    >
-                        Create a League and Start Playing Today!
-                    </Typography>
-
-                    <div></div>
 
                     <Grid container spacing={3}>
 
@@ -44,7 +37,7 @@ class UserData extends Component {
                                     expandIcon={<i className="material-icons">keyboard_arrow_down</i>}
                                 >
                                     <Typography>
-                                        1. What is Fantasy Football?
+                                        What is Fantasy Football?
                                     </Typography>
 
                                 </ExpansionPanelSummary>
@@ -52,9 +45,7 @@ class UserData extends Component {
                                 <ExpansionPanelDetails>
 
                                     <Typography>
-                                        Fantasy football (less commonly referred to as
-                                        fantasy association football worldwide but known
-                                        as fantasy soccer in the United States) is a game
+                                        Fantasy football is a game
                                         in which participants assemble an imaginary team of
                                         real life footballers and score points based on those
                                          players' actual statistical performance or their perceived
@@ -81,7 +72,7 @@ class UserData extends Component {
                                     expandIcon={<i className="material-icons">keyboard_arrow_down</i>}
                                 >
                                     <Typography>
-                                        2. How does Fantasy Football work?
+                                        How does Fantasy Football work?
                                     </Typography>
 
                                 </ExpansionPanelSummary>
@@ -111,7 +102,7 @@ class UserData extends Component {
                                     expandIcon={<i className="material-icons">keyboard_arrow_down</i>}
                                 >
                                     <Typography>
-                                        2. Is there anything else I should know?
+                                        Is there anything else I should know?
                                     </Typography>
 
                                 </ExpansionPanelSummary>
@@ -131,7 +122,7 @@ class UserData extends Component {
                                     In P.P.R. leagues, as the name implies, 
                                     players who tend to catch more passes than others at their position 
                                     are of greater value. This means that players will receive point value 
-                                    for every catch they make in PPR, even if they gain no yards.
+                                    for every catch they make in P.P.R., even if they gain no yards.
 
                                 
                                     </Typography>
