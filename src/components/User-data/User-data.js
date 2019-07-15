@@ -48,7 +48,19 @@ class UserData extends Component {
                                 <ExpansionPanelDetails>
 
                                     <Typography>
-                                        Test2
+                                        Fantasy football (less commonly referred to as
+                                        fantasy association football worldwide but known
+                                        as fantasy soccer in the United States) is a game
+                                        in which participants assemble an imaginary team of
+                                        real life footballers and score points based on those
+                                         players' actual statistical performance or their perceived
+                                         contribution on the field of play. Usually players are
+                                         selected from one specific division in a particular country,
+                                         although there are many variations. The original game was created
+                                         in England by Bernie Donnelly on Saturday 14 August 1971 and is
+                                         still going strong 45 years later. Fantasy football has evolved
+                                         in recent years from a simple recreational activity into a significant
+                                         business due to exposure via the internet.
                                     </Typography>
 
                                 </ExpansionPanelDetails>
@@ -72,7 +84,12 @@ class UserData extends Component {
                                 <ExpansionPanelDetails>
 
                                     <Typography>
-                                        Test2
+
+                                    Your team competes against another team every week. During the NFL season, 
+                                    the real teams face each other and so do the fantasy teams in your league. 
+                                    The players' real-time stats are converted into fantasy points by your league 
+                                    provider, and the fantasy team that scores the most points wins the game for the week.
+
                                     </Typography>
 
                                 </ExpansionPanelDetails>
@@ -109,7 +126,7 @@ class UserData extends Component {
                                         >
                                             Create League
                                         </Button>
-                                        
+
                                     </ExpansionPanelActions>
 
                                 </ExpansionPanelDetails>
