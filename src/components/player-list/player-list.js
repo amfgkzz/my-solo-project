@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // material ui
-import { AppBar, Button, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+import {
+    AppBar, Button, IconButton,
+    Table, TableHead,
+    TableBody, TableRow,
+    TableCell, TableFooter,
+} from '@material-ui/core';
 
 class PlayerList extends Component {
 
@@ -86,7 +91,7 @@ class PlayerList extends Component {
         let playerList = this.props.reduxState.playerList;
         return (
             <>
-                <AppBar position="relative" color="primary" style={{boxShadow: 'none'}}>Free Agency</AppBar>
+                <AppBar position="relative" color="primary" style={{ boxShadow: 'none' }}>Free Agency</AppBar>
                 {/* <pre>
                     {JSON.stringify(this.state, null, 2)}
                 </pre> */}
@@ -99,14 +104,23 @@ class PlayerList extends Component {
                     <button onClick={this.handleClick} name="TE">TE</button>
                     <button onClick={this.handleClick} name="K">K</button>
 
-                    <br />
-
-                    <div className="pagination">
-                        <button onClick={this.handlePrevious}>&laquo;Previous</button>
-                        <button onClick={this.handleNext}>Next&raquo;</button>
-                    </div>
-
                 </div>
+
+                <IconButton
+                size="small"
+                onClick={this.handlePrevious}
+                >
+                    <i className="material-icons">keyboard_arrow_left</i>
+                </IconButton>
+
+                <div className="divider" />
+
+                <IconButton
+                size="small"
+                onClick={this.handleNext}
+                >
+                    <i className="material-icons">keyboard_arrow_right</i>
+                </IconButton>
 
                 {/* Make table nicer <-- stretch */}
                 <Table>
@@ -125,9 +139,9 @@ class PlayerList extends Component {
                             <TableCell>{player.name}</TableCell>
                             <TableCell>
                                 <Button variant="outlined" value={player.id} onClick={this.handleClickAdd}>
-                                Add
+                                    Add
                                 </Button>
-                                </TableCell>
+                            </TableCell>
                         </TableRow>))}
                     </TableBody>
                 </Table>
