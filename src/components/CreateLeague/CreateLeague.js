@@ -52,10 +52,12 @@ class CreateLeague extends Component {
                             Create a League
                         </Typography>
 
+                        <br/>
+
                         <form onSubmit={this.handleSubmit}>
 
-                            <FormLabel>League Name</FormLabel>
-                            <Input re="true" placeholder="League Name" onChange={this.handleChange('leagueName')} />
+                            <FormLabel>League Name: </FormLabel>
+                            <Input re="true" placeholder="Name Your League!" onChange={this.handleChange('leagueName')} />
 
                             <br />
 
@@ -68,7 +70,7 @@ class CreateLeague extends Component {
                             </IconButton>
                             </Tooltip>
 
-                            <FormLabel>Number of Teams</FormLabel>
+                            <FormLabel>Number of Teams: </FormLabel>
                             <Select onChange={this.handleChange('leagueNumber')} value={this.state.leagueNumber}>
                                 <MenuItem value="4">4</MenuItem>
                                 <MenuItem value="6">6</MenuItem>
@@ -80,7 +82,7 @@ class CreateLeague extends Component {
                             <br />
 
                             {
-                                this.state.leagueType == 'Standard'
+                                this.state.leagueType === 'Standard'
                                 ?
                                 <Tooltip
                                 title="Your League will use the standard scoring rules"
@@ -92,8 +94,8 @@ class CreateLeague extends Component {
                                 </Tooltip>
                                 :
                                 <Tooltip
-                                title="Your league will use a PPR scoring 
-                                system, this means that
+                                title="Your league will use a PPR (Points Per Reception)
+                                scoring system, this means that
                                 fractional or full points are awarded 
                                 for every reception tallied by a player."
                                 placement="left-start"
@@ -105,7 +107,7 @@ class CreateLeague extends Component {
 
                             }
 
-                            <FormLabel>Scoring Type</FormLabel>
+                            <FormLabel>Scoring Type: </FormLabel>
                             <Select onChange={this.handleChange('leagueType')} value={this.state.leagueType}>
                                 <MenuItem value="Standard">Standard</MenuItem>
                                 <MenuItem value="PPR">PPR</MenuItem>
@@ -115,6 +117,7 @@ class CreateLeague extends Component {
                             <br/>
 
                             <Button
+                                type="submit"
                                 variant="contained"
                                 size="small"
                                 color="secondary"

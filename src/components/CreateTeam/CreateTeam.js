@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Material UI
-import { AppBar, Button, FormLabel, Input } from '@material-ui/core';
+import { Button, FormLabel, Input, Paper, Typography } from '@material-ui/core';
 
 class CreateTeam extends Component {
 
@@ -45,18 +45,40 @@ class CreateTeam extends Component {
     render() {
         return (
             <>
-                <AppBar position="relative" color="primary" style={{ boxShadow: 'none' }}>Create a Team</AppBar>
 
-                <form onSubmit={this.handleClick}>
+                <div className="league-form-container">
 
-                    <FormLabel>Team Name</FormLabel>
-                    <Input onChange={this.handleChange} placeholder="Team Name" />
+                <Paper>
 
-                    <br />
+                    <Typography
+                    className="login-label"
+                    >
+                        Create a Team
+                    </Typography>
 
-                    <Button type="submit" variant="outlined">Create</Button>
+                    <br/>
 
-                </form>
+                    <form onSubmit={this.handleClick}>
+
+                        <FormLabel>Team Name: </FormLabel>
+                        <Input onChange={this.handleChange} placeholder="Name Your Team!" />
+
+                        <br />
+                        <br />
+
+                        <Button
+                        size="small"
+                        color="secondary"
+                         type="submit" 
+                         variant="contained"
+                         >Create
+                         </Button>
+
+                    </form>
+
+                </Paper>
+
+                </div>
 
             </>
         )
