@@ -113,122 +113,146 @@ class Settings extends Component {
 
                     <AppBar position="relative" color="secondary" style={{ boxShadow: 'none' }}>Settings</AppBar>
 
-                    <div className="settings-form-container">
+                    {
+                        this.props.reduxState.user.league_id === null
+                            ?
+                            <>
 
-                        <form onSubmit={reduxState.createdTeam.length >= 1 ? this.handleSubmit : () => { this.setState({ inEditMode: !this.state.inEditMode }) }}
-                            onReset={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>
+                            <Typography>
+                                You must have a league in order to change setting!
+                        <br />
+                                Click the button below to get started.
+                        <br />
+                            </Typography>
 
-                            {
-                                reduxState.createdLeague.length >= 1
-                                    ?
-                                    <>
-
-                                        <Paper style={{ width: '500px' }}>
-
-                                            <Typography
-                                                className="login-label"
-                                            >
-                                                {
-                                                    this.props.reduxState.createdLeague && this.props.reduxState.createdLeague[0]
-                                                        ?
-                                                        this.props.reduxState.createdLeague[0].league_name
-                                                        :
-                                                        <>{JSON.stringify(this.props, null, 2)}</>
-                                                }
-                                            </Typography>
-
-                                            <FormLabel>League Name: </FormLabel>
-
-                                            <Input onChange={this.handleChange('leagueName')} placeholder={reduxState.createdLeague[0].league_name} />
-
-                                            <br />
-
-                                            <FormLabel>League Numbers: </FormLabel>
-
-                                            <Select value={this.state.editObject.leagueNumbers} onChange={this.handleChange('leagueNumbers')}>
-                                                <MenuItem value="4">4</MenuItem>
-                                                <MenuItem value="6">6</MenuItem>
-                                                <MenuItem value="8">8</MenuItem>
-                                                <MenuItem value="10">10</MenuItem>
-                                                <MenuItem value="12">12</MenuItem>
-                                            </Select>
-
-                                            <br />
-
-                                            <FormLabel>League Type: </FormLabel>
-
-                                            <Select value={this.state.editObject.leagueType} onChange={this.handleChange('leagueType')}>
-                                                <MenuItem value="Standard">Standard</MenuItem>
-                                                <MenuItem value="PPR">PPR</MenuItem>
-                                            </Select>
-
-                                        </Paper>
-
-                                        {/* FIX: add ability to delete league
-                                    <button onClick={this.handleDeleteLeague}>Delete League</button> */}
-                                    </>
-                                    :
-                                    <></>
-                            }
-
-                            <br />
-
-                            {
-                                reduxState.createdTeam.length >= 1
-                                    ?
-                                    <Paper style={{ width: '500px' }}>
-
-                                        <Typography
-                                            className="login-label"
-                                        >
-                                            {
-                                                this.props.reduxState.createdTeam && this.props.reduxState.createdTeam[0]
-                                                    ?
-                                                    this.props.reduxState.createdTeam[0].team_name
-                                                    :
-                                                    <>{JSON.stringify(this.props, null, 2)}</>
-                                            }
-                                        </Typography>
-
-                                        <FormLabel>Team Name: </FormLabel>
-                                        <Input onChange={this.handleChange('teamName')} placeholder={reduxState.createdTeam[0].team_name} />
-                                        <Button
-                                            size="small"
-                                            color="secondary"
-                                            variant="contained"
-                                            onClick={this.handleDeleteTeam}>
-                                            Delete Team
-                                        </Button>
-
-                                    </Paper>
-                                    :
-                                    <></>
-                            }
-
-                            <br />
+                        <br/>
 
                             <Button
-                                size="small"
-                                color="secondary"
-                                variant="contained"
-                                type="reset">
-                                Cancel
-                            </Button>
+                            color="secondary"
+                            size="small"
+                            variant="contained"
+                            onClick={()=>{this.props.history.push('/CreateLeague')}}
+                            >Create</Button>
 
-                            <div className="divider" />
+                            </>
+                            :
+                            <div className="settings-form-container">
 
-                            <Button
-                                size="small"
-                                color="secondary"
-                                variant="contained"
-                                type="submit"
-                            >
-                                Save
-                            </Button>
+                                <form onSubmit={reduxState.createdTeam.length >= 1 ? this.handleSubmit : () => { this.setState({ inEditMode: !this.state.inEditMode }) }}
+                                    onReset={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}>
 
-                        </form>
+                                    {
+                                        reduxState.createdLeague.length >= 1
+                                            ?
+                                            <>
 
-                    </div>
+                                                <Paper style={{ width: '500px' }}>
+
+                                                    <Typography
+                                                        className="login-label"
+                                                    >
+                                                        {
+                                                            this.props.reduxState.createdLeague && this.props.reduxState.createdLeague[0]
+                                                                ?
+                                                                this.props.reduxState.createdLeague[0].league_name
+                                                                :
+                                                                <>{JSON.stringify(this.props, null, 2)}</>
+                                                        }
+                                                    </Typography>
+
+                                                    <FormLabel>League Name: </FormLabel>
+
+                                                    <Input onChange={this.handleChange('leagueName')} placeholder={reduxState.createdLeague[0].league_name} />
+
+                                                    <br />
+
+                                                    <FormLabel>League Numbers: </FormLabel>
+
+                                                    <Select value={this.state.editObject.leagueNumbers} onChange={this.handleChange('leagueNumbers')}>
+                                                        <MenuItem value="4">4</MenuItem>
+                                                        <MenuItem value="6">6</MenuItem>
+                                                        <MenuItem value="8">8</MenuItem>
+                                                        <MenuItem value="10">10</MenuItem>
+                                                        <MenuItem value="12">12</MenuItem>
+                                                    </Select>
+
+                                                    <br />
+
+                                                    <FormLabel>League Type: </FormLabel>
+
+                                                    <Select value={this.state.editObject.leagueType} onChange={this.handleChange('leagueType')}>
+                                                        <MenuItem value="Standard">Standard</MenuItem>
+                                                        <MenuItem value="PPR">PPR</MenuItem>
+                                                    </Select>
+
+                                                </Paper>
+
+                                                {/* FIX: add ability to delete league
+                                <button onClick={this.handleDeleteLeague}>Delete League</button> */}
+                                            </>
+                                            :
+                                            <></>
+                                    }
+
+                                    <br />
+
+                                    {
+                                        reduxState.createdTeam.length >= 1
+                                            ?
+                                            <Paper style={{ width: '500px' }}>
+
+                                                <Typography
+                                                    className="login-label"
+                                                >
+                                                    {
+                                                        this.props.reduxState.createdTeam && this.props.reduxState.createdTeam[0]
+                                                            ?
+                                                            this.props.reduxState.createdTeam[0].team_name
+                                                            :
+                                                            <>{JSON.stringify(this.props, null, 2)}</>
+                                                    }
+                                                </Typography>
+
+                                                <FormLabel>Team Name: </FormLabel>
+                                                <Input onChange={this.handleChange('teamName')} placeholder={reduxState.createdTeam[0].team_name} />
+                                                <Button
+                                                    size="small"
+                                                    color="secondary"
+                                                    variant="contained"
+                                                    onClick={this.handleDeleteTeam}>
+                                                    Delete Team
+                                    </Button>
+
+                                            </Paper>
+                                            :
+                                            <></>
+                                    }
+
+                                    <br />
+
+                                    <Button
+                                        size="small"
+                                        color="secondary"
+                                        variant="contained"
+                                        type="reset">
+                                        Cancel
+                        </Button>
+
+                                    <div className="divider" />
+
+                                    <Button
+                                        size="small"
+                                        color="secondary"
+                                        variant="contained"
+                                        type="submit"
+                                    >
+                                        Save
+                        </Button>
+
+                                </form>
+
+                            </div>
+                    }
 
                 </>
             )
@@ -238,86 +262,117 @@ class Settings extends Component {
 
                     <AppBar position="relative" color="secondary" style={{ boxShadow: 'none' }}>Settings</AppBar>
 
-                    <div className="settings-form-container">
+                    {
+                        this.props.reduxState.user.league_id === null
+                            ?
+                            <>
 
-                        <form>
+                            <Typography>
+                                You must have a league in order to change setting!
+                        <br />
+                                Click the button below to get started.
+                        <br />
+                            </Typography>
 
-                            {reduxState.createdLeague.map((league, i) => (
+                        <br/>
 
-                                <Paper style={{ width: '500px' }} key={i}>
+                            <Button
+                            color="secondary"
+                            size="small"
+                            variant="contained"
+                            onClick={()=>{this.props.history.push('/CreateLeague')}}
+                            >Create</Button>
 
-                                    <Typography
-                                        className="login-label"
-                                    >
-                                        {
-                                            this.props.reduxState.createdLeague && this.props.reduxState.createdLeague[0]
-                                                ?
-                                                this.props.reduxState.createdLeague[0].league_name
-                                                :
-                                                <>{JSON.stringify(this.props, null, 2)}</>
-                                        }
-                                    </Typography>
-
-                                    <FormLabel>League Name: </FormLabel>
-                                    <Input value={league.league_name} readOnly />
-                                    <br />
-                                    <FormLabel>League Numbers: </FormLabel>
-                                    <Input value={league.league_numbers} readOnly />
-                                    <br />
-                                    <FormLabel>League Type: </FormLabel>
-                                    <Input value={league.league_type} readOnly />
-
-                                </Paper>
-
-                            ))}
-
-                            <br />
+                            </>
+                            :
 
                             <>
-                                {
-                                    reduxState.createdTeam.length >= 1
-                                        ?
-                                        <Paper style={{ width: '500px' }}>
 
-                                            <Typography
-                                                className="login-label"
-                                            >
-                                                {
-                                                    this.props.reduxState.createdTeam && this.props.reduxState.createdTeam[0]
-                                                        ?
-                                                        this.props.reduxState.createdTeam[0].team_name
-                                                        :
-                                                        <>{JSON.stringify(this.props, null, 2)}</>
-                                                }
-                                            </Typography>
+                                <div className="settings-form-container">
 
-                                            <FormLabel>Team Name: </FormLabel>
-                                            <Input value={reduxState.createdTeam[0].team_name} readOnly />
+                                    <form>
 
-                                        </Paper>
-                                        :
-                                        <></>
-                                }
+                                        {reduxState.createdLeague.map((league, i) => (
+
+                                            <Paper style={{ width: '500px' }} key={i}>
+
+                                                <Typography
+                                                    className="login-label"
+                                                >
+                                                    {
+                                                        this.props.reduxState.createdLeague && this.props.reduxState.createdLeague[0]
+                                                            ?
+                                                            this.props.reduxState.createdLeague[0].league_name
+                                                            :
+                                                            <>{JSON.stringify(this.props, null, 2)}</>
+                                                    }
+                                                </Typography>
+
+                                                <FormLabel>League Name: </FormLabel>
+                                                <Input value={league.league_name} readOnly />
+                                                <br />
+                                                <FormLabel>League Numbers: </FormLabel>
+                                                <Input value={league.league_numbers} readOnly />
+                                                <br />
+                                                <FormLabel>League Type: </FormLabel>
+                                                <Input value={league.league_type} readOnly />
+
+                                            </Paper>
+
+                                        ))}
+
+                                        <br />
+
+                                        <>
+                                            {
+                                                reduxState.createdTeam.length >= 1
+                                                    ?
+                                                    <Paper style={{ width: '500px' }}>
+
+                                                        <Typography
+                                                            className="login-label"
+                                                        >
+                                                            {
+                                                                this.props.reduxState.createdTeam && this.props.reduxState.createdTeam[0]
+                                                                    ?
+                                                                    this.props.reduxState.createdTeam[0].team_name
+                                                                    :
+                                                                    <>{JSON.stringify(this.props, null, 2)}</>
+                                                            }
+                                                        </Typography>
+
+                                                        <FormLabel>Team Name: </FormLabel>
+                                                        <Input value={reduxState.createdTeam[0].team_name} readOnly />
+
+                                                    </Paper>
+                                                    :
+                                                    <></>
+                                            }
+                                        </>
+
+                                        <br />
+
+                                    </form>
+
+                                </div>
+
+                                <div>
+
+                                    <Button
+                                        size="small"
+                                        color="secondary"
+                                        variant="contained"
+                                        onClick={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}
+                                    >
+                                        Edit
+                                </Button>
+
+                                </div>
+
                             </>
 
-                            <br />
+                    }
 
-                        </form>
-
-                    </div>
-
-                    <div>
-
-                        <Button
-                            size="small"
-                            color="secondary"
-                            variant="contained"
-                            onClick={() => { this.setState({ inEditMode: !this.state.inEditMode }) }}
-                        >
-                            Edit
-                        </Button>
-
-                    </div>
 
                 </>
             )
