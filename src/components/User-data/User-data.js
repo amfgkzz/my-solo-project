@@ -39,7 +39,7 @@ class UserData extends Component {
                             <ExpansionPanel>
                                 <ExpansionPanelSummary
                                     style={{backgroundColor: '#6e2db5', color: 'white'}}
-                                    expandIcon={<i className="material-icons">keyboard_arrow_down</i>}
+                                    expandIcon={<i style={{color: 'white'}} className="material-icons">keyboard_arrow_down</i>}
                                 >
                                     <Typography>
                                         What is Fantasy Football?
@@ -79,7 +79,7 @@ class UserData extends Component {
 
                                 <ExpansionPanelSummary
                                     style={{backgroundColor: '#6e2db5', color: 'white'}}
-                                    expandIcon={<i className="material-icons">keyboard_arrow_down</i>}
+                                    expandIcon={<i style={{color: 'white'}} className="material-icons">keyboard_arrow_down</i>}
                                 >
                                     <Typography>
                                         How does Fantasy Football work?
@@ -114,7 +114,7 @@ class UserData extends Component {
 
                                 <ExpansionPanelSummary
                                     style={{backgroundColor: '#6e2db5', color: 'white'}}
-                                    expandIcon={<i className="material-icons">keyboard_arrow_down</i>}
+                                    expandIcon={<i style={{color: 'white'}} className="material-icons">keyboard_arrow_down</i>}
                                 >
                                     <Typography>
                                         Is there anything else I should know?
