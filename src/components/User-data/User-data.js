@@ -28,9 +28,13 @@ class UserData extends Component {
             return (
                 <>
 
+                <div className="user-grid">
+
                     <Grid container spacing={3}>
 
                         <Grid item xs={12}>
+
+                        <Card style={{width: '800px', margin: 'auto'}}>
 
                             <ExpansionPanel>
                                 <ExpansionPanelSummary
@@ -62,9 +66,13 @@ class UserData extends Component {
 
                             </ExpansionPanel>
 
+                            </Card>
+
                         </Grid>
 
                         <Grid item xs={12}>
+
+                        <Card style={{width: '800px', margin: 'auto'}}>
 
                             <ExpansionPanel>
 
@@ -92,9 +100,13 @@ class UserData extends Component {
 
                             </ExpansionPanel>
 
+                            </Card>
+
                         </Grid>
 
                         <Grid item xs={12}>
+
+                        <Card style={{width: '800px', margin: 'auto'}}>
 
                             <ExpansionPanel>
 
@@ -131,9 +143,13 @@ class UserData extends Component {
 
                             </ExpansionPanel>
 
+                            </Card>
+
                         </Grid>
 
                     </Grid>
+
+                    </div>
 
                     <br />
 

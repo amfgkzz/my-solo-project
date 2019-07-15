@@ -38,6 +38,14 @@ class LoginPage extends Component {
   render() {
     return (
       <div className="login-container">
+
+          <Typography
+            style={{textAlign: 'center', opacity: '0.5', color: 'white'}}
+            variant="h2"
+            display="block">
+              Fantasy Football
+          </Typography>
+
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
