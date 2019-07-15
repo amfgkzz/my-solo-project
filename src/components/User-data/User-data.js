@@ -27,7 +27,11 @@ class UserData extends Component {
         if (this.props.reduxState.user.league_id === null) {
             return (
                 <>
-                    <h3>Create a League and Start Playing Today!</h3>
+                    <Typography
+
+                    >
+                        Create a League and Start Playing Today!
+                    </Typography>
 
                     <div></div>
 
@@ -86,11 +90,11 @@ class UserData extends Component {
 
                                     <Typography>
 
-                                    Your team competes against another team every week. During the NFL season, 
-                                    the real teams face each other and so do the fantasy teams in your league. 
-                                    The players' real-time stats are converted into fantasy points by your league 
-                                    provider, and the fantasy team that scores the most points wins the game for the week.
-
+                                        Your team competes against another team every week. During the NFL season,
+                                        the real teams face each other and so do the fantasy teams in your league.
+                                        The players' real-time stats are converted into fantasy points by your league
+                                        provider, and the fantasy team that scores the most points wins the game for the week.
+    
                                     </Typography>
 
                                 </ExpansionPanelDetails>
@@ -99,21 +103,61 @@ class UserData extends Component {
 
                         </Grid>
 
-                    </Grid>
+                        <Grid item xs={12}>
 
-                    <br/>
+                            <ExpansionPanel>
 
+                                <ExpansionPanelSummary
+                                    expandIcon={<i className="material-icons">keyboard_arrow_down</i>}
+                                >
                                     <Typography>
-                                        Click the button to start playing!
+                                        2. Is there anything else I should know?
                                     </Typography>
 
-                                        <Button
-                                            size="small"
-                                            color="secondary"
-                                            variant="contained"
-                                            onClick={() => { this.props.history.push('/CreateLeague') }}
-                                        >
-                                            Create League
+                                </ExpansionPanelSummary>
+
+                                <ExpansionPanelDetails>
+
+                                    <Typography>
+
+                                    The two most popular scoring formats are standard and P.P.R. 
+                                    (points per reception). 
+                                    
+                                    Standard draft leagues are the most popular fantasy football leagues 
+                                    and generally begin with teams selecting all their players in a serpentine 
+                                    style draft. Owners then set their lineups each week based on the number of 
+                                    players per position allowed by league rules.
+                                    
+                                    In P.P.R. leagues, as the name implies, 
+                                    players who tend to catch more passes than others at their position 
+                                    are of greater value. This means that players will receive point value 
+                                    for every catch they make in PPR, even if they gain no yards.
+
+                                
+                                    </Typography>
+
+                                </ExpansionPanelDetails>
+
+                            </ExpansionPanel>
+
+                        </Grid>
+
+
+                    </Grid>
+
+                    <br />
+
+                    <Typography>
+                        Click the button to start playing!
+                                    </Typography>
+
+                    <Button
+                        size="small"
+                        color="secondary"
+                        variant="contained"
+                        onClick={() => { this.props.history.push('/CreateLeague') }}
+                    >
+                        Create League
                                         </Button>
 
                     <br />
