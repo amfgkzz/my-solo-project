@@ -72,6 +72,7 @@ class UserData extends Component {
                         <Grid item xs={12}>
 
                             <ExpansionPanel>
+
                                 <ExpansionPanelSummary
                                     expandIcon={<i className="material-icons">keyboard_arrow_down</i>}
                                 >
@@ -98,25 +99,13 @@ class UserData extends Component {
 
                         </Grid>
 
-                        <Grid item xs={12}>
+                    </Grid>
 
-                            <ExpansionPanel>
-                                <ExpansionPanelSummary
-                                    expandIcon={<i className="material-icons">keyboard_arrow_down</i>}
-                                >
-                                    <Typography>
-                                        3. Where can I play?
-                                    </Typography>
-
-                                </ExpansionPanelSummary>
-
-                                <ExpansionPanelDetails>
+                    <br/>
 
                                     <Typography>
                                         Click the button to start playing!
                                     </Typography>
-
-                                    <ExpansionPanelActions>
 
                                         <Button
                                             size="small"
@@ -126,16 +115,6 @@ class UserData extends Component {
                                         >
                                             Create League
                                         </Button>
-
-                                    </ExpansionPanelActions>
-
-                                </ExpansionPanelDetails>
-
-                            </ExpansionPanel>
-
-                        </Grid>
-
-                    </Grid>
 
                     <br />
 
