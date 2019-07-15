@@ -156,6 +156,8 @@ class UserData extends Component {
             )
         } else if (this.props.reduxState.user.team_id === null) {
             return (
+                <>
+
                 <div className="paper-table">
 
                     <Card style={{width:'600px'}}>
@@ -179,6 +181,27 @@ class UserData extends Component {
                         </Table>
                     </Card>
                 </div>
+
+                <br/>
+
+                <Typography>
+                    You don't have a team!
+                    <br/>
+                    In order to play you must create a team.
+                    <br/>
+                    Click the button below to get started.
+                </Typography>
+
+                <Button
+                color="secondary"
+                size="small"
+                variant="contained"
+                onClick={()=>{this.props.history.push('/CreateTeam')}}
+                >
+                    Create Team
+                </Button>
+
+                </>
             )
         } else if (this.props.reduxState.user.league_id && this.props.reduxState.user.team_id) {
             return (
@@ -326,7 +349,11 @@ class UserData extends Component {
                         <>
 
                         <Typography>
-                            Looks like you don't have anyone on your starting team!
+                            You don't have anyone on your starting team!
+                        </Typography>
+
+                        <Typography>
+                        Click the button below to head to your team page.
                         </Typography>
 
                         <Button
