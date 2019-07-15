@@ -5,9 +5,8 @@ import './user-data.css';
 // Material UI
 import {
     Button, Card, ExpansionPanel, ExpansionPanelSummary,
-    ExpansionPanelDetails, ExpansionPanelActions, Grid,
-    Typography, Table, TableHead,
-    TableBody, TableRow, TableCell
+    ExpansionPanelDetails, Grid, Typography, 
+    Table, TableHead, TableBody, TableRow, TableCell
 }
     from '@material-ui/core';
 
@@ -164,16 +163,16 @@ class UserData extends Component {
                             <TableHead style={{ backgroundColor: '#6e2db5' }}>
                                 <TableRow>
                                     <TableCell style={{ color: 'white' }}>League Name</TableCell>
-                                    <TableCell style={{ color: 'white' }}>League Numbers</TableCell>
                                     <TableCell style={{ color: 'white' }}>League Type</TableCell>
+                                    <TableCell style={{ color: 'white' }}>League Numbers</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {this.props.reduxState.createdLeague.map((league, i) => (
                                     <TableRow key={i}>
                                         <TableCell>{league.league_name}</TableCell>
-                                        <TableCell>{league.league_numbers}</TableCell>
                                         <TableCell>{league.league_type}</TableCell>
+                                        <TableCell>{league.league_numbers}</TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
@@ -190,16 +189,16 @@ class UserData extends Component {
                             <TableHead style={{ backgroundColor: '#6e2db5' }}>
                                 <TableRow>
                                     <TableCell style={{ color: 'white' }}>League Name</TableCell>
-                                    <TableCell style={{ color: 'white' }}>League Numbers</TableCell>
                                     <TableCell style={{ color: 'white' }}>League Type</TableCell>
+                                    <TableCell style={{ color: 'white' }}>League Numbers</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {this.props.reduxState.createdLeague.map((league, i) => (
                                     <TableRow key={i}>
                                         <TableCell>{league.league_name}</TableCell>
-                                        <TableCell>{league.league_numbers}</TableCell>
                                         <TableCell>{league.league_type}</TableCell>
+                                        <TableCell>{league.league_numbers}</TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './TeamPage.css';
 
 // material ui
-import { AppBar, Button, Card, Grid, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
+import { AppBar, Button, Card, Table, TableHead, TableBody, TableRow, TableCell } from '@material-ui/core';
 
 class TeamPage extends Component {
 
