@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './Settings.css';
 
 // Material UI
-import { Button, FormLabel, Input, Paper, Select, MenuItem, Typography } from '@material-ui/core';
+import { AppBar, Button, FormLabel, Input, Paper, Select, MenuItem, Typography } from '@material-ui/core';
 
 class Settings extends Component {
 
@@ -111,6 +111,8 @@ class Settings extends Component {
             return (
                 <>
 
+                    <AppBar position="relative" color="secondary" style={{ boxShadow: 'none' }}>Settings</AppBar>
+
                     <div className="settings-form-container">
 
                         <form onSubmit={reduxState.createdTeam.length >= 1 ? this.handleSubmit : () => { this.setState({ inEditMode: !this.state.inEditMode }) }}
@@ -121,7 +123,7 @@ class Settings extends Component {
                                     ?
                                     <>
 
-                                        <Paper style={{width: '500px'}}>
+                                        <Paper style={{ width: '500px' }}>
 
                                             <Typography
                                                 className="login-label"
@@ -174,7 +176,7 @@ class Settings extends Component {
                             {
                                 reduxState.createdTeam.length >= 1
                                     ?
-                                    <Paper style={{width: '500px'}}>
+                                    <Paper style={{ width: '500px' }}>
 
                                         <Typography
                                             className="login-label"
@@ -190,12 +192,12 @@ class Settings extends Component {
 
                                         <FormLabel>Team Name: </FormLabel>
                                         <Input onChange={this.handleChange('teamName')} placeholder={reduxState.createdTeam[0].team_name} />
-                                        <Button 
-                                        size="small"
-                                        color="secondary"
-                                        variant="contained" 
-                                        onClick={this.handleDeleteTeam}>
-                                        Delete Team
+                                        <Button
+                                            size="small"
+                                            color="secondary"
+                                            variant="contained"
+                                            onClick={this.handleDeleteTeam}>
+                                            Delete Team
                                         </Button>
 
                                     </Paper>
@@ -205,23 +207,23 @@ class Settings extends Component {
 
                             <br />
 
-                            <Button 
-                            size="small"
-                            color="secondary"
-                            variant="contained" 
-                            type="reset">
-                            Cancel
+                            <Button
+                                size="small"
+                                color="secondary"
+                                variant="contained"
+                                type="reset">
+                                Cancel
                             </Button>
-                            
+
                             <div className="divider" />
 
-                            <Button 
-                            size="small"
-                            color="secondary"
-                            variant="contained" 
-                            type="submit"
+                            <Button
+                                size="small"
+                                color="secondary"
+                                variant="contained"
+                                type="submit"
                             >
-                            Save
+                                Save
                             </Button>
 
                         </form>
@@ -234,13 +236,15 @@ class Settings extends Component {
             return (
                 <>
 
+                    <AppBar position="relative" color="secondary" style={{ boxShadow: 'none' }}>Settings</AppBar>
+
                     <div className="settings-form-container">
 
                         <form>
 
                             {reduxState.createdLeague.map((league, i) => (
 
-                                <Paper style={{width: '500px'}} key={i}>
+                                <Paper style={{ width: '500px' }} key={i}>
 
                                     <Typography
                                         className="login-label"
@@ -273,7 +277,7 @@ class Settings extends Component {
                                 {
                                     reduxState.createdTeam.length >= 1
                                         ?
-                                        <Paper style={{width: '500px'}}>
+                                        <Paper style={{ width: '500px' }}>
 
                                             <Typography
                                                 className="login-label"

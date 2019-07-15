@@ -6,7 +6,7 @@ import {
     AppBar, Button, IconButton,
     Table, TableHead,
     TableBody, TableRow,
-    TableCell, TableFooter,
+    TableCell, Tooltip,
 } from '@material-ui/core';
 
 class PlayerList extends Component {
@@ -91,10 +91,7 @@ class PlayerList extends Component {
         let playerList = this.props.reduxState.playerList;
         return (
             <>
-                <AppBar position="relative" color="primary" style={{ boxShadow: 'none' }}>Free Agency</AppBar>
-                {/* <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre> */}
+                <AppBar position="relative" color="secondary" style={{ boxShadow: 'none' }}>Free Agency</AppBar>
 
                 <div style={{ textAlign: 'center' }}>
 
@@ -138,7 +135,12 @@ class PlayerList extends Component {
                             <TableCell>{player.first_name} {player.last_name}</TableCell>
                             <TableCell>{player.name}</TableCell>
                             <TableCell>
-                                <Button variant="outlined" value={player.id} onClick={this.handleClickAdd}>
+                                <Button 
+                                color="secondary"
+                                size="small"
+                                variant="contained" 
+                                value={player.id} 
+                                onClick={this.handleClickAdd}>
                                     Add
                                 </Button>
                             </TableCell>
