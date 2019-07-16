@@ -258,15 +258,13 @@ class UserData extends Component {
 
                         ?
 
-                        <Card style={{ width: '600px' }}>
+                        <Card style={{ width: '400px' }}>
 
 <Table>
     <TableHead style={{backgroundColor: '#6e2db5'}}>
         <TableRow>
             <TableCell style={{color: 'white'}}>Position</TableCell>
             <TableCell style={{color: 'white'}}>Player Name</TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
         </TableRow>
     </TableHead>
     <TableBody>
@@ -277,14 +275,10 @@ class UserData extends Component {
                 <TableRow>
                     <TableCell>{startTeam.QB.player_position}</TableCell>
                     <TableCell>{startTeam.QB.player_first_name} {startTeam.QB.player_last_name}</TableCell>
-                    <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.QB.player_id}>Bench</Button> </TableCell>
-                    <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.QB.player_id} >Release</Button> </TableCell>
                 </TableRow>
                 :
                 <TableRow>
                     <TableCell><div style={{ opacity: '0.5' }}>QB</div></TableCell>
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
                     <TableCell></TableCell>
                 </TableRow>
         }
@@ -295,14 +289,10 @@ class UserData extends Component {
                 <TableRow>
                     <TableCell>{startTeam.RB.player_position}</TableCell>
                     <TableCell>{startTeam.RB.player_first_name} {startTeam.RB.player_last_name}</TableCell>
-                    <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.RB.player_id}>Bench</Button> </TableCell>
-                    <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.RB.player_id} >Release</Button> </TableCell>
                 </TableRow>
                 :
                 <TableRow>
                     <TableCell><div style={{ opacity: '0.5' }}>RB</div></TableCell>
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
                     <TableCell></TableCell>
                 </TableRow>
         }
@@ -313,14 +303,10 @@ class UserData extends Component {
                 <TableRow>
                     <TableCell>{startTeam.WR.player_position}</TableCell>
                     <TableCell>{startTeam.WR.player_first_name} {startTeam.WR.player_last_name}</TableCell>
-                    <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.WR.player_id}>Bench</Button> </TableCell>
-                    <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.WR.player_id} >Release</Button> </TableCell>
                 </TableRow>
                 :
                 <TableRow>
                     <TableCell><div style={{ opacity: '0.5' }}>WR</div></TableCell>
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
                     <TableCell></TableCell>
                 </TableRow>
         }
@@ -331,14 +317,10 @@ class UserData extends Component {
                 <TableRow>
                     <TableCell>{startTeam.TE.player_position}</TableCell>
                     <TableCell>{startTeam.TE.player_first_name} {startTeam.TE.player_last_name}</TableCell>
-                    <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.TE.player_id}>Bench</Button> </TableCell>
-                    <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.TE.player_id} >Release</Button> </TableCell>
                 </TableRow>
                 :
                 <TableRow>
                     <TableCell><div style={{ opacity: '0.5' }}>TE</div></TableCell>
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
                     <TableCell></TableCell>
                 </TableRow>
         }
@@ -349,14 +331,10 @@ class UserData extends Component {
                 <TableRow>
                     <TableCell>{startTeam.K.player_position}</TableCell>
                     <TableCell>{startTeam.K.player_first_name} {startTeam.K.player_last_name}</TableCell>
-                    <TableCell> <Button variant='contained' color="secondary" size="small" onClick={this.handleClickBench} value={startTeam.K.player_id}>Bench</Button> </TableCell>
-                    <TableCell> <Button variant='contained' color="secondary" size="small" onClick={this.handleClickRelease} value={startTeam.K.player_id} >Release</Button> </TableCell>
                 </TableRow>
                 :
                 <TableRow>
                     <TableCell><div style={{ opacity: '0.5' }}>K</div></TableCell>
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
                     <TableCell></TableCell>
                 </TableRow>
         }

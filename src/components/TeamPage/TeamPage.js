@@ -72,45 +72,14 @@ class TeamPage extends Component {
                 </div>
             )
         }
-        else if (benchTeam.length === 0) {
-            return (
-                <div className="no-players">
-
-                <Typography>
-                    You don't have any players!
-                    <br/>
-                    Click the button below to head over to Free Agency
-                </Typography>
-
-                <br/>
-
-                <Tooltip
-                title="Free Agency is where you can add players
-                to your team. There are no duplicate players.
-                First come first serve!"
-                placement="left-start"
-                >
-                <IconButton>
-                <i className="material-icons">info</i>
-                </IconButton>
-                </Tooltip>
-
-                <Button
-                color="secondary"
-                size="small"
-                variant="contained"
-                onClick={()=>{this.props.history.push('/Players')}}
-                >
-                    Free Agency
-                </Button>
-
-                </div>
-            )
-        } else {
+        // FIX: show if start team exists
+        else if (benchTeam.length !== 0 || startTeam.QB && startTeam.QB.player_id || 
+            startTeam.RB && startTeam.RB.player_id || startTeam.WR && startTeam.WR.player_id || 
+            startTeam.TE && startTeam.TE.player_id || startTeam.K && startTeam.K.player_id) {
             return (
                 <>
-    
-                    <AppBar position="relative" color="secondary" style={{boxShadow: 'none'}}>Team</AppBar>
+
+                <AppBar position="relative" color="secondary" style={{boxShadow: 'none'}}>Team</AppBar>
     
                     <br />
     
@@ -261,7 +230,45 @@ class TeamPage extends Component {
     
                     <br />
                 </>
-    
+            )
+        } 
+        else {
+            return (
+                <>
+
+<div className="no-players">
+
+<Typography>
+    You don't have any players!
+    <br/>
+    Click the button below to head over to Free Agency
+</Typography>
+
+<br/>
+
+<Tooltip
+title="Free Agency is where you can add players
+to your team. There are no duplicate players.
+First come first serve!"
+placement="left-start"
+>
+<IconButton>
+<i className="material-icons">info</i>
+</IconButton>
+</Tooltip>
+
+<Button
+color="secondary"
+size="small"
+variant="contained"
+onClick={()=>{this.props.history.push('/Players')}}
+>
+    Free Agency
+</Button>
+
+</div>
+
+</> 
             )
         }
     }
