@@ -259,7 +259,7 @@ class UserData extends Component {
 
                         ?
 
-                        <Card style={{ width: '400px' }}>
+                        <Card style={{ width: '600px' }}>
 
                             <Table>
                                 <TableHead style={{backgroundColor: '#6e2db5'}}>
