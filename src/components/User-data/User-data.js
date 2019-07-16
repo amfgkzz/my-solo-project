@@ -19,6 +19,7 @@ class UserData extends Component {
     fetchUserData = () => {
         this.props.dispatch({ type: 'GET_USER_LEAGUE' });
         this.props.dispatch({ type: 'GET_USER_TEAM' });
+        this.props.dispatch({ type: 'GET_USER_PLAYERS' });
         this.props.dispatch({ type: 'FETCH_USER' });
     }
 
@@ -252,97 +253,97 @@ class UserData extends Component {
                     <br />
 
                     {
-                        startTeam.QB && startTeam.QB.player_id || startTeam.RB && startTeam.RB.player_id ||
-                        startTeam.WR && startTeam.WR.player_id || startTeam.TE && startTeam.TE.player_id ||
-                        startTeam.K && startTeam.K.player_id
+                        (startTeam.QB && startTeam.QB.player_id) || (startTeam.RB && startTeam.RB.player_id) ||
+                        (startTeam.WR && startTeam.WR.player_id) || (startTeam.TE && startTeam.TE.player_id) ||
+                        (startTeam.K && startTeam.K.player_id)
 
                         ?
 
                         <Card style={{ width: '400px' }}>
 
-<Table>
-    <TableHead style={{backgroundColor: '#6e2db5'}}>
-        <TableRow>
-            <TableCell style={{color: 'white'}}>Position</TableCell>
-            <TableCell style={{color: 'white'}}>Player Name</TableCell>
-        </TableRow>
-    </TableHead>
-    <TableBody>
+                            <Table>
+                                <TableHead style={{backgroundColor: '#6e2db5'}}>
+                                    <TableRow>
+                                        <TableCell style={{color: 'white'}}>Position</TableCell>
+                                        <TableCell style={{color: 'white'}}>Player Name</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
 
-        {
-            startTeam.QB && startTeam.QB.player_id
-                ?
-                <TableRow>
-                    <TableCell>{startTeam.QB.player_position}</TableCell>
-                    <TableCell>{startTeam.QB.player_first_name} {startTeam.QB.player_last_name}</TableCell>
-                </TableRow>
-                :
-                <TableRow>
-                    <TableCell><div style={{ opacity: '0.5' }}>QB</div></TableCell>
-                    <TableCell></TableCell>
-                </TableRow>
-        }
+                            {
+                                startTeam.QB && startTeam.QB.player_id
+                                    ?
+                                    <TableRow>
+                                        <TableCell>{startTeam.QB.player_position}</TableCell>
+                                        <TableCell>{startTeam.QB.player_first_name} {startTeam.QB.player_last_name}</TableCell>
+                                    </TableRow>
+                                    :
+                                    <TableRow>
+                                        <TableCell><div style={{ opacity: '0.5' }}>QB</div></TableCell>
+                                        <TableCell></TableCell>
+                                    </TableRow>
+                            }
 
-        {
-            startTeam.RB && startTeam.RB.player_id
-                ?
-                <TableRow>
-                    <TableCell>{startTeam.RB.player_position}</TableCell>
-                    <TableCell>{startTeam.RB.player_first_name} {startTeam.RB.player_last_name}</TableCell>
-                </TableRow>
-                :
-                <TableRow>
-                    <TableCell><div style={{ opacity: '0.5' }}>RB</div></TableCell>
-                    <TableCell></TableCell>
-                </TableRow>
-        }
+                            {
+                                startTeam.RB && startTeam.RB.player_id
+                                    ?
+                                    <TableRow>
+                                        <TableCell>{startTeam.RB.player_position}</TableCell>
+                                        <TableCell>{startTeam.RB.player_first_name} {startTeam.RB.player_last_name}</TableCell>
+                                    </TableRow>
+                                    :
+                                    <TableRow>
+                                        <TableCell><div style={{ opacity: '0.5' }}>RB</div></TableCell>
+                                        <TableCell></TableCell>
+                                    </TableRow>
+                            }
 
-        {
-            startTeam.WR && startTeam.WR.player_id
-                ?
-                <TableRow>
-                    <TableCell>{startTeam.WR.player_position}</TableCell>
-                    <TableCell>{startTeam.WR.player_first_name} {startTeam.WR.player_last_name}</TableCell>
-                </TableRow>
-                :
-                <TableRow>
-                    <TableCell><div style={{ opacity: '0.5' }}>WR</div></TableCell>
-                    <TableCell></TableCell>
-                </TableRow>
-        }
+                            {
+                                startTeam.WR && startTeam.WR.player_id
+                                    ?
+                                    <TableRow>
+                                        <TableCell>{startTeam.WR.player_position}</TableCell>
+                                        <TableCell>{startTeam.WR.player_first_name} {startTeam.WR.player_last_name}</TableCell>
+                                    </TableRow>
+                                    :
+                                    <TableRow>
+                                        <TableCell><div style={{ opacity: '0.5' }}>WR</div></TableCell>
+                                        <TableCell></TableCell>
+                                    </TableRow>
+                            }
 
-        {
-            startTeam.TE && startTeam.TE.player_id
-                ?
-                <TableRow>
-                    <TableCell>{startTeam.TE.player_position}</TableCell>
-                    <TableCell>{startTeam.TE.player_first_name} {startTeam.TE.player_last_name}</TableCell>
-                </TableRow>
-                :
-                <TableRow>
-                    <TableCell><div style={{ opacity: '0.5' }}>TE</div></TableCell>
-                    <TableCell></TableCell>
-                </TableRow>
-        }
+                            {
+                                startTeam.TE && startTeam.TE.player_id
+                                    ?
+                                    <TableRow>
+                                        <TableCell>{startTeam.TE.player_position}</TableCell>
+                                        <TableCell>{startTeam.TE.player_first_name} {startTeam.TE.player_last_name}</TableCell>
+                                    </TableRow>
+                                    :
+                                    <TableRow>
+                                        <TableCell><div style={{ opacity: '0.5' }}>TE</div></TableCell>
+                                        <TableCell></TableCell>
+                                    </TableRow>
+                            }
 
-        {
-            startTeam.K && startTeam.K.player_id
-                ?
-                <TableRow>
-                    <TableCell>{startTeam.K.player_position}</TableCell>
-                    <TableCell>{startTeam.K.player_first_name} {startTeam.K.player_last_name}</TableCell>
-                </TableRow>
-                :
-                <TableRow>
-                    <TableCell><div style={{ opacity: '0.5' }}>K</div></TableCell>
-                    <TableCell></TableCell>
-                </TableRow>
-        }
+                            {
+                                startTeam.K && startTeam.K.player_id
+                                    ?
+                                    <TableRow>
+                                        <TableCell>{startTeam.K.player_position}</TableCell>
+                                        <TableCell>{startTeam.K.player_first_name} {startTeam.K.player_last_name}</TableCell>
+                                    </TableRow>
+                                    :
+                                    <TableRow>
+                                        <TableCell><div style={{ opacity: '0.5' }}>K</div></TableCell>
+                                        <TableCell></TableCell>
+                                    </TableRow>
+                            }
 
-    </TableBody>
-</Table>
+                        </TableBody>
+                    </Table>
 
-</Card>
+                </Card>
 
                         :
                         <>

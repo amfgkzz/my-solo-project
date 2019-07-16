@@ -111,7 +111,7 @@ class Settings extends Component {
             return (
                 <>
 
-                    <AppBar position="relative" color="secondary" style={{ boxShadow: 'none' }}>Settings</AppBar>
+                    <AppBar position="relative" color="secondary" style={{boxShadow: 'none', fontSize: '16pt'}}>Settings</AppBar>
 
                     {
                         this.props.reduxState.user.league_id === null

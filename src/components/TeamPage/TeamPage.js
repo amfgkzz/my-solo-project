@@ -43,7 +43,7 @@ class TeamPage extends Component {
         let testArray = [
             { pos: 'QB' }, { pos: 'RB' },
             { pos: 'RB' }, { pos: 'WR' },
-            { pos: 'TE' }, { pos: 'K' }
+            { pos: 'TE' }, { pos: 'K' }, {}
         ];
 
         if (this.props.reduxState.user.team_id === null) {
@@ -73,13 +73,13 @@ class TeamPage extends Component {
             )
         }
         // FIX: show if start team exists
-        else if (benchTeam.length !== 0 || startTeam.QB && startTeam.QB.player_id || 
-            startTeam.RB && startTeam.RB.player_id || startTeam.WR && startTeam.WR.player_id || 
-            startTeam.TE && startTeam.TE.player_id || startTeam.K && startTeam.K.player_id) {
+        else if (benchTeam.length !== 0 || (startTeam.QB && startTeam.QB.player_id) || 
+        (startTeam.RB && startTeam.RB.player_id) || (startTeam.WR && startTeam.WR.player_id) || 
+        (startTeam.TE && startTeam.TE.player_id ) || (startTeam.K && startTeam.K.player_id)) {
             return (
                 <>
 
-                <AppBar position="relative" color="secondary" style={{boxShadow: 'none'}}>Team</AppBar>
+                <AppBar position="relative" color="secondary" style={{boxShadow: 'none', fontSize: '16pt'}}>Team</AppBar>
     
                     <br />
     
@@ -91,9 +91,7 @@ class TeamPage extends Component {
                                 <TableHead style={{backgroundColor: '#6e2db5'}}>
                                     <TableRow>
                                         <TableCell style={{color: 'white'}}>Position</TableCell>
-                                        <TableCell style={{color: 'white'}}>Player Name</TableCell>
-                                        <TableCell></TableCell>
-                                        <TableCell></TableCell>
+                                        <TableCell style={{color: 'white'}} colSpan="3">Player Name</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -105,7 +103,7 @@ class TeamPage extends Component {
                                                 <TableCell>{startTeam.QB.player_position}</TableCell>
                                                 <TableCell>{startTeam.QB.player_first_name} {startTeam.QB.player_last_name}</TableCell>
                                                 <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.QB.player_id}>Bench</Button> </TableCell>
-                                                <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.QB.player_id} >Release</Button> </TableCell>
+                                               <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.QB.player_id} >Release</Button>
                                             </TableRow>
                                             :
                                             <TableRow>
@@ -205,9 +203,7 @@ class TeamPage extends Component {
                                 <TableHead style={{backgroundColor: '#6e2db5'}}>
                                     <TableRow>
                                         <TableCell style={{color: 'white'}}>Position</TableCell>
-                                        <TableCell style={{color: 'white'}}>Player Name</TableCell>
-                                        <TableCell></TableCell>
-                                        <TableCell></TableCell>
+                                        <TableCell style={{color: 'white'}} colSpan={3}>Player Name</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -215,7 +211,7 @@ class TeamPage extends Component {
                                         testArray.map((player, i = 9) => (
                                             < TableRow key={i}>
                                                 <TableCell>{benchTeam[i] ? benchTeam[i].player_position : <div style={{ opacity: '0.5' }}>Bench</div>}</TableCell>
-                                                <TableCell>{benchTeam[i] ? benchTeam[i].player_first_name : <></>} {benchTeam[i] ? benchTeam[i].player_last_name : <></>}</TableCell>
+                                                <TableCell>{benchTeam[i] ? benchTeam[i].player_first_name : <div style={{ opacity: '0.5' }}>Empty</div>} {benchTeam[i] ? benchTeam[i].player_last_name : <></>}</TableCell>
                                                 <TableCell>{benchTeam[i] ? <Button size="small" color="secondary" variant='contained' onClick={this.handleClickStart} name={benchTeam[i].player_position} value={benchTeam[i].player_id}>Start</Button> : <></>}</TableCell>
                                                 <TableCell>{benchTeam[i] ? <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={benchTeam[i].player_id}>Release</Button> : <></>}</TableCell>
                                             </TableRow>
@@ -227,8 +223,6 @@ class TeamPage extends Component {
                         </Card>
     
                     </div>
-    
-                    <br />
                 </>
             )
         } 
@@ -236,37 +230,37 @@ class TeamPage extends Component {
             return (
                 <>
 
-<div className="no-players">
+                    <div className="no-players">
 
-<Typography>
-    You don't have any players!
-    <br/>
-    Click the button below to head over to Free Agency
-</Typography>
+                        <Typography>
+                            You don't have any players!
+                            <br/>
+                            Click the button below to head over to Free Agency
+                        </Typography>
 
-<br/>
+                        <br/>
 
-<Tooltip
-title="Free Agency is where you can add players
-to your team. There are no duplicate players.
-First come first serve!"
-placement="left-start"
->
-<IconButton>
-<i className="material-icons">info</i>
-</IconButton>
-</Tooltip>
+                        <Tooltip
+                        title="Free Agency is where you can add players
+                        to your team. There are no duplicate players.
+                        First come first serve!"
+                        placement="left-start"
+                        >
+                            <IconButton>
+                                <i className="material-icons">info</i>
+                            </IconButton>
+                        </Tooltip>
 
-<Button
-color="secondary"
-size="small"
-variant="contained"
-onClick={()=>{this.props.history.push('/Players')}}
->
-    Free Agency
-</Button>
+                        <Button
+                        color="secondary"
+                        size="small"
+                        variant="contained"
+                        onClick={()=>{this.props.history.push('/Players')}}
+                        >
+                        Free Agency
+                        </Button>
 
-</div>
+                    </div>
 
 </> 
             )
