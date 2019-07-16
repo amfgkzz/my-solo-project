@@ -43,6 +43,8 @@ class RegisterPage extends Component {
             {this.props.errors.registrationMessage}
           </h2>
         )}
+
+        <center>
         <form onSubmit={this.registerUser}>
           <h1>Register User</h1>
           <div>
@@ -67,6 +69,9 @@ class RegisterPage extends Component {
               />
             </FormLabel>
           </div>
+
+          <br/>
+
           <div>
             <Button
             variant="outlined"
@@ -78,6 +83,10 @@ class RegisterPage extends Component {
             </Button>
           </div>
         </form>
+        </center>
+
+        <br/>
+
         <center>
           <Button
           variant="outlined"

@@ -6,8 +6,10 @@ import {
     AppBar, Button, IconButton,
     Table, TableHead,
     TableBody, TableRow,
-    TableCell,
+    TableCell
 } from '@material-ui/core';
+
+import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab/';
 
 class PlayerList extends Component {
 
@@ -31,7 +33,7 @@ class PlayerList extends Component {
         this.setState({
             start: 0,
             end: 9,
-            target: e.target.name,
+            target: e.currentTarget.name,
         }, () => {
             this.props.dispatch(
                 { type: 'UPDATE_PLAYERLIST_DATA', payload: this.state.target }
@@ -91,21 +93,23 @@ class PlayerList extends Component {
         let playerList = this.props.reduxState.playerList;
         return (
             <>
-                <AppBar position="relative" color="secondary" style={{boxShadow: 'none', fontSize: '16pt'}}>Free Agency</AppBar>
+                <AppBar position="relative" color="secondary" style={{ boxShadow: 'none', fontSize: '16pt' }}>Free Agency</AppBar>
 
                 <div style={{ textAlign: 'center' }}>
 
-                    <button onClick={this.handleClick} name="QB">QB</button>
-                    <button onClick={this.handleClick} name="RB">RB</button>
-                    <button onClick={this.handleClick} name="WR">WR</button>
-                    <button onClick={this.handleClick} name="TE">TE</button>
-                    <button onClick={this.handleClick} name="K">K</button>
+                    <ToggleButtonGroup value={this.state.target} onChange={this.handleActive}>
+                        <ToggleButton size="small" value="QB" onClick={this.handleClick} name="QB">QB</ToggleButton>
+                        <ToggleButton size="small" value="RB" onClick={this.handleClick} name="RB">RB</ToggleButton>
+                        <ToggleButton size="small" value="WR" onClick={this.handleClick} name="WR">WR</ToggleButton>
+                        <ToggleButton size="small" value="TE" onClick={this.handleClick} name="TE">TE</ToggleButton>
+                        <ToggleButton size="small" value="K" onClick={this.handleClick} name="K">K</ToggleButton>
+                    </ToggleButtonGroup>
 
                 </div>
 
                 <IconButton
-                size="small"
-                onClick={this.handlePrevious}
+                    size="small"
+                    onClick={this.handlePrevious}
                 >
                     <i className="material-icons">keyboard_arrow_left</i>
                 </IconButton>
@@ -113,8 +117,8 @@ class PlayerList extends Component {
                 <div className="divider" />
 
                 <IconButton
-                size="small"
-                onClick={this.handleNext}
+                    size="small"
+                    onClick={this.handleNext}
                 >
                     <i className="material-icons">keyboard_arrow_right</i>
                 </IconButton>
@@ -135,12 +139,12 @@ class PlayerList extends Component {
                             <TableCell>{player.first_name} {player.last_name}</TableCell>
                             <TableCell>{player.name}</TableCell>
                             <TableCell>
-                                <Button 
-                                color="secondary"
-                                size="small"
-                                variant="contained" 
-                                value={player.id} 
-                                onClick={this.handleClickAdd}>
+                                <Button
+                                    color="secondary"
+                                    size="small"
+                                    variant="contained"
+                                    value={player.id}
+                                    onClick={this.handleClickAdd}>
                                     Add
                                 </Button>
                             </TableCell>

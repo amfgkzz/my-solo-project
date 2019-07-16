@@ -101,9 +101,9 @@ class TeamPage extends Component {
                                             ?
                                             <TableRow>
                                                 <TableCell>{startTeam.QB.player_position}</TableCell>
-                                                <TableCell>{startTeam.QB.player_first_name} {startTeam.QB.player_last_name}</TableCell>
-                                                <Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.QB.player_id}>Bench</Button>
-                                                <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.QB.player_id} >Release</Button>
+                                                <TableCell><a href="">{startTeam.QB.player_first_name} {startTeam.QB.player_last_name}</a></TableCell>
+                                                <TableCell><Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.QB.player_id}>Bench</Button></TableCell>
+                                                <TableCell><Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.QB.player_id} >Release</Button></TableCell>
                                             </TableRow>
                                             :
                                             <TableRow>
