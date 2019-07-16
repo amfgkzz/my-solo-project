@@ -12,6 +12,9 @@ import TeamPage from '../../TeamPage/TeamPage';
 import Settings from '../../Settings/Settings';
 import UserPage from '../../UserPage/UserPage';
 
+// Dummy page
+import Dummy from '../../Dummy/Dummy';
+
 // Sidebar and css
 import { slide as Menu } from 'react-burger-menu';
 import styles from './styles';
@@ -88,6 +91,11 @@ const Nav = (props) => (
           exact
           path="/Settings"
           component={Settings}
+        />
+        <Route
+          exact
+          path="/Dummy"
+          component={Dummy}
         />
 
       </Switch>

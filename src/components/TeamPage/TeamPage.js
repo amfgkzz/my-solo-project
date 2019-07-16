@@ -86,12 +86,15 @@ class TeamPage extends Component {
                     <div className="container-one">
     
                         <Card style={{ width: '600px' }}>
+
+                            <Typography className="login-label">STARTERS</Typography>
     
                             <Table>
-                                <TableHead style={{backgroundColor: '#6e2db5'}}>
-                                    <TableRow>
-                                        <TableCell style={{color: 'white'}}>Position</TableCell>
-                                        <TableCell style={{color: 'white'}} colSpan={3}>Player Name</TableCell>
+                                <TableHead>
+                                    <TableRow style={{height: '10px'}}>
+                                        <TableCell>Position</TableCell>
+                                        <TableCell>Player Name</TableCell>
+                                        <TableCell style={{textAlign: 'center'}} colSpan={2}>Action</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -198,13 +201,15 @@ class TeamPage extends Component {
                     <div className="container-two">
     
                         <Card style={{ width: '600px' }}>
+
+                        <Typography className="login-label">BENCH</Typography>
     
                             <Table>
                                 <TableHead style={{backgroundColor: '#6e2db5'}}>
-                                    <TableRow>
+                                    {/* <TableRow>
                                         <TableCell style={{color: 'white'}}>Position</TableCell>
                                         <TableCell style={{color: 'white'}} colSpan={3}>Player Name</TableCell>
-                                    </TableRow>
+                                    </TableRow> */}
                                 </TableHead>
                                 <TableBody>
                                     {

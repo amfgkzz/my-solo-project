@@ -229,6 +229,8 @@ class UserData extends Component {
             return (
                 <div className="paper-table">
 
+                <button className="dummy" onClick={()=>{this.props.history.push('/Dummy')}}></button>
+
                     <Card style={{width:'600px'}}>
                         <Table>
                             <TableHead style={{ backgroundColor: '#6e2db5' }}>
@@ -261,12 +263,14 @@ class UserData extends Component {
 
                         <Card style={{ width: '600px' }}>
 
+                            <Typography className="login-label">STARTERS</Typography>
+
                             <Table>
                                 <TableHead style={{backgroundColor: '#6e2db5'}}>
-                                    <TableRow>
+                                    {/* <TableRow>
                                         <TableCell style={{color: 'white'}}>Position</TableCell>
-                                        <TableCell style={{color: 'white'}}>Player Name</TableCell>
-                                    </TableRow>
+                                        <TableCell style={{color: 'white'}} colSpan={2}>Player Name</TableCell>
+                                    </TableRow> */}
                                 </TableHead>
                                 <TableBody>
 
@@ -276,6 +280,7 @@ class UserData extends Component {
                                     <TableRow>
                                         <TableCell>{startTeam.QB.player_position}</TableCell>
                                         <TableCell>{startTeam.QB.player_first_name} {startTeam.QB.player_last_name}</TableCell>
+                                        <TableCell></TableCell>
                                     </TableRow>
                                     :
                                     <TableRow>
@@ -290,6 +295,7 @@ class UserData extends Component {
                                     <TableRow>
                                         <TableCell>{startTeam.RB.player_position}</TableCell>
                                         <TableCell>{startTeam.RB.player_first_name} {startTeam.RB.player_last_name}</TableCell>
+                                        <TableCell></TableCell>
                                     </TableRow>
                                     :
                                     <TableRow>
@@ -304,6 +310,7 @@ class UserData extends Component {
                                     <TableRow>
                                         <TableCell>{startTeam.WR.player_position}</TableCell>
                                         <TableCell>{startTeam.WR.player_first_name} {startTeam.WR.player_last_name}</TableCell>
+                                        <TableCell></TableCell>
                                     </TableRow>
                                     :
                                     <TableRow>
@@ -318,6 +325,7 @@ class UserData extends Component {
                                     <TableRow>
                                         <TableCell>{startTeam.TE.player_position}</TableCell>
                                         <TableCell>{startTeam.TE.player_first_name} {startTeam.TE.player_last_name}</TableCell>
+                                        <TableCell></TableCell>
                                     </TableRow>
                                     :
                                     <TableRow>
