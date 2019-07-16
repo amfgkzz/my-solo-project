@@ -12,3 +12,20 @@ button:focus {
 input:focus, textarea:focus {
     outline: none !important;
 }
+
+tr {
+    height: 60px;
+    text-align: start !important;
+}
+
+th {
+    height: 10px;
+}
+
+td {
+    width: 100px;
+}
+
+tr td th {
+    height: auto !important;
+ }

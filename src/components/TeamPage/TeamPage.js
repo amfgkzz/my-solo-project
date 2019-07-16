@@ -43,7 +43,7 @@ class TeamPage extends Component {
         let testArray = [
             { pos: 'QB' }, { pos: 'RB' },
             { pos: 'RB' }, { pos: 'WR' },
-            { pos: 'TE' }, { pos: 'K' }, {}
+            { pos: 'TE' }, { pos: 'K' },
         ];
 
         if (this.props.reduxState.user.team_id === null) {
@@ -91,7 +91,7 @@ class TeamPage extends Component {
                                 <TableHead style={{backgroundColor: '#6e2db5'}}>
                                     <TableRow>
                                         <TableCell style={{color: 'white'}}>Position</TableCell>
-                                        <TableCell style={{color: 'white'}} colSpan="3">Player Name</TableCell>
+                                        <TableCell style={{color: 'white'}} colSpan={3}>Player Name</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -102,8 +102,8 @@ class TeamPage extends Component {
                                             <TableRow>
                                                 <TableCell>{startTeam.QB.player_position}</TableCell>
                                                 <TableCell>{startTeam.QB.player_first_name} {startTeam.QB.player_last_name}</TableCell>
-                                                <TableCell> <Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.QB.player_id}>Bench</Button> </TableCell>
-                                               <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.QB.player_id} >Release</Button>
+                                                <Button size="small" color="secondary" variant='contained' onClick={this.handleClickBench} value={startTeam.QB.player_id}>Bench</Button>
+                                                <Button size="small" color="secondary" variant='contained' onClick={this.handleClickRelease} value={startTeam.QB.player_id} >Release</Button>
                                             </TableRow>
                                             :
                                             <TableRow>
